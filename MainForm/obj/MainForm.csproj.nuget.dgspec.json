@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\LapTrinhWindow\\QuanLyThuVien\\VeBinhTinhTu\\MainForm\\MainForm.csproj": {}
+    "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\MainForm.csproj": {}
   },
   "projects": {
-    "D:\\LapTrinhWindow\\QuanLyThuVien\\VeBinhTinhTu\\MainForm\\MainForm.csproj": {
+    "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\MainForm.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\LapTrinhWindow\\QuanLyThuVien\\VeBinhTinhTu\\MainForm\\MainForm.csproj",
+        "projectUniqueName": "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\MainForm.csproj",
         "projectName": "MainForm",
-        "projectPath": "D:\\LapTrinhWindow\\QuanLyThuVien\\VeBinhTinhTu\\MainForm\\MainForm.csproj",
+        "projectPath": "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\MainForm.csproj",
         "packagesPath": "C:\\Users\\ADMIN\\.nuget\\packages\\",
-        "outputPath": "D:\\LapTrinhWindow\\QuanLyThuVien\\VeBinhTinhTu\\MainForm\\obj\\",
+        "outputPath": "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"

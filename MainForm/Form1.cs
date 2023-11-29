@@ -1,4 +1,5 @@
-﻿namespace MainForm
+﻿
+namespace MainForm
 {
     public partial class Form1 : Form
     {
@@ -32,13 +33,11 @@
             // Thiết lập các thuộc tính cho DataGridView
             BangData.Dock = DockStyle.Fill;
             BangData.ReadOnly = true;
-            BangData.SelectionMode = DataGridViewSelectionMode.FullRowSelect;
         }
 
         private void NapDuLieuVaoDataGridView()
         {
-            // Giả sử bạn có một danh sách người dùng (thay thế điều này bằng dữ liệu thực của bạn)
-            List<DAO.Models.Users> danhSachNguoiDung = new DAO.Connection.Users().timKiem();
+            List<Models.Users> danhSachNguoiDung = new DAO.SqlToLinq.Users().timKiem();
 
             foreach (var nguoiDung in danhSachNguoiDung)
             {
@@ -53,8 +52,7 @@
                     nguoiDung.NgaySinh,
                     nguoiDung.Email,
                     nguoiDung.SoDienThoai,
-                    nguoiDung.AnhDaiDien,
-                    nguoiDung.Status
+                    nguoiDung.AnhDaiDien
                 );
             }
         }
