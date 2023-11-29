@@ -21,7 +21,6 @@
     <Folder Include="View\QuanLySach\TheLoai\" />
     <Folder Include="View\QuanLySach\TacGia\" />
     <Folder Include="View\QuanLySach\Sach\" />
-    <Folder Include="View\TrangChu\" />
 	  <Folder Include="XuLy\BaoCaoThongKe\" />
 	  <Folder Include="XuLy\QuanLyMuonTra\QuanLyPhieuNhacTra\" />
 	  <Folder Include="XuLy\QuanLyMuonTra\QuanLyPhieuTra\" />
@@ -30,7 +29,6 @@
 	  <Folder Include="XuLy\QuanLySach\TheLoai\" />
 	  <Folder Include="XuLy\QuanLySach\TacGia\" />
 	  <Folder Include="XuLy\QuanLySach\Sach\" />
-	  <Folder Include="XuLy\TrangChu\" />
   </ItemGroup>
 
 </Project>

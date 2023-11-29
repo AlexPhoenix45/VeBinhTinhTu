@@ -25,7 +25,7 @@ namespace DAO.SqlToLinq
                             conn.Open();
                         }
 
-                        string sql = "SELECT * FROM [Users] WHERE [Status] = 1";
+                        string sql = "SELECT * FROM [Users]";
 
                         var command = new SqlCommand(sql, conn);
                         var reader = command.ExecuteReader();
