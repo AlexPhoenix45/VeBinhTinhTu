@@ -62,7 +62,7 @@ namespace DAO.Connection
         {
             var data = new DAO.Connection.Users().getAll();
 
-            var list = data.Where(x => x.TaiKhoan.Contains("Minh")).ToList();
+            var list = data.Where(x => x.TaiKhoan.Contains("Tú")).ToList();
 
             return list;
         }
