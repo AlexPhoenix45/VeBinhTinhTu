@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "FmJyYHphrf3ONAMr9jrGXtHJlTVr3H2uFvWrabTf4V3aqFgOOdpnT4CQW2NhtIYLs1Qx4wtKxL3y3Ts/dJwLvQ==",
+  "dgSpecHash": "+zlwQsF2gZfIMTR5lLephJGlNiDU2l1gQSMsTbTXs1ZaKanFO8T8MgLFzXylYQrnyaT/p0X3tnnZvuthM25fuQ==",
   "success": true,
-  "projectFilePath": "D:\\LapTrinhWindow\\QuanLyThuVien\\VeBinhTinhTu\\MainForm\\MainForm.csproj",
+  "projectFilePath": "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\MainForm.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
