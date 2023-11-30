@@ -7,13 +7,13 @@ using System.Data;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
 
-namespace DAO.Connection
+namespace DAO.SqlToLinq
 {
     public class Users
     {
-        public List<DAO.Models.Users> getAll()
+        public List<Models.Users> getAll()
         {
-            List<DAO.Models.Users> userList = new List<DAO.Models.Users>();
+            List<Models.Users> userList = new List<Models.Users>();
             try
             {
                 using (var conn = new DAO.Connection.SqlConn().Conn())
@@ -25,13 +25,13 @@ namespace DAO.Connection
                             conn.Open();
                         }
 
-                        string sql = "SELECT * FROM [Users] WHERE [Status] = 1";
+                        string sql = "SELECT * FROM [Users]";
 
                         var command = new SqlCommand(sql, conn);
                         var reader = command.ExecuteReader();
                         while (reader.Read())
                         {
-                            DAO.Models.Users user = new DAO.Models.Users
+                            Models.Users user = new Models.Users
                             {
                                 Id = reader.IsDBNull(reader.GetOrdinal("Id")) ? 0 : reader.GetInt32(reader.GetOrdinal("Id")),
                                 TaiKhoan = reader.IsDBNull(reader.GetOrdinal("TaiKhoan")) ? string.Empty : reader["TaiKhoan"].ToString(),
@@ -58,11 +58,11 @@ namespace DAO.Connection
             }
             return userList;
         }
-        public List<DAO.Models.Users> timKiem()
+        public List<Models.Users> timKiem()
         {
-            var data = new DAO.Connection.Users().getAll();
+            var data = new DAO.SqlToLinq.Users().getAll();
 
-            var list = data.Where(x => x.TaiKhoan.Contains("Tú")).ToList();
+            var list = data.Where(x => x.TaiKhoan.Contains("Minh")).ToList();
 
             return list;
         }

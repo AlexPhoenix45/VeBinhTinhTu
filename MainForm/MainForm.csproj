@@ -12,4 +12,23 @@
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Folder Include="View\BaoCaoThongKe\" />
+    <Folder Include="View\QuanLyMuonTra\QuanLyPhieuNhacTra\" />
+    <Folder Include="View\QuanLyMuonTra\QuanLyPhieuTra\" />
+    <Folder Include="View\QuanLyMuonTra\QuanLyPhieuMuon\" />
+    <Folder Include="View\QuanLySach\NhaXuatBan\" />
+    <Folder Include="View\QuanLySach\TheLoai\" />
+    <Folder Include="View\QuanLySach\TacGia\" />
+    <Folder Include="View\QuanLySach\Sach\" />
+	  <Folder Include="XuLy\BaoCaoThongKe\" />
+	  <Folder Include="XuLy\QuanLyMuonTra\QuanLyPhieuNhacTra\" />
+	  <Folder Include="XuLy\QuanLyMuonTra\QuanLyPhieuTra\" />
+	  <Folder Include="XuLy\QuanLyMuonTra\QuanLyPhieuMuon\" />
+	  <Folder Include="XuLy\QuanLySach\NhaXuatBan\" />
+	  <Folder Include="XuLy\QuanLySach\TheLoai\" />
+	  <Folder Include="XuLy\QuanLySach\TacGia\" />
+	  <Folder Include="XuLy\QuanLySach\Sach\" />
+  </ItemGroup>
+
 </Project>
