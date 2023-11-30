@@ -6,11 +6,13 @@ using System.Threading.Tasks;
 
 namespace Models
 {
-    public class Role
+    public class Action
     {
         public int Id { get; set; }
-        public string RoleName { get; set; }
+        public int IdParent { get; set; }
         public string Name { get; set; }
+        public string Controller { get; set; }
+        public string ActionName { get; set; }
         public DateTime CreateAt { get; set; }
         public DateTime UpdateAt { get; set; }
         public int Status { get; set; }

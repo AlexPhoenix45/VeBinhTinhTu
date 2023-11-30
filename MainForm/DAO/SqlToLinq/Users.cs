@@ -66,6 +66,20 @@ namespace DAO.SqlToLinq
 
             return list;
         }
+
+        public Models.Users getById(int Id)
+        {
+            var us = new Models.Users();
+            try
+            {
+                us = new Users().getAll().Where(x => x.Id == Id && x.Status == 1).FirstOrDefault();
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex.Message.ToString());
+            }
+            return us;
+        }
     }
 
 }

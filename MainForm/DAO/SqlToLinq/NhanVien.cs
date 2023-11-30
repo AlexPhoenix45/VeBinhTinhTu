@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace DAO.SqlToLinq
 {
-    public class Role
+    public class NhanVien
     {
-        public List<Models.Role> getAll()
+        public List<Models.NhanVien> getAll()
         {
-            List<Models.Role> userList = new List<Models.Role>();
+            List<Models.NhanVien> userList = new List<Models.NhanVien>();
             try
             {
                 using (var conn = new DAO.Connection.SqlConn().Conn())
@@ -25,19 +25,17 @@ namespace DAO.SqlToLinq
                             conn.Open();
                         }
 
-                        string sql = "SELECT * FROM [Role]";
+                        string sql = "SELECT * FROM [NhanVien]";
 
                         var command = new SqlCommand(sql, conn);
                         var reader = command.ExecuteReader();
                         while (reader.Read())
                         {
-                            Models.Role user = new Models.Role
+                            Models.NhanVien user = new Models.NhanVien
                             {
                                 Id = reader.IsDBNull(reader.GetOrdinal("Id")) ? 0 : reader.GetInt32(reader.GetOrdinal("Id")),
-                                RoleName = reader.IsDBNull(reader.GetOrdinal("Role")) ? string.Empty : reader["Role"].ToString(),
-                                Name = reader.IsDBNull(reader.GetOrdinal("Name")) ? string.Empty : reader["Name"].ToString(),
-                                CreateAt = reader.IsDBNull(reader.GetOrdinal("CreateAt")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("CreateAt")),
-                                UpdateAt = reader.IsDBNull(reader.GetOrdinal("UpdateAt")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("UpdateAt")),
+                                IdUser = reader.IsDBNull(reader.GetOrdinal("IdUser")) ? 0 : reader.GetInt32(reader.GetOrdinal("IdUser")),
+                                MaNhanVien = reader.IsDBNull(reader.GetOrdinal("MaNhanVien")) ? string.Empty : reader["MaNhanVien"].ToString(),
                                 Status = reader.IsDBNull(reader.GetOrdinal("Status")) ? 0 : reader.GetInt32(reader.GetOrdinal("Status"))
 
                             };
@@ -53,19 +51,17 @@ namespace DAO.SqlToLinq
             }
             return userList;
         }
-        public Models.Role getAllByName(string name)
+        public Models.NhanVien getByIdUser(int id)
         {
-            var listAct = new Models.Role();
-            try
-            {
-                listAct = new Role().getAll().Where(x => x.Name.Equals(name) && x.Status == 1).FirstOrDefault();
+            var dg = new NhanVien().getAll().Where(x => x.IdUser == id).FirstOrDefault();
 
-            }
-            catch (Exception ex)
+            if (dg != null)
             {
-                Debug.WriteLine(ex.Message.ToString());
+                return dg;
             }
-            return listAct;
+
+            return null;
         }
     }
+
 }

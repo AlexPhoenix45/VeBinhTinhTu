@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 
 namespace DAO.SqlToLinq
 {
-    public class Role
+    public class Action
     {
-        public List<Models.Role> getAll()
+        public List<Models.Action> getAll()
         {
-            List<Models.Role> userList = new List<Models.Role>();
+            List<Models.Action> userList = new List<Models.Action>();
             try
             {
                 using (var conn = new DAO.Connection.SqlConn().Conn())
@@ -25,17 +25,19 @@ namespace DAO.SqlToLinq
                             conn.Open();
                         }
 
-                        string sql = "SELECT * FROM [Role]";
+                        string sql = "SELECT * FROM [Action]";
 
                         var command = new SqlCommand(sql, conn);
                         var reader = command.ExecuteReader();
                         while (reader.Read())
                         {
-                            Models.Role user = new Models.Role
+                            Models.Action user = new Models.Action
                             {
                                 Id = reader.IsDBNull(reader.GetOrdinal("Id")) ? 0 : reader.GetInt32(reader.GetOrdinal("Id")),
-                                RoleName = reader.IsDBNull(reader.GetOrdinal("Role")) ? string.Empty : reader["Role"].ToString(),
+                                IdParent = reader.IsDBNull(reader.GetOrdinal("IdParent")) ? 0 : reader.GetInt32(reader.GetOrdinal("IdParent")),
                                 Name = reader.IsDBNull(reader.GetOrdinal("Name")) ? string.Empty : reader["Name"].ToString(),
+                                Controller = reader.IsDBNull(reader.GetOrdinal("Controller")) ? string.Empty : reader["Controller"].ToString(),
+                                ActionName = reader.IsDBNull(reader.GetOrdinal("Action")) ? string.Empty : reader["Action"].ToString(),
                                 CreateAt = reader.IsDBNull(reader.GetOrdinal("CreateAt")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("CreateAt")),
                                 UpdateAt = reader.IsDBNull(reader.GetOrdinal("UpdateAt")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("UpdateAt")),
                                 Status = reader.IsDBNull(reader.GetOrdinal("Status")) ? 0 : reader.GetInt32(reader.GetOrdinal("Status"))
@@ -53,19 +55,56 @@ namespace DAO.SqlToLinq
             }
             return userList;
         }
-        public Models.Role getAllByName(string name)
+
+        public Models.Action getById (int IdAct)
         {
-            var listAct = new Models.Role();
+            var act = new Models.Action();
             try
             {
-                listAct = new Role().getAll().Where(x => x.Name.Equals(name) && x.Status == 1).FirstOrDefault();
-
+                act = new Action().getAll().Where(x => x.Id == IdAct).FirstOrDefault();
             }
             catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message.ToString());
             }
-            return listAct;
+            return act;
+        }
+
+        public List<Models.Action> getByIdRole (int Id)
+        {
+            var list = new List<Models.Action>();
+            try
+            {
+                var listAR = new DAO.SqlToLinq.RoleAction().getAllByIdRole(Id);
+
+
+                if(listAR.Count > 0)
+                {
+                    foreach(var x in listAR)
+                    {
+                        list.Add(new Action().getById(x.IdAction));
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message.ToString());
+            }
+            return list;
+        }
+
+        public List<Models.Action> getSubMenuByIdAct (int IdAct, List<Models.Action> Acts)
+        {
+            var acts = new List<Models.Action>();
+            try
+            {
+                acts = Acts.Where(x => x.IdParent ==  IdAct && x.Status == 1).ToList();
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex.Message.ToString());
+            }
+            return acts;
         }
     }
 }

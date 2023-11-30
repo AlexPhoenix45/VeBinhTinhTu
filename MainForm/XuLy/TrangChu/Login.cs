@@ -8,8 +8,10 @@ using System.Threading.Tasks;
 
 namespace XuLy.TrangChu
 {
+
     public class Login
     {
+        private Models.DocGia loggedInUser;
         public bool LoginRole(string username, string password, string role)
         {
             try
@@ -36,12 +38,37 @@ namespace XuLy.TrangChu
 
                                 var result = method.Invoke(instance, new object[] { user.Id });// Gọi phương thức trên đối tượng vừa tạo
 
-                                Models.DocGia dg = result as Models.DocGia;// Xử lý kết quả (nếu cần thiết)
-                                if (dg != null)
+                                if (role == "DocGia")
                                 {
+                                    Models.DocGia dg = result as Models.DocGia;
+                                    if (dg != null)
+                                    {
                                         Debug.WriteLine($"Id: {dg.Id}, IdUser: {dg.IdUser}, MaDocGia: {dg.MaDocGia}, Status: {dg.Status}");
+
+                                        Models.Session.Users = user;
+                                        Models.Session.Role = new DAO.SqlToLinq.Role().getAllByName(role);
+                                        Models.Session.IdUserInRole = dg.Id;
+                                        Models.Session.RoleCode = dg.MaDocGia;
+
+                                        return true;
+                                    }
                                 }
 
+                                else if (role == "NhanVien")
+                                {
+                                    Models.NhanVien dg = result as Models.NhanVien;
+                                    if (dg != null)
+                                    {
+                                        Debug.WriteLine($"Id: {dg.Id}, IdUser: {dg.IdUser}, MaDocGia: {dg.MaNhanVien}, Status: {dg.Status}");
+
+                                        Models.Session.Users = user;
+                                        Models.Session.Role = new DAO.SqlToLinq.Role().getAllByName(role);
+                                        Models.Session.IdUserInRole = dg.Id;
+                                        Models.Session.RoleCode = dg.MaNhanVien;
+
+                                        return true;
+                                    }
+                                }
                                 MessageBox.Show("Thành công");
                             }
                             else
@@ -59,11 +86,11 @@ namespace XuLy.TrangChu
             }
             catch(Exception e)
             {
-            MessageBox.Show(e.Message);
+                MessageBox.Show(e.Message);
             }
 
 
-            return true;
+            return false;
         }
     }
 }

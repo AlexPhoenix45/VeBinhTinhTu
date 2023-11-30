@@ -48,3 +48,5 @@ D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.pdb
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.genruntimeconfig.cache
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\ref\MainForm.dll
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.View.TrangChu.Login.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.View.TrangChu.TrangChu.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.View.QuanLySach.Sach.QuanLySach.resources

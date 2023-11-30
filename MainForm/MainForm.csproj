@@ -20,7 +20,6 @@
     <Folder Include="View\QuanLySach\NhaXuatBan\" />
     <Folder Include="View\QuanLySach\TheLoai\" />
     <Folder Include="View\QuanLySach\TacGia\" />
-    <Folder Include="View\QuanLySach\Sach\" />
 	  <Folder Include="XuLy\BaoCaoThongKe\" />
 	  <Folder Include="XuLy\QuanLyMuonTra\QuanLyPhieuNhacTra\" />
 	  <Folder Include="XuLy\QuanLyMuonTra\QuanLyPhieuTra\" />

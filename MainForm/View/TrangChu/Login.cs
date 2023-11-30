@@ -33,7 +33,16 @@ namespace MainForm.View.TrangChu
             var role = txtRole.SelectedValue.ToString();
             if(tk != "" && pass != "")
             {
-                new XuLy.TrangChu.Login().LoginRole(tk, pass, role);
+                if(new XuLy.TrangChu.Login().LoginRole(tk, pass, role))
+                {
+                    var TrangChu = new TrangChu();
+
+                    TrangChu.Show();
+                }
+                else
+                {
+                    MessageBox.Show("đăng nhập không thành công, vui lòng kiểm tra thông tin đang nhập");
+                }
             }
             else
             {
