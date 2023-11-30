@@ -35,7 +35,8 @@ namespace DAO.SqlToLinq
                             {
                                 Id = reader.IsDBNull(reader.GetOrdinal("Id")) ? 0 : reader.GetInt32(reader.GetOrdinal("Id")),
                                 IdRole = reader.IsDBNull(reader.GetOrdinal("IdRole")) ? 0 : reader.GetInt32(reader.GetOrdinal("IdRole")),
-                                IdAction = reader.IsDBNull(reader.GetOrdinal("IdAction")) ? 0 : reader.GetInt32(reader.GetOrdinal("IdAction")),
+                                IdAction = reader.IsDBNull(reader.GetOrdinal("IdAction")) ? 0 : reader.GetInt32(reader.GetOrdinal("IdAction" +
+                                "")),
                                 CreateAt = reader.IsDBNull(reader.GetOrdinal("CreateAt")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("CreateAt")),
                                 UpdateAt = reader.IsDBNull(reader.GetOrdinal("UpdateAt")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("UpdateAt")),
                                 Status = reader.IsDBNull(reader.GetOrdinal("Status")) ? 0 : reader.GetInt32(reader.GetOrdinal("Status"))

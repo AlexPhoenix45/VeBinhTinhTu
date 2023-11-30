@@ -1,4 +1,4 @@
-﻿namespace MainForm.View.QuanLySach.Sach
+﻿namespace QuanLySach.Sach
 {
     partial class QuanLySach
     {
@@ -28,23 +28,21 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            textBox1 = new TextBox();
             SuspendLayout();
             // 
-            // label1
+            // textBox1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(144, 49);
-            label1.Name = "label1";
-            label1.Size = new Size(50, 20);
-            label1.TabIndex = 0;
-            label1.Text = "label1";
+            textBox1.Location = new Point(52, 37);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(125, 27);
+            textBox1.TabIndex = 0;
             // 
             // QuanLySach
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label1);
+            Controls.Add(textBox1);
             Name = "QuanLySach";
             Size = new Size(689, 509);
             ResumeLayout(false);
@@ -54,5 +52,6 @@
         #endregion
 
         private Label label1;
+        private TextBox textBox1;
     }
 }

@@ -17,6 +17,9 @@ namespace MainForm.View.TrangChu
         {
             InitializeComponent();
 
+
+            splitContainer1.Panel2.SizeChanged += PanelParent_SizeChanged;
+
             loadNew();
         }
 
@@ -35,7 +38,6 @@ namespace MainForm.View.TrangChu
                 {
                     if (Act.IdParent == 0)
                     {
-                        MessageBox.Show(Act.Name);
 
                         // Tạo một mục menu mới
                         ToolStripMenuItem menuItem = new ToolStripMenuItem(Act.Name);
@@ -59,19 +61,44 @@ namespace MainForm.View.TrangChu
             pnNoiDung.Width = pnNoiDung.Parent.Width;
         }
 
+        private void PanelParent_SizeChanged(object sender, EventArgs e)
+        {
+            // Khi kích thước của Panel cha thay đổi, cập nhật chiều rộng của Panel con
+            SetChildPanelWidth();
+        }
 
+        private void SetChildPanelWidth()
+        {
+            pnNoiDung.Width = pnNoiDung.Parent.Width;
+        }
 
         private void MenuItem_Click(object sender, EventArgs e)
         {
-            // Xử lý sự kiện khi một mục menu chính được chọn
             ToolStripMenuItem clickedMenuItem = (ToolStripMenuItem)sender;
 
-            // Lấy giá trị từ thuộc tính Tag
             string value = clickedMenuItem.Tag?.ToString();
 
-            string panel = "new QuanLySach.Sach.QuanLySach()";
+            string className = "QuanLySach.Sach.QuanLySach";
 
-            
+            Type panelType = Type.GetType(className);
+
+            if (panelType != null)
+            {
+                var subPanel = Activator.CreateInstance(panelType);
+
+                if (subPanel is Control)
+                {
+                    pnNoiDung.Controls.Add(subPanel as Control);
+                }
+                else
+                {
+                    MessageBox.Show("Không thể thêm subPanel vào Container vì kiểu không đúng.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không thể tìm thấy lớp có tên " + className);
+            }
         }
 
         private void SubMenuItem_Click(object sender, EventArgs e)
@@ -84,7 +111,6 @@ namespace MainForm.View.TrangChu
 
             MessageBox.Show($"Selected Sub Menu: {clickedMenuItem.Text}, Value: {value}");
         }
-
 
     }
 }

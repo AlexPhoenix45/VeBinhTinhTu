@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MainForm.View.QuanLySach.Sach
+namespace QuanLySach.Sach
 {
     public partial class QuanLySach : UserControl
     {

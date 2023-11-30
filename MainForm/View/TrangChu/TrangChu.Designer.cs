@@ -35,11 +35,13 @@
             pnMenu = new Panel();
             mnMenu = new MenuStrip();
             pnNoiDung = new Panel();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             pnMenu.SuspendLayout();
+            pnNoiDung.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -115,10 +117,20 @@
             // pnNoiDung
             // 
             pnNoiDung.AutoSize = true;
+            pnNoiDung.Controls.Add(button1);
             pnNoiDung.Location = new Point(4, 100);
             pnNoiDung.Name = "pnNoiDung";
-            pnNoiDung.Size = new Size(532, 331);
+            pnNoiDung.Size = new Size(540, 331);
             pnNoiDung.TabIndex = 0;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(3, 3);
+            button1.Name = "button1";
+            button1.Size = new Size(534, 29);
+            button1.TabIndex = 0;
+            button1.Text = "button1";
+            button1.UseVisualStyleBackColor = true;
             // 
             // TrangChu
             // 
@@ -136,6 +148,7 @@
             splitContainer1.ResumeLayout(false);
             pnMenu.ResumeLayout(false);
             pnMenu.PerformLayout();
+            pnNoiDung.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -148,5 +161,6 @@
         private Label txtRoleCode;
         private MenuStrip mnMenu;
         private Panel pnNoiDung;
+        private Button button1;
     }
 }
