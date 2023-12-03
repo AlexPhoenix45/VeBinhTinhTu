@@ -27,6 +27,12 @@ namespace MainForm.View.TrangChu
         {
             if (Models.Session.Users != null)
             {
+                //full màn hình
+                Screen mainScreen = Screen.PrimaryScreen;
+                this.Width = mainScreen.Bounds.Width;
+                this.Height = mainScreen.Bounds.Height;
+
+
                 //Load thông tin người dùng
                 txtRole.Text = Models.Session.Role.RoleName;
                 txtTaiKhoan.Text = Models.Session.Users.TaiKhoan;
@@ -41,10 +47,16 @@ namespace MainForm.View.TrangChu
 
                         // Tạo một mục menu mới
                         ToolStripMenuItem menuItem = new ToolStripMenuItem(Act.Name);
+                        menuItem.TextAlign = ContentAlignment.MiddleLeft;
+                        menuItem.Font = new System.Drawing.Font(menuItem.Font.FontFamily, 12, FontStyle.Regular);
+                        menuItem.AutoSize = true;
+                        menuItem.Padding = new System.Windows.Forms.Padding(0, 20, 0, 0);
+
                         if (Act.Controller != string.Empty)
                         {
                             menuItem.Click += MenuItem_Click;
                             menuItem.Tag = Act.Id;
+
                         }
                         foreach (var act in new DAO.SqlToLinq.Action().getSubMenuByIdAct(Act.Id, Acts))
                         {
@@ -76,7 +88,7 @@ namespace MainForm.View.TrangChu
         {
             ToolStripMenuItem clickedMenuItem = (ToolStripMenuItem)sender;
 
-            string value = clickedMenuItem.Tag?.ToString();
+            string value = clickedMenuItem.Tag?.ToString(); // Id action
 
             string className = "QuanLySach.Sach.QuanLySach";
 

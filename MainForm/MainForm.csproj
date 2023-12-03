@@ -20,6 +20,7 @@
     <Folder Include="View\QuanLySach\NhaXuatBan\" />
     <Folder Include="View\QuanLySach\TheLoai\" />
     <Folder Include="View\QuanLySach\TacGia\" />
+    <Folder Include="Web\Img\AnhSach\" />
 	  <Folder Include="XuLy\BaoCaoThongKe\" />
 	  <Folder Include="XuLy\QuanLyMuonTra\QuanLyPhieuNhacTra\" />
 	  <Folder Include="XuLy\QuanLyMuonTra\QuanLyPhieuTra\" />
@@ -28,6 +29,21 @@
 	  <Folder Include="XuLy\QuanLySach\TheLoai\" />
 	  <Folder Include="XuLy\QuanLySach\TacGia\" />
 	  <Folder Include="XuLy\QuanLySach\Sach\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Compile Update="Properties\Resources.Designer.cs">
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+
+  <ItemGroup>
+    <EmbeddedResource Update="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
   </ItemGroup>
 
 </Project>

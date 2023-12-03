@@ -35,13 +35,11 @@
             pnMenu = new Panel();
             mnMenu = new MenuStrip();
             pnNoiDung = new Panel();
-            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)splitContainer1).BeginInit();
             splitContainer1.Panel1.SuspendLayout();
             splitContainer1.Panel2.SuspendLayout();
             splitContainer1.SuspendLayout();
             pnMenu.SuspendLayout();
-            pnNoiDung.SuspendLayout();
             SuspendLayout();
             // 
             // splitContainer1
@@ -61,13 +59,13 @@
             // 
             splitContainer1.Panel2.Controls.Add(pnNoiDung);
             splitContainer1.Size = new Size(950, 595);
-            splitContainer1.SplitterDistance = 238;
+            splitContainer1.SplitterDistance = 159;
             splitContainer1.TabIndex = 0;
             // 
             // txtRoleCode
             // 
             txtRoleCode.AutoSize = true;
-            txtRoleCode.Location = new Point(144, 62);
+            txtRoleCode.Location = new Point(100, 52);
             txtRoleCode.Name = "txtRoleCode";
             txtRoleCode.Size = new Size(50, 20);
             txtRoleCode.TabIndex = 3;
@@ -76,7 +74,7 @@
             // txtTaiKhoan
             // 
             txtTaiKhoan.AutoSize = true;
-            txtTaiKhoan.Location = new Point(144, 28);
+            txtTaiKhoan.Location = new Point(100, 19);
             txtTaiKhoan.Name = "txtTaiKhoan";
             txtTaiKhoan.Size = new Size(56, 20);
             txtTaiKhoan.TabIndex = 2;
@@ -86,7 +84,7 @@
             // 
             txtRole.AutoSize = true;
             txtRole.Font = new Font("Segoe UI", 12F);
-            txtRole.Location = new Point(65, 21);
+            txtRole.Location = new Point(4, 11);
             txtRole.Name = "txtRole";
             txtRole.Size = new Size(73, 28);
             txtRole.TabIndex = 1;
@@ -95,10 +93,10 @@
             // pnMenu
             // 
             pnMenu.Controls.Add(mnMenu);
-            pnMenu.Cursor = Cursors.SizeAll;
-            pnMenu.Location = new Point(0, 100);
+            pnMenu.Location = new Point(0, 103);
             pnMenu.Name = "pnMenu";
-            pnMenu.Size = new Size(240, 424);
+            pnMenu.Size = new Size(400, 492);
+            pnMenu.AutoSize = true;
             pnMenu.TabIndex = 0;
             // 
             // mnMenu
@@ -107,35 +105,27 @@
             mnMenu.Dock = DockStyle.None;
             mnMenu.ImageScalingSize = new Size(20, 20);
             mnMenu.LayoutStyle = ToolStripLayoutStyle.VerticalStackWithOverflow;
-            mnMenu.Location = new Point(0, 0);
+            mnMenu.Location = new Point(13, 0);
             mnMenu.Name = "mnMenu";
             mnMenu.RightToLeft = RightToLeft.No;
-            mnMenu.Size = new Size(30, 206);
+            mnMenu.Size = new Size(400, 206);
             mnMenu.TabIndex = 0;
+            mnMenu.AutoSize = true;
             mnMenu.Text = "menuStrip1";
             // 
             // pnNoiDung
             // 
             pnNoiDung.AutoSize = true;
-            pnNoiDung.Controls.Add(button1);
             pnNoiDung.Location = new Point(4, 100);
             pnNoiDung.Name = "pnNoiDung";
             pnNoiDung.Size = new Size(540, 331);
             pnNoiDung.TabIndex = 0;
             // 
-            // button1
-            // 
-            button1.Location = new Point(3, 3);
-            button1.Name = "button1";
-            button1.Size = new Size(534, 29);
-            button1.TabIndex = 0;
-            button1.Text = "button1";
-            button1.UseVisualStyleBackColor = true;
-            // 
             // TrangChu
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            AutoSize = true;
             ClientSize = new Size(950, 595);
             Controls.Add(splitContainer1);
             Name = "TrangChu";
@@ -148,7 +138,6 @@
             splitContainer1.ResumeLayout(false);
             pnMenu.ResumeLayout(false);
             pnMenu.PerformLayout();
-            pnNoiDung.ResumeLayout(false);
             ResumeLayout(false);
         }
 
