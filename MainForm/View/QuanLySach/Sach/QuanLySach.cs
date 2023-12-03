@@ -33,6 +33,7 @@ namespace QuanLySach.Sach
                 Sach.ModelSach sach = new Sach.ModelSach();
                 sach.txtImg.Text = s.TenSach.ToString();
                 sach.img.ImageLocation = "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\Web\\Img\\" + s.AnhDaiDien;
+                sach.img.Tag = s.Id;
 
                 pnList.Controls.Add(sach);
 
@@ -209,6 +210,7 @@ namespace QuanLySach.Sach
                 Sach.ModelSach sach = new Sach.ModelSach();
                 sach.txtImg.Text = s.TenSach.ToString();
                 sach.img.ImageLocation = "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\Web\\Img\\" + s.AnhDaiDien;
+                sach.img.Tag = s.Id;
 
                 pnList.Controls.Add(sach);
 

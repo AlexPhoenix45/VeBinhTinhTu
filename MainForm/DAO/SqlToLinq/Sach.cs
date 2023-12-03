@@ -114,5 +114,20 @@ namespace DAO.SqlToLinq
             return list;
         }
 
+
+        public Models.Sach getById(int id)
+        {
+            var s = new Models.Sach();
+            try
+            {
+                s = new Sach().GetAll().Where(x => x.Id == id).FirstOrDefault();
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+
+            return s;
+        }
     }
 }

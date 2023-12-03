@@ -4,6 +4,9 @@
     <Compile Update="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
+    <Compile Update="View\QuanLySach\Sach\ChiTietSach.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="View\QuanLySach\Sach\ModelSach.cs">
       <SubType>UserControl</SubType>
     </Compile>

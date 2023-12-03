@@ -240,9 +240,9 @@
             pn.AutoScroll = true;
             pn.AutoSize = true;
             pn.Controls.Add(pnList);
-            pn.Location = new Point(36, 288);
+            pn.Location = new Point(36, 258);
             pn.Name = "pn";
-            pn.Size = new Size(1273, 610);
+            pn.Size = new Size(1273, 637);
             pn.TabIndex = 21;
             // 
             // pnList
@@ -251,13 +251,13 @@
             pnList.AutoScrollMargin = new Size(500, 0);
             pnList.Location = new Point(3, 3);
             pnList.Name = "pnList";
-            pnList.Size = new Size(1264, 547);
+            pnList.Size = new Size(1264, 625);
             pnList.TabIndex = 0;
             // 
             // btnAdd
             // 
             btnAdd.BackColor = Color.FromArgb(128, 255, 128);
-            btnAdd.Location = new Point(36, 253);
+            btnAdd.Location = new Point(36, 223);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(94, 29);
             btnAdd.TabIndex = 22;
@@ -275,13 +275,13 @@
             // 
             // pnTG
             // 
+            pnTG.BorderStyle = BorderStyle.FixedSingle;
             pnTG.Controls.Add(btnTG);
             pnTG.Controls.Add(cklTG);
             pnTG.Location = new Point(527, 82);
             pnTG.Name = "pnTG";
             pnTG.Size = new Size(0, 0);
             pnTG.TabIndex = 23;
-            pnTG.BorderStyle = BorderStyle.FixedSingle;
             // 
             // btnTG
             // 
@@ -322,7 +322,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "QuanLySach";
-            Size = new Size(1387, 962);
+            Size = new Size(1706, 972);
             pn.ResumeLayout(false);
             pnTG.ResumeLayout(false);
             ResumeLayout(false);

@@ -16,5 +16,18 @@ namespace QuanLySach.Sach
         {
             InitializeComponent();
         }
+
+        private void img_Click(object sender, EventArgs e)
+        {
+            if (img.Tag != null)
+            {
+                Sach.ChiTietSach sach = new ChiTietSach(int.Parse(img.Tag.ToString()));
+
+                Control parent = this.Parent;
+
+                parent.Controls.Clear();
+                parent.Controls.Add(sach);
+            }
+        }
     }
 }

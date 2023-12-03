@@ -41,6 +41,7 @@
             img.SizeMode = PictureBoxSizeMode.Zoom;
             img.TabIndex = 0;
             img.TabStop = false;
+            img.Click += img_Click;
             // 
             // txtImg
             // 

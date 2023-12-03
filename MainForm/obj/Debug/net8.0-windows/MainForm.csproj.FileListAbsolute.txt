@@ -52,3 +52,4 @@ D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.View.
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\QuanLySach.Sach.QuanLySach.resources
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\QuanLySach.Sach.ModelSach.resources
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.Properties.Resources.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\QuanLySach.Sach.ChiTietSach.resources
