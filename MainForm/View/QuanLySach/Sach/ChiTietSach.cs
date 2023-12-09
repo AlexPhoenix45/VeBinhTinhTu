@@ -29,6 +29,8 @@ namespace QuanLySach.Sach
             txtTL.Text = s.IdTheLoai.ToString();
             txtNXB.Text = s.IdNhaXuatBan.ToString();
             txtNamXB.Text = s.NamXuatBan.ToString();
+            txtSoLuong.Text = s.SoLuong.ToString();
+            txtTaiBan.Text = s.TaiBan.ToString();
             txtGia.Text = s.GiaSach.ToString();
         }
     }

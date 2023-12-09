@@ -11,7 +11,6 @@ namespace XuLy.TrangChu
 
     public class Login
     {
-        private Models.DocGia loggedInUser;
         public bool LoginRole(string username, string password, string role)
         {
             try
@@ -69,7 +68,6 @@ namespace XuLy.TrangChu
                                         return true;
                                     }
                                 }
-                                MessageBox.Show("Thành công");
                             }
                             else
                             {

@@ -256,7 +256,7 @@
             // 
             // btnAdd
             // 
-            btnAdd.BackColor = Color.FromArgb(128, 255, 128);
+            btnAdd.BackColor = Color.LightGreen;
             btnAdd.Location = new Point(36, 223);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(94, 29);

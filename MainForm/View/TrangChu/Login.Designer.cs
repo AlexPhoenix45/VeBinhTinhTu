@@ -53,7 +53,7 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(txtTaiKhoan);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(256, 37);
+            panel1.Location = new Point(12, 12);
             panel1.Name = "panel1";
             panel1.Size = new Size(318, 401);
             panel1.TabIndex = 0;
@@ -110,6 +110,7 @@
             txtPass.Name = "txtPass";
             txtPass.Size = new Size(228, 27);
             txtPass.TabIndex = 5;
+            txtPass.Text = "a";
             // 
             // label2
             // 
@@ -126,6 +127,7 @@
             txtTaiKhoan.Name = "txtTaiKhoan";
             txtTaiKhoan.Size = new Size(228, 27);
             txtTaiKhoan.TabIndex = 3;
+            txtTaiKhoan.Text = "Anh Tu";
             // 
             // label1
             // 
@@ -140,9 +142,10 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 523);
+            ClientSize = new Size(341, 429);
             Controls.Add(panel1);
             Name = "Login";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "Login";
             Load += Login_Load;
             panel1.ResumeLayout(false);

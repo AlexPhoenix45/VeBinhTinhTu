@@ -92,11 +92,11 @@
             // 
             // pnMenu
             // 
+            pnMenu.AutoSize = true;
             pnMenu.Controls.Add(mnMenu);
             pnMenu.Location = new Point(0, 103);
             pnMenu.Name = "pnMenu";
             pnMenu.Size = new Size(400, 492);
-            pnMenu.AutoSize = true;
             pnMenu.TabIndex = 0;
             // 
             // mnMenu
@@ -108,9 +108,8 @@
             mnMenu.Location = new Point(13, 0);
             mnMenu.Name = "mnMenu";
             mnMenu.RightToLeft = RightToLeft.No;
-            mnMenu.Size = new Size(400, 206);
+            mnMenu.Size = new Size(30, 206);
             mnMenu.TabIndex = 0;
-            mnMenu.AutoSize = true;
             mnMenu.Text = "menuStrip1";
             // 
             // pnNoiDung
