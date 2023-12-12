@@ -52,5 +52,20 @@ namespace DAO.SqlToLinq
             }
             return userList;
         }
+
+        public Models.TacGia getById(int id)
+        {
+            var s = new Models.TacGia();
+            try
+            {
+                s = new TacGia().getAll().Where(x => x.Id == id).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+
+            return s;
+        }
     }
 }

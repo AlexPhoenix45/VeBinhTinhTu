@@ -57,6 +57,10 @@ namespace MainForm
             }
         }
 
+        private void BangData_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
+        }
     }
 }
 

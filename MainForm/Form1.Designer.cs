@@ -40,6 +40,7 @@
             BangData.RowHeadersWidth = 51;
             BangData.Size = new Size(689, 298);
             BangData.TabIndex = 0;
+            BangData.CellContentClick += BangData_CellContentClick;
             // 
             // Form1
             // 

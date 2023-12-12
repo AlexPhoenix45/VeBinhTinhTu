@@ -52,5 +52,19 @@ namespace DAO.SqlToLinq
             }
             return userList;
         }
+        public Models.NhaXuatBan getById(int id)
+        {
+            var s = new Models.NhaXuatBan();
+            try
+            {
+                s = new NhaXuatBan().getAll().Where(x => x.Id == id).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+
+            return s;
+        }
     }
 }

@@ -227,9 +227,9 @@
             // XacNhan
             // 
             XacNhan.BackColor = SystemColors.ButtonFace;
-            XacNhan.Location = new Point(68, 175);
+            XacNhan.Location = new Point(1120, 43);
             XacNhan.Name = "XacNhan";
-            XacNhan.Size = new Size(94, 29);
+            XacNhan.Size = new Size(94, 39);
             XacNhan.TabIndex = 20;
             XacNhan.Text = "Xác nhận";
             XacNhan.UseVisualStyleBackColor = false;
@@ -257,12 +257,13 @@
             // btnAdd
             // 
             btnAdd.BackColor = Color.LightGreen;
-            btnAdd.Location = new Point(36, 223);
+            btnAdd.Location = new Point(68, 210);
             btnAdd.Name = "btnAdd";
-            btnAdd.Size = new Size(94, 29);
+            btnAdd.Size = new Size(94, 42);
             btnAdd.TabIndex = 22;
             btnAdd.Text = "Thêm Sách";
             btnAdd.UseVisualStyleBackColor = false;
+            btnAdd.Click += btnAdd_Click;
             // 
             // cklTG
             // 

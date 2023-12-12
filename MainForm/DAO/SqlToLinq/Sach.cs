@@ -129,5 +129,117 @@ namespace DAO.SqlToLinq
 
             return s;
         }
+
+        public bool Insert (Models.Sach s)
+        {
+            try
+            {
+                using (var conn = new DAO.Connection.SqlConn().Conn())
+                {
+                    if (conn != null)
+                    {
+                        if (conn.State == ConnectionState.Closed)
+                        {
+                            conn.Open();
+                        }
+
+                        string sql = "INSERT INTO [Sach]" +
+                        " (TenSach, MoTa, ListIdTacGia, IdTheLoai, IdNhaXuatBan, NamXuatBan, TaiBan, SoLuong, NhanVienThem, AnhDaiDien, GiaSach, Status)" +
+                        " VALUES (@TenSach, @MoTa, @ListIdTacGia, @IdTheLoai, @IdNhaXuatBan, @NamXuatBan, @TaiBan, @SoLuong, @NhanVienThem, @AnhDaiDien, @GiaSach, @Status)";
+
+                        var command = new SqlCommand(sql, conn);
+                        // Thêm các tham số và giá trị tương ứng
+                        command.Parameters.AddWithValue("@TenSach", s.TenSach);
+                        command.Parameters.AddWithValue("@MoTa", s.MoTa);
+                        command.Parameters.AddWithValue("@ListIdTacGia", s.ListIdTacGia);
+                        command.Parameters.AddWithValue("@IdTheLoai", s.IdTheLoai);
+                        command.Parameters.AddWithValue("@IdNhaXuatBan", s.IdNhaXuatBan);
+                        command.Parameters.AddWithValue("@NamXuatBan", s.NamXuatBan);
+                        command.Parameters.AddWithValue("@TaiBan", s.TaiBan);
+                        command.Parameters.AddWithValue("@SoLuong", s.SoLuong);
+                        command.Parameters.AddWithValue("@NhanVienThem", s.NhanVienThem);
+                        command.Parameters.AddWithValue("@AnhDaiDien", s.AnhDaiDien);
+                        command.Parameters.AddWithValue("@GiaSach", s.GiaSach);
+                        command.Parameters.AddWithValue("@Status", s.Status);
+
+
+                        // Thực hiện lệnh INSERT
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if(rowsAffected > 0)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message.ToString());
+            }
+                return false;
+        }
+
+        public bool Update(Models.Sach s)
+        {
+            try
+            {
+                using (var conn = new DAO.Connection.SqlConn().Conn())
+                {
+                    if (conn != null)
+                    {
+                        if (conn.State == ConnectionState.Closed)
+                        {
+                            conn.Open();
+                        }
+
+                        string sql = "UPDATE [Sach] SET " +
+                                     "TenSach = @TenSach, " +
+                                     "MoTa = @MoTa, " +
+                                     "ListIdTacGia = @ListIdTacGia, " +
+                                     "IdTheLoai = @IdTheLoai, " +
+                                     "IdNhaXuatBan = @IdNhaXuatBan, " +
+                                     "NamXuatBan = @NamXuatBan, " +
+                                     "TaiBan = @TaiBan, " +
+                                     "SoLuong = @SoLuong, " +
+                                     "NhanVienThem = @NhanVienThem, " +
+                                     "AnhDaiDien = @AnhDaiDien, " +
+                                     "GiaSach = @GiaSach, " +
+                                     "Status = @Status " +
+                                     "WHERE Id = @Id"; // Thay [TenBangModels.Sach] bằng tên bảng thực tế trong cơ sở dữ liệu của bạn
+
+                        var command = new SqlCommand(sql, conn);
+                        // Thêm các tham số và giá trị tương ứng
+                        command.Parameters.AddWithValue("@Id", s.Id); // Giả sử có một thuộc tính Id trong đối tượng Models.Sach
+                        command.Parameters.AddWithValue("@TenSach", s.TenSach);
+                        command.Parameters.AddWithValue("@MoTa", s.MoTa);
+                        command.Parameters.AddWithValue("@ListIdTacGia", s.ListIdTacGia);
+                        command.Parameters.AddWithValue("@IdTheLoai", s.IdTheLoai);
+                        command.Parameters.AddWithValue("@IdNhaXuatBan", s.IdNhaXuatBan);
+                        command.Parameters.AddWithValue("@NamXuatBan", s.NamXuatBan);
+                        command.Parameters.AddWithValue("@TaiBan", s.TaiBan);
+                        command.Parameters.AddWithValue("@SoLuong", s.SoLuong);
+                        command.Parameters.AddWithValue("@NhanVienThem", s.NhanVienThem);
+                        command.Parameters.AddWithValue("@AnhDaiDien", s.AnhDaiDien);
+                        command.Parameters.AddWithValue("@GiaSach", s.GiaSach);
+                        command.Parameters.AddWithValue("@Status", s.Status);
+
+                        // Thực hiện lệnh UPDATE
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        if (rowsAffected > 0)
+                        {
+                            return true;
+                        }
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message.ToString());
+            }
+            return false;
+        }
+
     }
 }

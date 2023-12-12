@@ -50,5 +50,20 @@ namespace DAO.SqlToLinq
             }
             return userList;
         }
+
+        public Models.TheLoai getById(int id)
+        {
+            var s = new Models.TheLoai();
+            try
+            {
+                s = new TheLoai().getAll().Where(x => x.Id == id).FirstOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+
+            return s;
+        }
     }
 }

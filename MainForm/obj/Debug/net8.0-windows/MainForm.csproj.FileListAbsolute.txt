@@ -35,6 +35,14 @@ D:\LapTrinhWindow\QuanLyThuVien\MainForm\bin\Debug\net8.0-windows\runtimes\unix\
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\bin\Debug\net8.0-windows\runtimes\win\lib\netcoreapp2.1\System.Data.SqlClient.dll
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.csproj.AssemblyReference.cache
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.Form1.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.Properties.Resources.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\QuanLySach.Sach.ChiTietSach.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\QuanLySach.Sach.ModelSach.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\QuanLySach.Sach.QuanLySach.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.View.QuanLySach.Sach.SuaSach.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.View.QuanLySach.Sach.ThemSach.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.View.TrangChu.Login.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.View.TrangChu.TrangChu.resources
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.csproj.GenerateResource.cache
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.GeneratedMSBuildEditorConfig.editorconfig
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.AssemblyInfoInputs.cache
@@ -47,9 +55,3 @@ D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\refint\MainFor
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.pdb
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.genruntimeconfig.cache
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\ref\MainForm.dll
-D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.View.TrangChu.Login.resources
-D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.View.TrangChu.TrangChu.resources
-D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\QuanLySach.Sach.QuanLySach.resources
-D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\QuanLySach.Sach.ModelSach.resources
-D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.Properties.Resources.resources
-D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\QuanLySach.Sach.ChiTietSach.resources

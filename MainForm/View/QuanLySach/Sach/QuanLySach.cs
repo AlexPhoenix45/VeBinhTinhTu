@@ -9,6 +9,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net.Http;
 using System.Windows.Forms;
+using MainForm.View.QuanLySach.Sach;
 
 namespace QuanLySach.Sach
 {
@@ -22,6 +23,11 @@ namespace QuanLySach.Sach
             loadTrang();
         }
 
+        private void sach_ReloadXoaSachComplete(object sender, EventArgs e)
+        {
+            ListSach();
+        }
+
         private void loadTrang()
         {
             // Đặt vị trí ban đầu cho các UserControl
@@ -31,8 +37,11 @@ namespace QuanLySach.Sach
             foreach (var s in new DAO.SqlToLinq.Sach().GetAll().Where(x => x.Status == 1))
             {
                 Sach.ModelSach sach = new Sach.ModelSach();
+
+                sach.ReloadXoaSachComplete += sach_ReloadXoaSachComplete;
+
                 sach.txtImg.Text = s.TenSach.ToString();
-                sach.img.ImageLocation = "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\Web\\Img\\" + s.AnhDaiDien;
+                sach.img.ImageLocation = "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\Web\\Img\\AnhSach\\" + s.AnhDaiDien;
                 sach.img.Tag = s.Id;
 
                 pnList.Controls.Add(sach);
@@ -154,7 +163,8 @@ namespace QuanLySach.Sach
             txtListTG.Text = ChonTG();
             pnTG.Size = new Size(0, 0);
         }
-        private void XacNhan_Click(object sender, EventArgs e)
+
+        private void ListSach()
         {
             var Ten = txtTen.Text;
             var MoTa = txtMoTa.Text;
@@ -208,8 +218,11 @@ namespace QuanLySach.Sach
             foreach (var s in new DAO.SqlToLinq.Sach().TimKiem(Ten, MoTa, listIdTG, IdTheLoai, IdNXB, NamXBTu, NamXBDen, GiaTu, GiaDen))
             {
                 Sach.ModelSach sach = new Sach.ModelSach();
+
+                sach.ReloadXoaSachComplete += sach_ReloadXoaSachComplete;
+
                 sach.txtImg.Text = s.TenSach.ToString();
-                sach.img.ImageLocation = "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\Web\\Img\\" + s.AnhDaiDien;
+                sach.img.ImageLocation = "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\Web\\Img\\AnhSach\\" + s.AnhDaiDien;
                 sach.img.Tag = s.Id;
 
                 pnList.Controls.Add(sach);
@@ -220,6 +233,27 @@ namespace QuanLySach.Sach
 
             // Thêm Panel chứa các UserControl vào Form (hoặc UserControl chính của bạn)
             pn.Controls.Add(pnList);
+        }
+
+        private void XacNhan_Click(object sender, EventArgs e)
+        {
+            ListSach();
+        }
+
+        private void btnAdd_Click(object sender, EventArgs e)
+        {
+            ThemSach themSach = new ThemSach();
+
+            themSach.InsertComplete += themSach_InsertComplete;
+            themSach.Show();
+        }
+
+        private void themSach_InsertComplete(object sender, bool isSuccess)
+        {
+            if (isSuccess)
+            {
+                ListSach(); // Gọi phương thức làm mới dữ liệu
+            }
         }
     }
 }

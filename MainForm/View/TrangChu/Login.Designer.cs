@@ -53,7 +53,7 @@
             panel1.Controls.Add(label2);
             panel1.Controls.Add(txtTaiKhoan);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(12, 12);
+            panel1.Location = new Point(261, 39);
             panel1.Name = "panel1";
             panel1.Size = new Size(318, 401);
             panel1.TabIndex = 0;
@@ -142,7 +142,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(341, 429);
+            ClientSize = new Size(859, 483);
             Controls.Add(panel1);
             Name = "Login";
             StartPosition = FormStartPosition.CenterScreen;

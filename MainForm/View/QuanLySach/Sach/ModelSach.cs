@@ -16,18 +16,26 @@ namespace QuanLySach.Sach
         {
             InitializeComponent();
         }
-
+        public event EventHandler ReloadXoaSachComplete;
         private void img_Click(object sender, EventArgs e)
         {
             if (img.Tag != null)
             {
                 Sach.ChiTietSach sach = new ChiTietSach(int.Parse(img.Tag.ToString()));
 
+
+                sach.XoaSachComplete += sach_XoaSachComplete;
+
                 Control parent = this.Parent;
 
                 parent.Controls.Clear();
                 parent.Controls.Add(sach);
             }
+        }
+
+        private void sach_XoaSachComplete(object sender, EventArgs e)
+        {
+            ReloadXoaSachComplete?.Invoke(this, EventArgs.Empty);
         }
     }
 }

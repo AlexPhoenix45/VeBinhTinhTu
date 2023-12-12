@@ -13,6 +13,9 @@
     <Compile Update="View\QuanLySach\Sach\QuanLySach.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="View\QuanLySach\Sach\SuaSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Update="View\QuanLySach\Sach\ThemSach.cs">
       <SubType>Form</SubType>
     </Compile>

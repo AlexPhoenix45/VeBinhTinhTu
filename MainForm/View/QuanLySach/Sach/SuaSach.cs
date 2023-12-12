@@ -12,23 +12,52 @@ using System.Windows.Forms;
 
 namespace MainForm.View.QuanLySach.Sach
 {
-    public partial class ThemSach : Form
+    public partial class SuaSach : Form
     {
-
         private string ListIdTG = "";
         private string ListtenTG = "";
-        public ThemSach()
+        private int IdSach; 
+        public SuaSach(int Id)
         {
             InitializeComponent();
+            IdSach = Id;
 
-            loadnew();
+            var sach = new DAO.SqlToLinq.Sach().getById(Id);
+
+            loadnew(sach);
         }
 
         public event EventHandler<bool> InsertComplete;
 
-        private void loadnew()
+        private void loadnew(Models.Sach s)
         {
+            //load tt sach
+            txtTen.Text = s.TenSach;
+            txtMoTa.Text = s.MoTa;
+            txtNamXB.Text = s.NamXuatBan.ToString();
+            ListIdTG = s.ListIdTacGia.ToString();
+            txtSoLuong.Text = s.SoLuong.ToString();
+            txtTaiBan.Text = s.TaiBan;
+            txtGia.Text = s.GiaSach.ToString();
+            MaAnh.Text = s.AnhDaiDien.ToString();
+            anhSach.ImageLocation = "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\Web\\Img\\AnhSach\\" + s.AnhDaiDien;
+
+
             //load list tg trong bộ lọc
+            int ixd = 0;
+            foreach(var x in s.ListIdTacGia.Split(','))
+            {
+                if(ixd == 0)
+                {
+                    txtListTG.Text = new DAO.SqlToLinq.TacGia().getById(int.Parse(x)).TenTacGia;
+                    ixd++;
+                }
+                else
+                {
+                    txtListTG.Text +=", " + new DAO.SqlToLinq.TacGia().getById(int.Parse(x)).TenTacGia;
+                }
+            }
+
             List<Models.CheckBox> items = new List<Models.CheckBox>();
             foreach (var x in new DAO.SqlToLinq.TacGia().getAll().Where(x => x.Status == 1))
             {
@@ -45,8 +74,8 @@ namespace MainForm.View.QuanLySach.Sach
             //load TheLoai va NXB
             List<Models.CheckBox> itsTL = new List<Models.CheckBox>();
             var ittl = new Models.CheckBox();
-            ittl.Value = 0;
-            ittl.DisplayText = "";
+            ittl.Value = s.IdTheLoai;
+            ittl.DisplayText = new DAO.SqlToLinq.TheLoai().getById(s.IdTheLoai).TenTheLoai;
 
             itsTL.Add(ittl);
             foreach (var x in new DAO.SqlToLinq.TheLoai().getAll().Where(x => x.Status == 1))
@@ -63,8 +92,8 @@ namespace MainForm.View.QuanLySach.Sach
 
             List<Models.CheckBox> itsNXB = new List<Models.CheckBox>();
             var itxb = new Models.CheckBox();
-            itxb.Value = 0;
-            itxb.DisplayText = "";
+            itxb.Value = s.IdNhaXuatBan;
+            itxb.DisplayText = new DAO.SqlToLinq.NhaXuatBan().getById(s.IdNhaXuatBan).TenNhaXuatBan;
 
             itsNXB.Add(itxb);
             foreach (var x in new DAO.SqlToLinq.NhaXuatBan().getAll().Where(x => x.Status == 1))
@@ -112,7 +141,7 @@ namespace MainForm.View.QuanLySach.Sach
                     MessageBox.Show("Lỗi khi đọc tệp tin ảnh: " + ex.Message);
                 }
             }
-            if(anhSach.Image == null)
+            if (anhSach.Image == null)
             {
                 slAnh.Visible = true;
             }
@@ -160,27 +189,25 @@ namespace MainForm.View.QuanLySach.Sach
         {
             try
             {
-                var s = new Models.Sach()
-                {
-                    TenSach = txtTen.Text,
-                    MoTa = txtMoTa.Text,
-                    ListIdTacGia = ListIdTG,
-                    IdTheLoai = int.Parse(txtTL.SelectedValue.ToString()),
-                    IdNhaXuatBan = int.Parse(txtNXB.SelectedValue.ToString()),
-                    NamXuatBan = int.Parse(txtNamXB.Text),
-                    AnhDaiDien = MaAnh.Text,
-                    NhanVienThem = Session.Users.TaiKhoan,
-                    SoLuong = int.Parse(txtSoLuong.Text),
-                    TaiBan = txtTaiBan.Text,
-                    GiaSach = int.Parse(txtGia.Text),
-                    Status = 1,
-                };
-                if(new DAO.SqlToLinq.Sach().Insert(s))
+                var s = new DAO.SqlToLinq.Sach().getById(IdSach);
+                s.TenSach = txtTen.Text;
+                s.MoTa = txtMoTa.Text;
+                s.ListIdTacGia = ListIdTG;
+                s.IdTheLoai = int.Parse(txtTL.SelectedValue.ToString());
+                s.IdNhaXuatBan = int.Parse(txtNXB.SelectedValue.ToString());
+                s.NamXuatBan = int.Parse(txtNamXB.Text);
+                s.AnhDaiDien = MaAnh.Text;
+                s.NhanVienThem = Session.Users.TaiKhoan;
+                s.SoLuong = int.Parse(txtSoLuong.Text);
+                s.TaiBan = txtTaiBan.Text;
+                s.GiaSach = int.Parse(txtGia.Text);
+                s.Status = 1;
+                if (new DAO.SqlToLinq.Sach().Update(s))
                 {
                     return true;
                 }
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
@@ -191,7 +218,7 @@ namespace MainForm.View.QuanLySach.Sach
         {
             if (LuuAnh())
             {
-                if(LuuSach())
+                if (LuuSach())
                 {
                     MessageBox.Show("Thêm thành công");
                     InsertComplete?.Invoke(this, true);
@@ -274,3 +301,4 @@ namespace MainForm.View.QuanLySach.Sach
     }
 
 }
+

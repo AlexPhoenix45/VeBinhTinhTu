@@ -58,6 +58,7 @@
             label1 = new Label();
             btnXoa = new Button();
             btnSua = new Button();
+            button1 = new Button();
             ((System.ComponentModel.ISupportInitialize)anhSach).BeginInit();
             panel5.SuspendLayout();
             panel6.SuspendLayout();
@@ -72,7 +73,7 @@
             // 
             // anhSach
             // 
-            anhSach.Location = new Point(26, 32);
+            anhSach.Location = new Point(336, 34);
             anhSach.Name = "anhSach";
             anhSach.Size = new Size(342, 469);
             anhSach.SizeMode = PictureBoxSizeMode.Zoom;
@@ -84,7 +85,7 @@
             panel5.AutoSize = true;
             panel5.Controls.Add(txtNXB);
             panel5.Controls.Add(label10);
-            panel5.Location = new Point(404, 282);
+            panel5.Location = new Point(714, 284);
             panel5.Name = "panel5";
             panel5.Size = new Size(385, 39);
             panel5.TabIndex = 8;
@@ -113,7 +114,7 @@
             panel6.AutoSize = true;
             panel6.Controls.Add(txtTaiBan);
             panel6.Controls.Add(label12);
-            panel6.Location = new Point(404, 372);
+            panel6.Location = new Point(714, 374);
             panel6.Name = "panel6";
             panel6.Size = new Size(385, 39);
             panel6.TabIndex = 9;
@@ -142,7 +143,7 @@
             panel4.AutoSize = true;
             panel4.Controls.Add(txtTL);
             panel4.Controls.Add(label5);
-            panel4.Location = new Point(404, 237);
+            panel4.Location = new Point(714, 239);
             panel4.Name = "panel4";
             panel4.Size = new Size(385, 39);
             panel4.TabIndex = 7;
@@ -171,7 +172,7 @@
             panel7.AutoSize = true;
             panel7.Controls.Add(txtSoLuong);
             panel7.Controls.Add(label14);
-            panel7.Location = new Point(404, 417);
+            panel7.Location = new Point(714, 419);
             panel7.Name = "panel7";
             panel7.Size = new Size(385, 39);
             panel7.TabIndex = 10;
@@ -200,7 +201,7 @@
             panel3.AutoSize = true;
             panel3.Controls.Add(txtTG);
             panel3.Controls.Add(label6);
-            panel3.Location = new Point(404, 192);
+            panel3.Location = new Point(714, 194);
             panel3.Name = "panel3";
             panel3.Size = new Size(385, 39);
             panel3.TabIndex = 6;
@@ -229,7 +230,7 @@
             panel8.AutoSize = true;
             panel8.Controls.Add(txtNamXB);
             panel8.Controls.Add(label16);
-            panel8.Location = new Point(404, 327);
+            panel8.Location = new Point(714, 329);
             panel8.Name = "panel8";
             panel8.Size = new Size(385, 39);
             panel8.TabIndex = 11;
@@ -258,7 +259,7 @@
             panel2.AutoSize = true;
             panel2.Controls.Add(txtMoTa);
             panel2.Controls.Add(label3);
-            panel2.Location = new Point(404, 102);
+            panel2.Location = new Point(714, 104);
             panel2.Name = "panel2";
             panel2.Size = new Size(385, 84);
             panel2.TabIndex = 5;
@@ -288,7 +289,7 @@
             panel9.AutoSize = true;
             panel9.Controls.Add(txtGia);
             panel9.Controls.Add(label18);
-            panel9.Location = new Point(404, 462);
+            panel9.Location = new Point(714, 464);
             panel9.Name = "panel9";
             panel9.Size = new Size(385, 39);
             panel9.TabIndex = 12;
@@ -318,7 +319,7 @@
             panel1.AutoSize = true;
             panel1.Controls.Add(txtTen);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(404, 41);
+            panel1.Location = new Point(714, 43);
             panel1.Name = "panel1";
             panel1.Size = new Size(385, 55);
             panel1.TabIndex = 4;
@@ -345,28 +346,43 @@
             // btnXoa
             // 
             btnXoa.BackColor = Color.Salmon;
-            btnXoa.Location = new Point(47, 536);
+            btnXoa.Location = new Point(357, 538);
             btnXoa.Name = "btnXoa";
             btnXoa.Size = new Size(125, 41);
             btnXoa.TabIndex = 13;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.Click += btnXoa_Click;
             // 
             // btnSua
             // 
             btnSua.BackColor = SystemColors.GradientActiveCaption;
-            btnSua.Location = new Point(204, 536);
+            btnSua.Location = new Point(514, 538);
             btnSua.Name = "btnSua";
             btnSua.Size = new Size(125, 41);
             btnSua.TabIndex = 14;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.Click += btnSua_Click;
+            // 
+            // button1
+            // 
+            button1.Font = new Font("Segoe UI", 15F);
+            button1.ImageAlign = ContentAlignment.TopCenter;
+            button1.Location = new Point(33, 43);
+            button1.Name = "button1";
+            button1.Size = new Size(84, 42);
+            button1.TabIndex = 15;
+            button1.Text = "↩";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
             // ChiTietSach
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
+            Controls.Add(button1);
             Controls.Add(btnSua);
             Controls.Add(btnXoa);
             Controls.Add(panel1);
@@ -380,7 +396,7 @@
             Controls.Add(panel7);
             Controls.Add(panel4);
             Name = "ChiTietSach";
-            Size = new Size(825, 652);
+            Size = new Size(1156, 614);
             ((System.ComponentModel.ISupportInitialize)anhSach).EndInit();
             panel5.ResumeLayout(false);
             panel5.PerformLayout();
@@ -436,5 +452,6 @@
         private Label label1;
         private Button btnXoa;
         private Button btnSua;
+        private Button button1;
     }
 }

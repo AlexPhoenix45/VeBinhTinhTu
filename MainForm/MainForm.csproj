@@ -28,7 +28,6 @@
 	  <Folder Include="XuLy\QuanLySach\NhaXuatBan\" />
 	  <Folder Include="XuLy\QuanLySach\TheLoai\" />
 	  <Folder Include="XuLy\QuanLySach\TacGia\" />
-	  <Folder Include="XuLy\QuanLySach\Sach\" />
   </ItemGroup>
 
   <ItemGroup>

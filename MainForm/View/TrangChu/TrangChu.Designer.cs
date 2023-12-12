@@ -117,7 +117,7 @@
             pnNoiDung.AutoSize = true;
             pnNoiDung.Location = new Point(4, 100);
             pnNoiDung.Name = "pnNoiDung";
-            pnNoiDung.Size = new Size(540, 331);
+            pnNoiDung.Size = new Size(780, 495);
             pnNoiDung.TabIndex = 0;
             // 
             // TrangChu

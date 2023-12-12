@@ -1,6 +1,6 @@
 ﻿namespace MainForm.View.QuanLySach.Sach
 {
-    partial class ThemSach
+    partial class SuaSach
     {
         /// <summary>
         /// Required designer variable.
@@ -379,12 +379,12 @@
             // 
             // btnAdd
             // 
-            btnAdd.BackColor = Color.LightGreen;
+            btnAdd.BackColor = SystemColors.GradientActiveCaption;
             btnAdd.Location = new Point(742, 628);
             btnAdd.Name = "btnAdd";
             btnAdd.Size = new Size(111, 40);
             btnAdd.TabIndex = 25;
-            btnAdd.Text = "Thêm Sách";
+            btnAdd.Text = "Cập nhật";
             btnAdd.UseVisualStyleBackColor = false;
             btnAdd.Click += btnAdd_Click;
             // 
@@ -392,12 +392,12 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Segoe UI", 17F, FontStyle.Bold);
-            label2.Location = new Point(375, 31);
+            label2.Location = new Point(350, 31);
             label2.MaximumSize = new Size(280, 0);
             label2.Name = "label2";
-            label2.Size = new Size(162, 40);
+            label2.Size = new Size(207, 40);
             label2.TabIndex = 3;
-            label2.Text = "Thêm sách";
+            label2.Text = "Cập nhật sách";
             // 
             // slAnh
             // 
@@ -422,7 +422,7 @@
             MaAnh.Text = "label7";
             MaAnh.Visible = false;
             // 
-            // ThemSach
+            // SuaSach
             // 
             AllowDrop = true;
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -444,7 +444,7 @@
             Controls.Add(panel4);
             Controls.Add(slAnh);
             Controls.Add(anhSach);
-            Name = "ThemSach";
+            Name = "SuaSach";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ThemSach";
             panel1.ResumeLayout(false);
