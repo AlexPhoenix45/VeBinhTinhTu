@@ -20,6 +20,17 @@ namespace QuanLySach.Sach
         public QuanLySach()
         {
             InitializeComponent();
+
+
+            var them = new DAO.SqlToLinq.Action().getAll().Where(x => x.Name.Equals("ThemSach")).FirstOrDefault();
+
+            var role = new DAO.SqlToLinq.RoleAction().getAll().Where(x => x.IdAction == them.Id && x.IdRole == Models.Session.Role.Id).FirstOrDefault();
+
+            if(role == null)
+            {
+                btnAdd.Visible = false;
+            }
+
             loadTrang();
         }
 
@@ -28,11 +39,25 @@ namespace QuanLySach.Sach
             ListSach();
         }
 
+        public void List()
+        {
+            pnChiTiet.Visible = false;
+            pnChiTiet.Controls.Clear();
+            pnList.Visible = true;
+        }
+
+        private void ChiTiet()
+        {
+            pnChiTiet.Visible = true;
+            pnList.Visible = false;
+        }
+
         private void loadTrang()
         {
             // Đặt vị trí ban đầu cho các UserControl
             int topPosition = 0;
 
+            List();
             // Load và thêm các UserControl vào Panel
             foreach (var s in new DAO.SqlToLinq.Sach().GetAll().Where(x => x.Status == 1))
             {
@@ -43,6 +68,8 @@ namespace QuanLySach.Sach
                 sach.txtImg.Text = s.TenSach.ToString();
                 sach.img.ImageLocation = "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\Web\\Img\\AnhSach\\" + s.AnhDaiDien;
                 sach.img.Tag = s.Id;
+
+                sach.img.Click += Sach_Click;
 
                 pnList.Controls.Add(sach);
 
@@ -166,6 +193,8 @@ namespace QuanLySach.Sach
 
         private void ListSach()
         {
+            List();
+
             var Ten = txtTen.Text;
             var MoTa = txtMoTa.Text;
             var listIdTG = ListIdTG;
@@ -209,7 +238,6 @@ namespace QuanLySach.Sach
             }
 
 
-            pn.Controls.Clear();
             pnList.Controls.Clear();
             // Đặt vị trí ban đầu cho các UserControl
             int topPosition = 0;
@@ -224,6 +252,7 @@ namespace QuanLySach.Sach
                 sach.txtImg.Text = s.TenSach.ToString();
                 sach.img.ImageLocation = "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\Web\\Img\\AnhSach\\" + s.AnhDaiDien;
                 sach.img.Tag = s.Id;
+                sach.img.Click += Sach_Click;
 
                 pnList.Controls.Add(sach);
 
@@ -233,6 +262,29 @@ namespace QuanLySach.Sach
 
             // Thêm Panel chứa các UserControl vào Form (hoặc UserControl chính của bạn)
             pn.Controls.Add(pnList);
+        }
+
+        private void Sach_Click(object? sender, EventArgs e)
+        {
+            ChiTiet();
+            PictureBox anhSach = (PictureBox)sender;
+
+            // Kiểm tra xem Tag có giá trị hay không
+            if (anhSach.Tag != null)
+            {
+                Sach.ChiTietSach sach = new ChiTietSach(int.Parse(anhSach.Tag.ToString()));
+                sach.button1.Click += Back_Click;
+                sach.btnXoa.Click += sach_ReloadXoaSachComplete;
+
+                pnChiTiet.Controls.Add(sach);
+            }
+        }
+
+
+        private void Back_Click(object sender, EventArgs e)
+        {
+            List();
+            pnChiTiet.Controls.Clear();
         }
 
         private void XacNhan_Click(object sender, EventArgs e)

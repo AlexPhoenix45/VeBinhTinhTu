@@ -9,14 +9,11 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="HIC.System.Windows.Forms.DataVisualization" Version="1.0.1" />
     <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="View\BaoCaoThongKe\" />
-    <Folder Include="View\QuanLyMuonTra\QuanLyPhieuNhacTra\" />
-    <Folder Include="View\QuanLyMuonTra\QuanLyPhieuTra\" />
-    <Folder Include="View\QuanLyMuonTra\QuanLyPhieuMuon\" />
     <Folder Include="View\QuanLySach\NhaXuatBan\" />
     <Folder Include="View\QuanLySach\TheLoai\" />
     <Folder Include="View\QuanLySach\TacGia\" />
@@ -35,6 +32,27 @@
       <DesignTime>True</DesignTime>
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Update="View\QuanLyMuonTra\Page\TaoPhieuMuon\CreatePhieuMuon.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyMuonTra\Page\TaoPhieuMuon\TaoPhieuMuon.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\QuanLySach\Sach\Page\QuanLySach.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\QuanLySach\Sach\Page\SuaSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\QuanLySach\Sach\Page\ThemSach.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\QuanLySach\Sach\Page\ChiTietSach.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\QuanLySach\Sach\PartialPage\ModelSach.cs">
+      <SubType>UserControl</SubType>
     </Compile>
   </ItemGroup>
 

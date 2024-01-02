@@ -25,7 +25,9 @@ namespace DAO.SqlToLinq
                             conn.Open();
                         }
 
-                        string sql = "SELECT * FROM [NhanVien]";
+                        string sql = "SELECT * FROM [NhanVien]" +
+                                     " JOIN Users ON NhanVien.IdUser = Users.Id" +
+                                     " WHERE Users.Status = 1";
 
                         var command = new SqlCommand(sql, conn);
                         var reader = command.ExecuteReader();

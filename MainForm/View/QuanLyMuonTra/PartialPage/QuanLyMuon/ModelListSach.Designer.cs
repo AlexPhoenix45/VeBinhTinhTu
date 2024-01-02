@@ -1,6 +1,6 @@
-﻿namespace QuanLySach.Sach
+﻿namespace PartialPage.QuanLyMuon
 {
-    partial class ModelSach
+    partial class ModelListSach
     {
         /// <summary> 
         /// Required designer variable.
@@ -28,46 +28,42 @@
         /// </summary>
         private void InitializeComponent()
         {
-            img = new PictureBox();
-            txtImg = new Label();
-            ((System.ComponentModel.ISupportInitialize)img).BeginInit();
+            txtTen = new Label();
+            textBox1 = new TextBox();
             SuspendLayout();
             // 
-            // img
+            // txtTen
             // 
-            img.Location = new Point(30, 27);
-            img.Name = "img";
-            img.Size = new Size(176, 243);
-            img.SizeMode = PictureBoxSizeMode.Zoom;
-            img.TabIndex = 0;
-            img.TabStop = false;
-            img.Click += img_Click;
+            txtTen.AutoSize = true;
+            txtTen.Location = new Point(15, 12);
+            txtTen.MinimumSize = new Size(320, 0);
+            txtTen.Name = "txtTen";
+            txtTen.Size = new Size(320, 20);
+            txtTen.TabIndex = 0;
+            txtTen.Text = "label1";
             // 
-            // txtImg
+            // textBox1
             // 
-            txtImg.AutoSize = true;
-            txtImg.Location = new Point(30, 283);
-            txtImg.Name = "txtImg";
-            txtImg.Size = new Size(50, 20);
-            txtImg.TabIndex = 1;
-            txtImg.Text = "label1";
+            textBox1.Location = new Point(355, 9);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(56, 27);
+            textBox1.TabIndex = 1;
             // 
-            // ModelSach
+            // ModelListSach
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(txtImg);
-            Controls.Add(img);
-            Name = "ModelSach";
-            Size = new Size(238, 327);
-            ((System.ComponentModel.ISupportInitialize)img).EndInit();
+            Controls.Add(textBox1);
+            Controls.Add(txtTen);
+            Name = "ModelListSach";
+            Size = new Size(427, 50);
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        public PictureBox img;
-        public Label txtImg;
+        public Label txtTen;
+        public TextBox textBox1;
     }
 }

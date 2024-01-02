@@ -68,6 +68,21 @@ namespace XuLy.TrangChu
                                         return true;
                                     }
                                 }
+                                else if (role == "Admin")
+                                {
+                                    Models.Admin dg = result as Models.Admin;
+                                    if (dg != null)
+                                    {
+                                        Debug.WriteLine($"Id: {dg.Id}, IdUser: {dg.IdUser}, MaDocGia: {dg.MaAdmin}, Status: {dg.Status}");
+
+                                        Models.Session.Users = user;
+                                        Models.Session.Role = new DAO.SqlToLinq.Role().getAllByName(role);
+                                        Models.Session.IdUserInRole = dg.Id;
+                                        Models.Session.RoleCode = dg.MaAdmin;
+
+                                        return true;
+                                    }
+                                }
                             }
                             else
                             {

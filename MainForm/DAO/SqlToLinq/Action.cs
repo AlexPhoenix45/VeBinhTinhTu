@@ -38,6 +38,7 @@ namespace DAO.SqlToLinq
                                 Name = reader.IsDBNull(reader.GetOrdinal("Name")) ? string.Empty : reader["Name"].ToString(),
                                 Controller = reader.IsDBNull(reader.GetOrdinal("Controller")) ? string.Empty : reader["Controller"].ToString(),
                                 ActionName = reader.IsDBNull(reader.GetOrdinal("Action")) ? string.Empty : reader["Action"].ToString(),
+                                IsChucNangHien = reader.IsDBNull(reader.GetOrdinal("IsChucNangHien")) ? 0 : reader.GetInt32(reader.GetOrdinal("IsChucNangHien")),
                                 CreateAt = reader.IsDBNull(reader.GetOrdinal("CreateAt")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("CreateAt")),
                                 UpdateAt = reader.IsDBNull(reader.GetOrdinal("UpdateAt")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("UpdateAt")),
                                 Status = reader.IsDBNull(reader.GetOrdinal("Status")) ? 0 : reader.GetInt32(reader.GetOrdinal("Status"))
@@ -56,12 +57,12 @@ namespace DAO.SqlToLinq
             return userList;
         }
 
-        public Models.Action getById (int IdAct)
+        public Models.Action getById(int IdAct)
         {
             var act = new Models.Action();
             try
             {
-                act = new Action().getAll().Where(x => x.Id == IdAct).FirstOrDefault();
+                act = new Action().getAll().Where(x => x.Id == IdAct && x.IsChucNangHien == 1).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -70,7 +71,7 @@ namespace DAO.SqlToLinq
             return act;
         }
 
-        public List<Models.Action> getByIdRole (int Id)
+        public List<Models.Action> getByIdRole(int Id)
         {
             var list = new List<Models.Action>();
             try
@@ -78,11 +79,17 @@ namespace DAO.SqlToLinq
                 var listAR = new DAO.SqlToLinq.RoleAction().getAllByIdRole(Id);
 
 
-                if(listAR.Count > 0)
+                if (listAR.Count > 0)
                 {
-                    foreach(var x in listAR)
+                    foreach (var x in listAR)
                     {
-                        list.Add(new Action().getById(x.IdAction));
+                        var y = new Action().getById(x.IdAction);
+
+                        if (y != null)
+                        {
+                            list.Add(y);
+                        }
+
                     }
                 }
             }
@@ -93,14 +100,14 @@ namespace DAO.SqlToLinq
             return list;
         }
 
-        public List<Models.Action> getSubMenuByIdAct (int IdAct, List<Models.Action> Acts)
+        public List<Models.Action> getSubMenuByIdAct(int IdAct, List<Models.Action> Acts)
         {
             var acts = new List<Models.Action>();
             try
             {
-                acts = Acts.Where(x => x.IdParent ==  IdAct && x.Status == 1).ToList();
+                acts = Acts.Where(x => x.IdParent == IdAct && x.Status == 1).ToList();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message.ToString());
             }

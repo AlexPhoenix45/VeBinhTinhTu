@@ -17,11 +17,34 @@ namespace QuanLySach.Sach
         public ChiTietSach(int Id)
         {
             InitializeComponent();
+
+            var ACT = new DAO.SqlToLinq.Action().getAll();
+            var RACT = new DAO.SqlToLinq.RoleAction().getAll();
+
+            var xoa = ACT.Where(x => x.Status == 1 && x.Name.Equals("XoaSach")).FirstOrDefault();
+
+            var roleX = RACT.Where(x => x.Status == 1 && x.IdAction == xoa.Id && x.IdRole == Models.Session.Role.Id).FirstOrDefault();
+
+            if (roleX == null)
+            {
+                btnXoa.Visible = false;
+            }
+
+
+            var sua = ACT.Where(x => x.Status == 1 && x.Name.Equals("XoaSach")).FirstOrDefault();
+
+            var roleS = RACT.Where(x => x.Status == 1 && x.IdAction == sua.Id && x.IdRole == Models.Session.Role.Id).FirstOrDefault();
+
+            if (roleS == null)
+            {
+                btnSua.Visible = false;
+            }
+
             IdSach = Id;
             loadNew(Id);
         }
 
-        public event EventHandler XoaSachComplete;
+        public event EventHandler ReloadXoaSachComplete;
 
         private void loadNew(int Id)
         {
@@ -30,9 +53,25 @@ namespace QuanLySach.Sach
             anhSach.ImageLocation = "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\Web\\Img\\AnhSach\\" + s.AnhDaiDien;
             txtTen.Text = s.TenSach;
             txtMoTa.Text = s.MoTa;
-            txtTG.Text = s.ListIdTacGia;
-            txtTL.Text = s.IdTheLoai.ToString();
-            txtNXB.Text = s.IdNhaXuatBan.ToString();
+
+            var tg = "";
+            int i = 0;
+            foreach (var x in s.ListIdTacGia.Split(','))
+            {
+                if (i == 0)
+                {
+                    tg += new DAO.SqlToLinq.TacGia().getById(int.Parse(x)).TenTacGia;
+                    i++;
+                }
+                else
+                {
+                    tg += ", " + new DAO.SqlToLinq.TacGia().getById(int.Parse(x)).TenTacGia;
+                }
+            }
+
+            txtTG.Text = tg;
+            txtTL.Text = new DAO.SqlToLinq.TheLoai().getById(s.IdTheLoai).TenTheLoai.ToString();
+            txtNXB.Text = new DAO.SqlToLinq.NhaXuatBan().getById(s.IdTheLoai).TenNhaXuatBan.ToString();
             txtNamXB.Text = s.NamXuatBan.ToString();
             txtSoLuong.Text = s.SoLuong.ToString();
             txtTaiBan.Text = s.TaiBan.ToString();
@@ -68,14 +107,9 @@ namespace QuanLySach.Sach
                 if (new DAO.SqlToLinq.Sach().Update(sach))
                 {
                     MessageBox.Show("Xóa Thành Công");
-                    XoaSachComplete?.Invoke(this, EventArgs.Empty);
+                    ReloadXoaSachComplete?.Invoke(this, e);
                 }
             }
-        }
-
-        private void button1_Click(object sender, EventArgs e)
-        {
-            XoaSachComplete?.Invoke(this, EventArgs.Empty);
         }
     }
 }

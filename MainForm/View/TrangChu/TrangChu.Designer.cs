@@ -59,7 +59,7 @@
             // 
             splitContainer1.Panel2.Controls.Add(pnNoiDung);
             splitContainer1.Size = new Size(950, 595);
-            splitContainer1.SplitterDistance = 159;
+            splitContainer1.SplitterDistance = 108;
             splitContainer1.TabIndex = 0;
             // 
             // txtRoleCode

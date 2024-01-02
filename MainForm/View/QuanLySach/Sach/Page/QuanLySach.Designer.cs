@@ -49,6 +49,7 @@
             XacNhan = new Button();
             pn = new FlowLayoutPanel();
             pnList = new FlowLayoutPanel();
+            pnChiTiet = new FlowLayoutPanel();
             btnAdd = new Button();
             cklTG = new CheckedListBox();
             pnTG = new Panel();
@@ -240,9 +241,10 @@
             pn.AutoScroll = true;
             pn.AutoSize = true;
             pn.Controls.Add(pnList);
+            pn.Controls.Add(pnChiTiet);
             pn.Location = new Point(36, 258);
             pn.Name = "pn";
-            pn.Size = new Size(1273, 637);
+            pn.Size = new Size(2812, 699);
             pn.TabIndex = 21;
             // 
             // pnList
@@ -251,8 +253,17 @@
             pnList.AutoScrollMargin = new Size(500, 0);
             pnList.Location = new Point(3, 3);
             pnList.Name = "pnList";
-            pnList.Size = new Size(1264, 625);
+            pnList.Size = new Size(1400, 640);
             pnList.TabIndex = 0;
+            // 
+            // pnChiTiet
+            // 
+            pnChiTiet.AutoScroll = true;
+            pnChiTiet.AutoScrollMargin = new Size(500, 0);
+            pnChiTiet.Location = new Point(3, 649);
+            pnChiTiet.Name = "pnChiTiet";
+            pnChiTiet.Size = new Size(1400, 640);
+            pnChiTiet.TabIndex = 1;
             // 
             // btnAdd
             // 
@@ -323,7 +334,7 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "QuanLySach";
-            Size = new Size(1706, 972);
+            Size = new Size(2851, 1122);
             pn.ResumeLayout(false);
             pnTG.ResumeLayout(false);
             ResumeLayout(false);
@@ -357,10 +368,11 @@
         private TextBox txtMoTa;
         private Button XacNhan;
         private FlowLayoutPanel pn;
-        private FlowLayoutPanel pnList;
         private Button btnAdd;
         private CheckedListBox cklTG;
         private Panel pnTG;
         private Button btnTG;
+        private FlowLayoutPanel pnList;
+        private FlowLayoutPanel pnChiTiet;
     }
 }

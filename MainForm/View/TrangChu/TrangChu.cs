@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -19,6 +20,8 @@ namespace MainForm.View.TrangChu
 
 
             splitContainer1.Panel2.SizeChanged += PanelParent_SizeChanged;
+
+            Debug.WriteLine(DateTime.Now);
 
             loadNew();
         }
@@ -61,7 +64,7 @@ namespace MainForm.View.TrangChu
                         foreach (var act in new DAO.SqlToLinq.Action().getSubMenuByIdAct(Act.Id, Acts))
                         {
                             ToolStripMenuItem subMenuItem = new ToolStripMenuItem(act.Name);
-                            subMenuItem.Tag = Act.Id;
+                            subMenuItem.Tag = act.Id;
                             subMenuItem.Click += SubMenuItem_Click;
                             menuItem.DropDownItems.Add(subMenuItem);
                         }
@@ -89,8 +92,8 @@ namespace MainForm.View.TrangChu
             ToolStripMenuItem clickedMenuItem = (ToolStripMenuItem)sender;
 
             string value = clickedMenuItem.Tag?.ToString(); // Id action
-
-            string className = "QuanLySach.Sach.QuanLySach";
+            var Act = new DAO.SqlToLinq.Action().getById(int.Parse(value));
+            string className = Act.Controller + "." + Act.ActionName;
 
             Type panelType = Type.GetType(className);
 
@@ -100,6 +103,7 @@ namespace MainForm.View.TrangChu
 
                 if (subPanel is Control)
                 {
+                    pnNoiDung.Controls.Clear();
                     pnNoiDung.Controls.Add(subPanel as Control);
                 }
                 else
@@ -115,13 +119,32 @@ namespace MainForm.View.TrangChu
 
         private void SubMenuItem_Click(object sender, EventArgs e)
         {
-            // Xử lý sự kiện khi một mục menu con được chọn
             ToolStripMenuItem clickedMenuItem = (ToolStripMenuItem)sender;
 
-            // Lấy giá trị từ thuộc tính Tag
-            string value = clickedMenuItem.Tag?.ToString();
+            string value = clickedMenuItem.Tag?.ToString(); // Id action
+            var Act = new DAO.SqlToLinq.Action().getById(int.Parse(value));
+            string className = Act.Controller + "." + Act.ActionName;
 
-            MessageBox.Show($"Selected Sub Menu: {clickedMenuItem.Text}, Value: {value}");
+            Type panelType = Type.GetType(className);
+
+            if (panelType != null)
+            {
+                var subPanel = Activator.CreateInstance(panelType);
+
+                if (subPanel is Control)
+                {
+                    pnNoiDung.Controls.Clear();
+                    pnNoiDung.Controls.Add(subPanel as Control);
+                }
+                else
+                {
+                    MessageBox.Show("Không thể thêm subPanel vào Container vì kiểu không đúng.");
+                }
+            }
+            else
+            {
+                MessageBox.Show("Không thể tìm thấy lớp có tên " + className);
+            }
         }
 
     }

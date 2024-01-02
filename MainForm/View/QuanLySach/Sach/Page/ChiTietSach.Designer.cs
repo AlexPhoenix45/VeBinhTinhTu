@@ -375,7 +375,6 @@
             button1.TabIndex = 15;
             button1.Text = "↩";
             button1.UseVisualStyleBackColor = true;
-            button1.Click += button1_Click;
             // 
             // ChiTietSach
             // 
@@ -450,8 +449,8 @@
         private Panel panel1;
         private Label txtTen;
         private Label label1;
-        private Button btnXoa;
+        public Button btnXoa;
         private Button btnSua;
-        private Button button1;
+        public Button button1;
     }
 }

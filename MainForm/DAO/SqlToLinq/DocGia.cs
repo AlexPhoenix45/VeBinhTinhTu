@@ -62,6 +62,18 @@ namespace DAO.SqlToLinq
 
             return null;
         }
+
+        public Models.DocGia getById(int id)
+        {
+            var dg = new DocGia().getAll().Where(x => x.Id == id).FirstOrDefault();
+
+            if (dg != null)
+            {
+                return dg;
+            }
+
+            return null;
+        }
     }
 
 }
