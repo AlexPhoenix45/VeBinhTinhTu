@@ -50,6 +50,20 @@ namespace DAO.SqlToLinq
         }
 
 
+        public int tongSach(int IdSach)
+        {
+            try
+            {
+                var All = getAll().Where(x => x.IdSach == IdSach && (new DAO.SqlToLinq.PhieuMuon().getById(x.IdPhieuMuon).Status == 1)).ToList().Count;
+                return All;
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+            return 0;
+        }
+
         public bool UpdateAll(List<int> Id, List<double> TiLe)
         {
             try

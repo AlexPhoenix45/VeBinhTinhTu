@@ -91,3 +91,4 @@ D:\LapTrinhWindow\QuanLyThuVien\MainForm\bin\Debug\net8.0-windows\runtimes\win-x
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\bin\Debug\net8.0-windows\runtimes\win-x86\native\Microsoft.Data.SqlClient.SNI.dll
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\bin\Debug\net8.0-windows\runtimes\win\lib\netstandard2.0\System.Runtime.Caching.dll
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.BaoCaoThongKe.BaoCaoThongKe.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyChucNang.QuanLyPhanQuyen.resources

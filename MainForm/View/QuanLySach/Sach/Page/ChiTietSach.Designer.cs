@@ -59,6 +59,9 @@
             btnXoa = new Button();
             btnSua = new Button();
             button1 = new Button();
+            panel10 = new Panel();
+            txtConLai = new Label();
+            label4 = new Label();
             ((System.ComponentModel.ISupportInitialize)anhSach).BeginInit();
             panel5.SuspendLayout();
             panel6.SuspendLayout();
@@ -69,6 +72,7 @@
             panel2.SuspendLayout();
             panel9.SuspendLayout();
             panel1.SuspendLayout();
+            panel10.SuspendLayout();
             SuspendLayout();
             // 
             // anhSach
@@ -85,7 +89,7 @@
             panel5.AutoSize = true;
             panel5.Controls.Add(txtNXB);
             panel5.Controls.Add(label10);
-            panel5.Location = new Point(714, 284);
+            panel5.Location = new Point(714, 275);
             panel5.Name = "panel5";
             panel5.Size = new Size(385, 39);
             panel5.TabIndex = 8;
@@ -114,7 +118,7 @@
             panel6.AutoSize = true;
             panel6.Controls.Add(txtTaiBan);
             panel6.Controls.Add(label12);
-            panel6.Location = new Point(714, 374);
+            panel6.Location = new Point(714, 365);
             panel6.Name = "panel6";
             panel6.Size = new Size(385, 39);
             panel6.TabIndex = 9;
@@ -143,7 +147,7 @@
             panel4.AutoSize = true;
             panel4.Controls.Add(txtTL);
             panel4.Controls.Add(label5);
-            panel4.Location = new Point(714, 239);
+            panel4.Location = new Point(714, 230);
             panel4.Name = "panel4";
             panel4.Size = new Size(385, 39);
             panel4.TabIndex = 7;
@@ -172,7 +176,7 @@
             panel7.AutoSize = true;
             panel7.Controls.Add(txtSoLuong);
             panel7.Controls.Add(label14);
-            panel7.Location = new Point(714, 419);
+            panel7.Location = new Point(714, 410);
             panel7.Name = "panel7";
             panel7.Size = new Size(385, 39);
             panel7.TabIndex = 10;
@@ -201,7 +205,7 @@
             panel3.AutoSize = true;
             panel3.Controls.Add(txtTG);
             panel3.Controls.Add(label6);
-            panel3.Location = new Point(714, 194);
+            panel3.Location = new Point(714, 185);
             panel3.Name = "panel3";
             panel3.Size = new Size(385, 39);
             panel3.TabIndex = 6;
@@ -230,7 +234,7 @@
             panel8.AutoSize = true;
             panel8.Controls.Add(txtNamXB);
             panel8.Controls.Add(label16);
-            panel8.Location = new Point(714, 329);
+            panel8.Location = new Point(714, 320);
             panel8.Name = "panel8";
             panel8.Size = new Size(385, 39);
             panel8.TabIndex = 11;
@@ -259,7 +263,7 @@
             panel2.AutoSize = true;
             panel2.Controls.Add(txtMoTa);
             panel2.Controls.Add(label3);
-            panel2.Location = new Point(714, 104);
+            panel2.Location = new Point(714, 95);
             panel2.Name = "panel2";
             panel2.Size = new Size(385, 84);
             panel2.TabIndex = 5;
@@ -289,7 +293,7 @@
             panel9.AutoSize = true;
             panel9.Controls.Add(txtGia);
             panel9.Controls.Add(label18);
-            panel9.Location = new Point(714, 464);
+            panel9.Location = new Point(714, 500);
             panel9.Name = "panel9";
             panel9.Size = new Size(385, 39);
             panel9.TabIndex = 12;
@@ -319,7 +323,7 @@
             panel1.AutoSize = true;
             panel1.Controls.Add(txtTen);
             panel1.Controls.Add(label1);
-            panel1.Location = new Point(714, 43);
+            panel1.Location = new Point(714, 34);
             panel1.Name = "panel1";
             panel1.Size = new Size(385, 55);
             panel1.TabIndex = 4;
@@ -376,11 +380,41 @@
             button1.Text = "↩";
             button1.UseVisualStyleBackColor = true;
             // 
+            // panel10
+            // 
+            panel10.AutoSize = true;
+            panel10.Controls.Add(txtConLai);
+            panel10.Controls.Add(label4);
+            panel10.Location = new Point(714, 455);
+            panel10.Name = "panel10";
+            panel10.Size = new Size(385, 39);
+            panel10.TabIndex = 16;
+            // 
+            // txtConLai
+            // 
+            txtConLai.AutoSize = true;
+            txtConLai.Location = new Point(114, 11);
+            txtConLai.MaximumSize = new Size(280, 0);
+            txtConLai.Name = "txtConLai";
+            txtConLai.Size = new Size(58, 20);
+            txtConLai.TabIndex = 4;
+            txtConLai.Text = "label17";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(3, 11);
+            label4.Name = "label4";
+            label4.Size = new Size(58, 20);
+            label4.TabIndex = 1;
+            label4.Text = "Còn lại:";
+            // 
             // ChiTietSach
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoScroll = true;
+            Controls.Add(panel10);
             Controls.Add(button1);
             Controls.Add(btnSua);
             Controls.Add(btnXoa);
@@ -415,6 +449,8 @@
             panel9.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            panel10.ResumeLayout(false);
+            panel10.PerformLayout();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -452,5 +488,8 @@
         public Button btnXoa;
         private Button btnSua;
         public Button button1;
+        private Panel panel10;
+        private Label txtConLai;
+        private Label label4;
     }
 }

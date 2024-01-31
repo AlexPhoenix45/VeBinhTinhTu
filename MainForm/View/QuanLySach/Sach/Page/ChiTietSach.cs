@@ -31,7 +31,7 @@ namespace QuanLySach.Sach
             }
 
 
-            var sua = ACT.Where(x => x.Status == 1 && x.Name.Equals("XoaSach")).FirstOrDefault();
+            var sua = ACT.Where(x => x.Status == 1 && x.Name.Equals("SuaSach")).FirstOrDefault();
 
             var roleS = RACT.Where(x => x.Status == 1 && x.IdAction == sua.Id && x.IdRole == Models.Session.Role.Id).FirstOrDefault();
 
@@ -74,6 +74,7 @@ namespace QuanLySach.Sach
             txtNXB.Text = new DAO.SqlToLinq.NhaXuatBan().getById(s.IdTheLoai).TenNhaXuatBan.ToString();
             txtNamXB.Text = s.NamXuatBan.ToString();
             txtSoLuong.Text = s.SoLuong.ToString();
+            txtConLai.Text = (s.SoLuong - new DAO.SqlToLinq.ChiTietMuon().tongSach(IdSach)).ToString();
             txtTaiBan.Text = s.TaiBan.ToString();
             txtGia.Text = s.GiaSach.ToString();
         }

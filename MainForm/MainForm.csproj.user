@@ -7,6 +7,9 @@
     <Compile Update="View\BaoCaoThongKe\BaoCaoThongKe.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="View\QuanLyChucNang\QuanLyPhanQuyen\QuanLyPhanQuyen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="View\QuanLyMuonTra\Page\QuanLyMuon\ChiTietPhieuMuon.cs">
       <SubType>Form</SubType>
     </Compile>

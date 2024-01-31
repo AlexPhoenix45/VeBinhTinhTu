@@ -71,11 +71,11 @@ namespace DAO.SqlToLinq
 
                 if (!string.IsNullOrEmpty(Ten))
                 {
-                    list = list.Where(x => x.TenSach.Contains(Ten)).ToList();
+                    list = list.Where(x => x.TenSach.ToLower().Contains(Ten.ToLower())).ToList();
                 }
                 if (!string.IsNullOrEmpty(moTa))
                 {
-                    list = list.Where(x => x.MoTa.Contains(moTa)).ToList();
+                    list = list.Where(x => x.MoTa.ToLower().Contains(moTa.ToLower())).ToList();
                 }
                 if (!string.IsNullOrEmpty(listIdTG))
                 {
