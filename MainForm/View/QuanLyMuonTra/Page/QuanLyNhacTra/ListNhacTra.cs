@@ -21,8 +21,9 @@ namespace View.QuanLyMuonTra.QuanLyNhacTra
 
         private void loadNew()
         {
+            pnTable.Controls.Clear();
             int i = 1;
-            foreach (var x in new DAO.SqlToLinq.PhieuMuon().getAll().Where(x => x.Status == 1))
+            foreach (var x in new DAO.SqlToLinq.PhieuMuon().getAll().Where(x => x.Status == 1).OrderByDescending(x => x.Id))
             {
                 var row = new QuanLyNhacTra.ModelNhacTra();
 
@@ -56,7 +57,7 @@ namespace View.QuanLyMuonTra.QuanLyNhacTra
         {
             pnTable.Controls.Clear();
             int i = 1;
-            foreach (var x in new DAO.SqlToLinq.PhieuMuon().getAll().Where(x => x.Status == 1))
+            foreach (var x in new DAO.SqlToLinq.PhieuMuon().getAll().Where(x => x.Status == 1).OrderByDescending(x => x.Id))
             {
                 var row = new QuanLyNhacTra.ModelNhacTra();
 
@@ -113,11 +114,18 @@ namespace View.QuanLyMuonTra.QuanLyNhacTra
 
         private void taoAll_Click(object sender, EventArgs e)
         {
+            var ma = txtMaDG.Text;
+            var ten = txtTen.Text;
 
-            var phieuCanTao = new DAO.SqlToLinq.PhieuMuon().getAll().Where(x => x.Status == 1).ToList(); // cần thay bằng hàm tìm kiếm
+            var dg = new DAO.SqlToLinq.DocGia();
+            var us = new DAO.SqlToLinq.Users();
+
+            var phieuCanTao = new DAO.SqlToLinq.PhieuMuon().getAll().Where(x => (ma != string.Empty ? dg.getById(x.IdDocGia).MaDocGia.ToLower().Contains(ma.ToLower()) : true)
+                                                                                && (ten != string.Empty ? us.getById(dg.getById(x.IdDocGia).IdUser).TaiKhoan.ToLower().Contains(ten.ToLower()) : true)
+                                                                               && x.Status == 1).OrderByDescending(x => x.Id).ToList(); // cần thay bằng hàm tìm kiếm
 
             int dem = 0;
-            foreach ( var x in phieuCanTao)
+            foreach (var x in phieuCanTao)
             {
                 var createPhieuNhac = new View.QuanLyMuonTra.QuanLyNhacTra.CreatePhieuNhac(x);
 
@@ -128,6 +136,55 @@ namespace View.QuanLyMuonTra.QuanLyNhacTra
             }
 
             MessageBox.Show(dem + " phiếu tạo thành công\n\n" + (phieuCanTao.Count - dem) + " phiếu tạo thất bại");
+
+            TimKiem();
+        }
+
+        private void TimKiem()
+        {
+            pnTable.Controls.Clear();
+            var ma = txtMaDG.Text;
+            var ten = txtTen.Text;
+
+            var dg = new DAO.SqlToLinq.DocGia();
+            var us = new DAO.SqlToLinq.Users();
+
+            int i = 1;
+            foreach (var x in new DAO.SqlToLinq.PhieuMuon().getAll().Where(x => (ma != string.Empty ? dg.getById(x.IdDocGia).MaDocGia.ToLower().Contains(ma.ToLower()) : true)
+                                                                                && (ten != string.Empty ? us.getById(dg.getById(x.IdDocGia).IdUser).TaiKhoan.ToLower().Contains(ten.ToLower()) : true)
+                                                                               && x.Status == 1).OrderByDescending(x => x.Id))
+            {
+                var row = new QuanLyNhacTra.ModelNhacTra();
+
+                row.lblSTT.Text = i.ToString();
+                row.lblMDG.Text = new DAO.SqlToLinq.DocGia().getById(x.IdDocGia).MaDocGia;
+                row.lblNgayMuon.Text = x.NgayMuon.ToString("dd/MM/yyyy");
+                row.lblNgayHenTra.Text = x.NgayHenTra.ToString("dd/MM/yyyy");
+                row.lblGhiChuMuon.Text = x.GhiChuMuon;
+
+                row.btnThaoTac.BackColor = Color.LightBlue;
+                row.btnThaoTac.Text = "Tạo phiếu";
+
+                row.btnThaoTac.Click += (s, ev) => btnThaoTac_Click(s, ev, x);
+                var pnc = new DAO.SqlToLinq.PhieuNhacTra().getByIdPhieuMuon(x.Id);
+                if (pnc != null)
+                {
+                    if (pnc.NgayTao.Date == DateTime.Now.Date)
+                    {
+                        row.btnThaoTac.BackColor = Color.LightGreen;
+                        row.btnThaoTac.Text = "Xem";
+                    }
+                }
+
+                pnTable.Controls.Add(row);
+
+                i++;
+            }
+        }
+
+        private void btnTK_Click(object sender, EventArgs e)
+        {
+            TimKiem();
         }
     }
 }

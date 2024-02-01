@@ -213,7 +213,17 @@ namespace View.BaoCaoThongKe
 
             DrawPieChart2();
             DrawPieChart();
-            DrawDoubleBarChart();
+            var ACT = new DAO.SqlToLinq.Action().getAll();
+            var RACT = new DAO.SqlToLinq.RoleAction().getAll();
+
+            var xoa = ACT.Where(x => x.Status == 1 && x.Name.Equals("ThongKeChatLuongNhanVien")).FirstOrDefault();
+
+            var roleX = RACT.Where(x => x.Status == 1 && x.IdAction == xoa.Id && x.IdRole == Models.Session.Role.Id).FirstOrDefault();
+
+            if (roleX != null)
+            {
+                DrawDoubleBarChart();
+            }
         }
 
         private void BaoCaoThongKe_Load(object sender, EventArgs e)

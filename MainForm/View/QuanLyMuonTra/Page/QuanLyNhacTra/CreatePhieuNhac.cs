@@ -65,7 +65,6 @@ namespace View.QuanLyMuonTra.QuanLyNhacTra
             txtTongPhi.Text = tongPhi + " VND";
 
             var PhieuNhac = new DAO.SqlToLinq.PhieuNhacTra().getByIdPhieuMuon(Phieu.Id);
-                    Debug.WriteLine(PhieuNhac.NgayTao.Date);
             if (PhieuNhac != null)
             {
                 if (PhieuNhac.NgayTao.Date == DateTime.Now.Date)

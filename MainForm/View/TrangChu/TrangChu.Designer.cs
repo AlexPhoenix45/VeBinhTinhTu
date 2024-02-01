@@ -66,7 +66,7 @@
             // txtRoleCode
             // 
             txtRoleCode.AutoSize = true;
-            txtRoleCode.Location = new Point(100, 52);
+            txtRoleCode.Location = new Point(13, 68);
             txtRoleCode.Name = "txtRoleCode";
             txtRoleCode.Size = new Size(50, 20);
             txtRoleCode.TabIndex = 3;
@@ -75,7 +75,7 @@
             // txtTaiKhoan
             // 
             txtTaiKhoan.AutoSize = true;
-            txtTaiKhoan.Location = new Point(100, 19);
+            txtTaiKhoan.Location = new Point(13, 48);
             txtTaiKhoan.Name = "txtTaiKhoan";
             txtTaiKhoan.Size = new Size(56, 20);
             txtTaiKhoan.TabIndex = 2;

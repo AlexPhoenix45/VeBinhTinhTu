@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            pictureBox1 = new PictureBox();
+            QR = new PictureBox();
             panel1 = new Panel();
             pnNoiDung = new FlowLayoutPanel();
             pnListSach = new FlowLayoutPanel();
@@ -36,27 +36,28 @@
             btnXN2 = new Button();
             btnHuy = new Button();
             btnTao = new Button();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)QR).BeginInit();
             panel1.SuspendLayout();
             pnNoiDung.SuspendLayout();
             pnBtn.SuspendLayout();
             SuspendLayout();
             // 
-            // pictureBox1
+            // QR
             // 
-            pictureBox1.Location = new Point(800, 103);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(250, 250);
-            pictureBox1.TabIndex = 0;
-            pictureBox1.TabStop = false;
+            QR.Location = new Point(800, 81);
+            QR.Name = "QR";
+            QR.Size = new Size(313, 384);
+            QR.SizeMode = PictureBoxSizeMode.Zoom;
+            QR.TabIndex = 0;
+            QR.TabStop = false;
             // 
             // panel1
             // 
             panel1.Controls.Add(pnNoiDung);
-            panel1.Controls.Add(pictureBox1);
+            panel1.Controls.Add(QR);
             panel1.Location = new Point(6, 7);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1065, 538);
+            panel1.Size = new Size(1128, 541);
             panel1.TabIndex = 1;
             // 
             // pnNoiDung
@@ -126,13 +127,13 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1083, 706);
+            ClientSize = new Size(1146, 709);
             Controls.Add(pnBtn);
             Controls.Add(panel1);
             Name = "ThanhToan";
             StartPosition = FormStartPosition.CenterScreen;
             Text = "ThanhToan";
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)QR).EndInit();
             panel1.ResumeLayout(false);
             pnNoiDung.ResumeLayout(false);
             pnBtn.ResumeLayout(false);
@@ -141,7 +142,7 @@
 
         #endregion
 
-        private PictureBox pictureBox1;
+        private PictureBox QR;
         private Panel panel1;
         private FlowLayoutPanel pnListSach;
         private FlowLayoutPanel pnNoiDung;

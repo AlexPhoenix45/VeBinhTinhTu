@@ -28,10 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox1 = new TextBox();
-            textBox2 = new TextBox();
+            txtMaDG = new TextBox();
             lblMaDG = new Label();
-            lblTen = new Label();
             btnTK = new Button();
             pnTable = new FlowLayoutPanel();
             panel1 = new Panel();
@@ -43,19 +41,12 @@
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox1
+            // txtMaDG
             // 
-            textBox1.Location = new Point(30, 69);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(140, 27);
-            textBox1.TabIndex = 1;
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(192, 69);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(140, 27);
-            textBox2.TabIndex = 2;
+            txtMaDG.Location = new Point(30, 69);
+            txtMaDG.Name = "txtMaDG";
+            txtMaDG.Size = new Size(140, 27);
+            txtMaDG.TabIndex = 1;
             // 
             // lblMaDG
             // 
@@ -66,18 +57,9 @@
             lblMaDG.TabIndex = 3;
             lblMaDG.Text = "Mã độc giả";
             // 
-            // lblTen
-            // 
-            lblTen.AutoSize = true;
-            lblTen.Location = new Point(192, 36);
-            lblTen.Name = "lblTen";
-            lblTen.Size = new Size(56, 20);
-            lblTen.TabIndex = 4;
-            lblTen.Text = "Họ Tên";
-            // 
             // btnTK
             // 
-            btnTK.Location = new Point(368, 67);
+            btnTK.Location = new Point(254, 67);
             btnTK.Name = "btnTK";
             btnTK.Size = new Size(94, 29);
             btnTK.TabIndex = 5;
@@ -164,10 +146,8 @@
             Controls.Add(panel1);
             Controls.Add(pnTable);
             Controls.Add(btnTK);
-            Controls.Add(lblTen);
             Controls.Add(lblMaDG);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtMaDG);
             Name = "TaoPhieuMuon";
             Size = new Size(1544, 926);
             panel1.ResumeLayout(false);
@@ -177,10 +157,8 @@
         }
 
         #endregion
-        private TextBox textBox1;
-        private TextBox textBox2;
+        private TextBox txtMaDG;
         private Label lblMaDG;
-        private Label lblTen;
         private Button btnTK;
         private FlowLayoutPanel pnTable;
         private Panel panel1;

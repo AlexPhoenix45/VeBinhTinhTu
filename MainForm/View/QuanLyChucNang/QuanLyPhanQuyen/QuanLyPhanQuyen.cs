@@ -47,7 +47,7 @@ namespace View.QuanLyChucNang
 
                         var pr = new Label();
                         pr.Width = lbl.Width - 25;
-                        pr.Text = name.Name;
+                        pr.Text = "* Truy cập";
 
                         pnUpdate.Controls.Add(pr);
 
@@ -65,7 +65,7 @@ namespace View.QuanLyChucNang
                     }
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 Debug.WriteLine(e.Message);
             }
@@ -94,7 +94,7 @@ namespace View.QuanLyChucNang
 
                     var pr = new CheckBox();
                     pr.Width = lbl.Width - 20;
-                    pr.Text = name.Name;
+                    pr.Text = "* Truy cập";
                     pr.Tag = name.Id;
 
                     if (new DAO.SqlToLinq.RoleAction().getByIdRoleAndAction(IdRole, name.Id) != null)
@@ -256,7 +256,7 @@ namespace View.QuanLyChucNang
                         var RA = new DAO.SqlToLinq.RoleAction().getById(id);
                         RA.Status = 0;
 
-                        if(new DAO.SqlToLinq.RoleAction().Update(RA))
+                        if (new DAO.SqlToLinq.RoleAction().Update(RA))
                         {
                             Debug.WriteLine("Set 0 " + Act.Name);
                         }
@@ -280,10 +280,10 @@ namespace View.QuanLyChucNang
                 }
 
 
-                foreach (var IdAct in list) 
+                foreach (var IdAct in list)
                 {
                     var id = new DAO.SqlToLinq.RoleAction().checkExist(IdRole, IdAct);
-                    if(id != -1)
+                    if (id != -1)
                     {
                         var RA = new DAO.SqlToLinq.RoleAction().getById(id);
                         RA.Status = 1;
@@ -297,8 +297,9 @@ namespace View.QuanLyChucNang
                 }
 
                 LoadNewActionInActive(IdRole);
+                new MainForm.View.TrangChu.TrangChu().loadNew();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Debug.WriteLine(ex.Message);
             }
@@ -306,20 +307,42 @@ namespace View.QuanLyChucNang
 
         private void button1_Click(object sender, EventArgs e)
         {
-            if(role1.Count > 0)
+            if (role1.Count > 0)
             {
                 Update(role1, 1);
+                if (Models.Session.Role.Id == 1)
+                {
+                    MessageBox.Show("Thành công, hãy mở lại để hoàn tất cập nhật");
+                }
+                else
+                {
+                    MessageBox.Show("Đã cập nhật");
+                }
             }
-            if(role2.Count > 0)
+            if (role2.Count > 0)
             {
                 Update(role2, 2);
+                if (Models.Session.Role.Id == 2)
+                {
+                    MessageBox.Show("Thành công, hãy mở lại để hoàn tất cập nhật");
+                }
+                else
+                {
+                    MessageBox.Show("Đã cập nhật");
+                }
             }
-            if(role3.Count > 0)
+            if (role3.Count > 0)
             {
                 Update(role3, 3);
+                if (Models.Session.Role.Id == 3)
+                {
+                    MessageBox.Show("Thành công, hãy mở lại để hoàn tất cập nhật");
+                }
+                else
+                {
+                    MessageBox.Show("Đã cập nhật");
+                }
             }
-
-            MessageBox.Show("Đã cập nhật");
 
         }
     }

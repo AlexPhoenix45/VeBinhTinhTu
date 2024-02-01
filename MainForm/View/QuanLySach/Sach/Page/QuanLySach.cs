@@ -22,9 +22,9 @@ namespace QuanLySach.Sach
             InitializeComponent();
 
 
-            var them = new DAO.SqlToLinq.Action().getAll().Where(x => x.Name.Equals("ThemSach")).FirstOrDefault();
+            var them = new DAO.SqlToLinq.Action().getAll().Where(x => x.Name.Equals("ThemSach") && x.Status == 1).FirstOrDefault();
 
-            var role = new DAO.SqlToLinq.RoleAction().getAll().Where(x => x.IdAction == them.Id && x.IdRole == Models.Session.Role.Id).FirstOrDefault();
+            var role = new DAO.SqlToLinq.RoleAction().getAll().Where(x => x.IdAction == them.Id && x.IdRole == Models.Session.Role.Id && x.Status == 1).FirstOrDefault();
 
             if(role == null)
             {

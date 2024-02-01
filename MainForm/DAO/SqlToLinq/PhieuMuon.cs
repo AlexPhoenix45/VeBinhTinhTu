@@ -115,6 +115,24 @@ namespace DAO.SqlToLinq
         }
 
 
+        public bool checkDGMuonSach(int idDG)
+        {
+            var p = new Models.PhieuMuon();
+            try
+            {
+                p = new PhieuMuon().getAll().Where(x => x.IdDocGia == idDG && x.Status == 1).FirstOrDefault();
+                if (p == null)
+                {
+                    return true;
+                }
+            }
+            catch (Exception e)
+            {
+                Debug.WriteLine(e.Message);
+            }
+            return false;
+        }
+
         public Models.PhieuMuon getById(int id)
         {
             var p = new Models.PhieuMuon();

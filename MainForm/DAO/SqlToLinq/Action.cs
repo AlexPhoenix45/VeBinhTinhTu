@@ -62,7 +62,7 @@ namespace DAO.SqlToLinq
             var act = new Models.Action();
             try
             {
-                act = new Action().getAll().Where(x => x.Id == IdAct && x.IsChucNangHien == 1).FirstOrDefault();
+                act = new Action().getAll().Where(x => x.Id == IdAct && x.Status == 1).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -105,7 +105,7 @@ namespace DAO.SqlToLinq
             var acts = new List<Models.Action>();
             try
             {
-                acts = Acts.Where(x => x.IdParent == IdAct && x.Status == 1).ToList();
+                acts = Acts.Where(x => x.IdParent == IdAct&& x.IsChucNangHien == 1 && x.Status == 1).ToList();
             }
             catch (Exception ex)
             {
@@ -113,5 +113,83 @@ namespace DAO.SqlToLinq
             }
             return acts;
         }
+
+        public bool Insert(Models.Action action)
+        {
+            try
+            {
+                using (var conn = new DAO.Connection.SqlConn().Conn())
+                {
+                    if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
+
+                    string sql = @"INSERT INTO [Action] (IdParent, Name, Controller, Action, IsChucNangHien, CreateAt, UpdateAt, Status) 
+                           VALUES (@IdParent, @Name, @Controller, @Action, @IsChucNangHien, @CreateAt, @UpdateAt, @Status)";
+
+                    var command = new SqlCommand(sql, conn);
+                    command.Parameters.AddWithValue("@IdParent", action.IdParent);
+                    command.Parameters.AddWithValue("@Name", action.Name);
+                    command.Parameters.AddWithValue("@Controller", action.Controller);
+                    command.Parameters.AddWithValue("@Action", action.ActionName);
+                    command.Parameters.AddWithValue("@IsChucNangHien", action.IsChucNangHien);
+                    command.Parameters.AddWithValue("@CreateAt", action.CreateAt);
+                    command.Parameters.AddWithValue("@UpdateAt", action.UpdateAt);
+                    command.Parameters.AddWithValue("@Status", action.Status);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message.ToString());
+                return false;
+            }
+        }
+
+
+        public bool Update(Models.Action action)
+        {
+            try
+            {
+                using (var conn = new DAO.Connection.SqlConn().Conn())
+                {
+                    if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
+
+                    string sql = @"UPDATE [Action] 
+                           SET IdParent = @IdParent, Name = @Name, Controller = @Controller, 
+                               Action = @Action, IsChucNangHien = @IsChucNangHien, 
+                               CreateAt = @CreateAt, UpdateAt = @UpdateAt, Status = @Status
+                           WHERE Id = @Id";
+
+                    var command = new SqlCommand(sql, conn);
+                    command.Parameters.AddWithValue("@IdParent", action.IdParent);
+                    command.Parameters.AddWithValue("@Name", action.Name);
+                    command.Parameters.AddWithValue("@Controller", action.Controller);
+                    command.Parameters.AddWithValue("@Action", action.ActionName);
+                    command.Parameters.AddWithValue("@IsChucNangHien", action.IsChucNangHien);
+                    command.Parameters.AddWithValue("@CreateAt", action.CreateAt);
+                    command.Parameters.AddWithValue("@UpdateAt", action.UpdateAt);
+                    command.Parameters.AddWithValue("@Status", action.Status);
+                    command.Parameters.AddWithValue("@Id", action.Id);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message.ToString());
+                return false;
+            }
+        }
+
     }
 }

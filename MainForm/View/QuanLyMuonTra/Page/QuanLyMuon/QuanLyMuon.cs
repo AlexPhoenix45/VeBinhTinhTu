@@ -67,6 +67,35 @@ namespace View.QuanLyMuonTra.QuanLyMuon
             }
         }
 
+        private void btnTK_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                pnTable.Controls.Clear();
+                var ma = txtMaDG.Text;
+                var ten = txtTen.Text;
+
+                var dg = new DAO.SqlToLinq.DocGia();
+                var us = new DAO.SqlToLinq.Users();
+
+                int i = 1;
+                foreach (var p in new DAO.SqlToLinq.PhieuMuon().getAll().Where(x => (ma != string.Empty? dg.getById(x.IdDocGia).MaDocGia.ToLower().Contains(ma.ToLower()) : true) &&
+                                                                                     (ten != string.Empty? us.getById(dg.getById(x.IdDocGia).IdUser).TaiKhoan.ToLower().Contains(ten.ToLower()) : true)&&
+                                                                                x.Status >= 0).OrderByDescending(x => x.Id).ToList())
+                {
+                    var row = new View.QuanLyMuonTra.QuanLyMuon.ModelListPhieuMuon(i, p);
+                    row.QuanLyMuon = this;
+
+                    pnTable.Controls.Add(row);
+                    i++;
+                }
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 
 

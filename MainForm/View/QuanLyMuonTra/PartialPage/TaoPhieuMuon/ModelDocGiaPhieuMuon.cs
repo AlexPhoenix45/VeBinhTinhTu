@@ -38,11 +38,12 @@ namespace View.QuanLyMuonTra.QuanLyPhieuMuon
             lblTenDG.Text = TenDG;
             if (Status)
             {
-                lblStatus.Text = "Đã Trả";
+                lblStatus.Text = "";
             }
             else
             {
-                lblStatus.Text = "Chưa Trả";
+                lblStatus.Text = "Chưa Trả sách";
+                btnTaoPhieu.Visible = false;
             }
         }
 

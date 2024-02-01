@@ -44,10 +44,8 @@
             btnTK = new Button();
             lblTen = new Label();
             lblMaDG = new Label();
-            textBox2 = new TextBox();
-            textBox1 = new TextBox();
-            label3 = new Label();
-            textBox3 = new TextBox();
+            txtTen = new TextBox();
+            txtMaDG = new TextBox();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -100,7 +98,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Cambria", 12F);
-            label1.Location = new Point(1013, 29);
+            label1.Location = new Point(1034, 29);
             label1.MaximumSize = new Size(200, 0);
             label1.MinimumSize = new Size(200, 0);
             label1.Name = "label1";
@@ -113,11 +111,11 @@
             // 
             lblPhatMuon.AutoSize = true;
             lblPhatMuon.Font = new Font("Cambria", 12F);
-            lblPhatMuon.Location = new Point(831, 29);
+            lblPhatMuon.Location = new Point(823, 29);
             lblPhatMuon.Name = "lblPhatMuon";
-            lblPhatMuon.Size = new Size(76, 23);
+            lblPhatMuon.Size = new Size(103, 23);
             lblPhatMuon.TabIndex = 36;
-            lblPhatMuon.Text = "123456";
+            lblPhatMuon.Text = "Phạt muộn";
             // 
             // lblPhatHuHai
             // 
@@ -125,19 +123,19 @@
             lblPhatHuHai.Font = new Font("Cambria", 12F);
             lblPhatHuHai.Location = new Point(932, 29);
             lblPhatHuHai.Name = "lblPhatHuHai";
-            lblPhatHuHai.Size = new Size(76, 23);
+            lblPhatHuHai.Size = new Size(96, 23);
             lblPhatHuHai.TabIndex = 35;
-            lblPhatHuHai.Text = "123456";
+            lblPhatHuHai.Text = "Phạt hỏng";
             // 
             // lblPhiMuon
             // 
             lblPhiMuon.AutoSize = true;
             lblPhiMuon.Font = new Font("Cambria", 12F);
-            lblPhiMuon.Location = new Point(723, 29);
+            lblPhiMuon.Location = new Point(709, 29);
             lblPhiMuon.Name = "lblPhiMuon";
-            lblPhiMuon.Size = new Size(76, 23);
+            lblPhiMuon.Size = new Size(94, 23);
             lblPhiMuon.TabIndex = 34;
-            lblPhiMuon.Text = "123456";
+            lblPhiMuon.Text = "Phí mượn";
             // 
             // lblNgayTra
             // 
@@ -145,9 +143,9 @@
             lblNgayTra.Font = new Font("Cambria", 12F);
             lblNgayTra.Location = new Point(568, 29);
             lblNgayTra.Name = "lblNgayTra";
-            lblNgayTra.Size = new Size(118, 23);
+            lblNgayTra.Size = new Size(83, 23);
             lblNgayTra.TabIndex = 33;
-            lblNgayTra.Text = "12/12/2023";
+            lblNgayTra.Text = "Ngày trả";
             // 
             // lblNgayHenTra
             // 
@@ -155,9 +153,9 @@
             lblNgayHenTra.Font = new Font("Cambria", 12F);
             lblNgayHenTra.Location = new Point(420, 29);
             lblNgayHenTra.Name = "lblNgayHenTra";
-            lblNgayHenTra.Size = new Size(118, 23);
+            lblNgayHenTra.Size = new Size(119, 23);
             lblNgayHenTra.TabIndex = 32;
-            lblNgayHenTra.Text = "12/12/2023";
+            lblNgayHenTra.Text = "Ngày hẹn trả";
             // 
             // lblNgayMuon
             // 
@@ -165,9 +163,9 @@
             lblNgayMuon.Font = new Font("Cambria", 12F);
             lblNgayMuon.Location = new Point(271, 29);
             lblNgayMuon.Name = "lblNgayMuon";
-            lblNgayMuon.Size = new Size(118, 23);
+            lblNgayMuon.Size = new Size(110, 23);
             lblNgayMuon.TabIndex = 31;
-            lblNgayMuon.Text = "12/12/2023";
+            lblNgayMuon.Text = "Ngày mượn";
             // 
             // label4
             // 
@@ -200,12 +198,13 @@
             // 
             // btnTK
             // 
-            btnTK.Location = new Point(532, 52);
+            btnTK.Location = new Point(358, 54);
             btnTK.Name = "btnTK";
             btnTK.Size = new Size(94, 29);
             btnTK.TabIndex = 12;
             btnTK.Text = "Tìm kiếm";
             btnTK.UseVisualStyleBackColor = true;
+            btnTK.Click += btnTK_Click;
             // 
             // lblTen
             // 
@@ -225,49 +224,31 @@
             lblMaDG.TabIndex = 10;
             lblMaDG.Text = "Mã độc giả";
             // 
-            // textBox2
+            // txtTen
             // 
-            textBox2.Location = new Point(183, 54);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(140, 27);
-            textBox2.TabIndex = 9;
+            txtTen.Location = new Point(183, 54);
+            txtTen.Name = "txtTen";
+            txtTen.Size = new Size(140, 27);
+            txtTen.TabIndex = 9;
             // 
-            // textBox1
+            // txtMaDG
             // 
-            textBox1.Location = new Point(21, 54);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(140, 27);
-            textBox1.TabIndex = 8;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(343, 21);
-            label3.Name = "label3";
-            label3.Size = new Size(71, 20);
-            label3.TabIndex = 16;
-            label3.Text = "Mã phiếu";
-            // 
-            // textBox3
-            // 
-            textBox3.Location = new Point(343, 54);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(140, 27);
-            textBox3.TabIndex = 15;
+            txtMaDG.Location = new Point(21, 54);
+            txtMaDG.Name = "txtMaDG";
+            txtMaDG.Size = new Size(140, 27);
+            txtMaDG.TabIndex = 8;
             // 
             // QuanLyMuon
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label3);
-            Controls.Add(textBox3);
             Controls.Add(panel1);
             Controls.Add(pnTable);
             Controls.Add(btnTK);
             Controls.Add(lblTen);
             Controls.Add(lblMaDG);
-            Controls.Add(textBox2);
-            Controls.Add(textBox1);
+            Controls.Add(txtTen);
+            Controls.Add(txtMaDG);
             Name = "QuanLyMuon";
             Size = new Size(1734, 934);
             panel1.ResumeLayout(false);
@@ -298,5 +279,7 @@
         private Label lblNgayMuon;
         private Label label4;
         private Label lblSTT;
+        private TextBox txtTen;
+        private TextBox txtMaDG;
     }
 }

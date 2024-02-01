@@ -10,6 +10,18 @@
     <Compile Update="View\QuanLyChucNang\QuanLyPhanQuyen\QuanLyPhanQuyen.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="View\QuanLyChucNang\QuanLyQuyen\Page\QuanLyQuyen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyChucNang\QuanLyQuyen\Page\SuaQuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyChucNang\QuanLyQuyen\Page\ThemQuyen.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyChucNang\QuanLyQuyen\PartialPage\ModelsQuyen.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="View\QuanLyMuonTra\Page\QuanLyMuon\ChiTietPhieuMuon.cs">
       <SubType>Form</SubType>
     </Compile>

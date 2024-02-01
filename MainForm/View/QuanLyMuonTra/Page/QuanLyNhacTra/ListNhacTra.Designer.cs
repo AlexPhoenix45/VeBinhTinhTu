@@ -28,18 +28,16 @@
         /// </summary>
         private void InitializeComponent()
         {
-            textBox3 = new TextBox();
-            textBox1 = new TextBox();
+            txtMaDG = new TextBox();
             label5 = new Label();
             label1 = new Label();
             pnTable = new FlowLayoutPanel();
             btnTK = new Button();
             lblTen = new Label();
-            textBox2 = new TextBox();
+            txtTen = new TextBox();
             lblNgayHenTra = new Label();
             lblNgayMuon = new Label();
             label4 = new Label();
-            label3 = new Label();
             panel1 = new Panel();
             lblSTT = new Label();
             lblMaDG = new Label();
@@ -47,19 +45,12 @@
             panel1.SuspendLayout();
             SuspendLayout();
             // 
-            // textBox3
+            // txtMaDG
             // 
-            textBox3.Location = new Point(341, 53);
-            textBox3.Name = "textBox3";
-            textBox3.Size = new Size(140, 27);
-            textBox3.TabIndex = 24;
-            // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(19, 53);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(140, 27);
-            textBox1.TabIndex = 17;
+            txtMaDG.Location = new Point(19, 53);
+            txtMaDG.Name = "txtMaDG";
+            txtMaDG.Size = new Size(140, 27);
+            txtMaDG.TabIndex = 17;
             // 
             // label5
             // 
@@ -98,12 +89,13 @@
             // 
             // btnTK
             // 
-            btnTK.Location = new Point(530, 51);
+            btnTK.Location = new Point(345, 51);
             btnTK.Name = "btnTK";
             btnTK.Size = new Size(94, 29);
             btnTK.TabIndex = 21;
             btnTK.Text = "Tìm kiếm";
             btnTK.UseVisualStyleBackColor = true;
+            btnTK.Click += btnTK_Click;
             // 
             // lblTen
             // 
@@ -114,12 +106,12 @@
             lblTen.TabIndex = 20;
             lblTen.Text = "Họ Tên";
             // 
-            // textBox2
+            // txtTen
             // 
-            textBox2.Location = new Point(181, 53);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(140, 27);
-            textBox2.TabIndex = 18;
+            txtTen.Location = new Point(181, 53);
+            txtTen.Name = "txtTen";
+            txtTen.Size = new Size(140, 27);
+            txtTen.TabIndex = 18;
             // 
             // lblNgayHenTra
             // 
@@ -150,15 +142,6 @@
             label4.Size = new Size(101, 23);
             label4.TabIndex = 30;
             label4.Text = "Mã độc giả";
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(341, 20);
-            label3.Name = "label3";
-            label3.Size = new Size(71, 20);
-            label3.TabIndex = 25;
-            label3.Text = "Mã phiếu";
             // 
             // panel1
             // 
@@ -195,12 +178,13 @@
             // 
             // taoAll
             // 
+            taoAll.BackColor = SystemColors.InactiveCaption;
             taoAll.Location = new Point(25, 98);
             taoAll.Name = "taoAll";
             taoAll.Size = new Size(140, 34);
             taoAll.TabIndex = 26;
             taoAll.Text = "Tạo nhanh";
-            taoAll.UseVisualStyleBackColor = true;
+            taoAll.UseVisualStyleBackColor = false;
             taoAll.Click += taoAll_Click;
             // 
             // ListNhacTra
@@ -208,13 +192,11 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(taoAll);
-            Controls.Add(textBox3);
-            Controls.Add(textBox1);
+            Controls.Add(txtMaDG);
             Controls.Add(pnTable);
             Controls.Add(btnTK);
             Controls.Add(lblTen);
-            Controls.Add(textBox2);
-            Controls.Add(label3);
+            Controls.Add(txtTen);
             Controls.Add(panel1);
             Controls.Add(lblMaDG);
             Name = "ListNhacTra";
@@ -234,7 +216,8 @@
         private FlowLayoutPanel pnTable;
         private Button btnTK;
         private Label lblTen;
-        private TextBox textBox2;
+        private TextBox txtTen;
+        private TextBox txtMaDG;
         private Label lblNgayHenTra;
         private Label lblNgayMuon;
         private Label label4;

@@ -26,7 +26,7 @@ namespace MainForm.View.TrangChu
             loadNew();
         }
 
-        private void loadNew()
+        public void loadNew()
         {
             if (Models.Session.Users != null)
             {

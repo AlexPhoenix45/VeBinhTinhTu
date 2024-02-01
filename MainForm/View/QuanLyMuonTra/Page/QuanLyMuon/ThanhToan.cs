@@ -28,6 +28,7 @@ namespace View.QuanLyMuonTra.QuanLyMuon
             ListIdChiTiet = IdChiTiet;
             this.ListTiLe = ListTiLe;
             this.Phieu = Phieu;
+            QR.ImageLocation = @"D:\LapTrinhWindow\QuanLyThuVien\MainForm\Web\Img\QR.jpg";
 
             loadNew();
         }

@@ -288,7 +288,7 @@
             btnTao.Name = "btnTao";
             btnTao.Size = new Size(119, 35);
             btnTao.TabIndex = 28;
-            btnTao.Text = "Thanh toán";
+            btnTao.Text = "Nhắc trả";
             btnTao.UseVisualStyleBackColor = false;
             btnTao.Click += btnTao_Click;
             // 
