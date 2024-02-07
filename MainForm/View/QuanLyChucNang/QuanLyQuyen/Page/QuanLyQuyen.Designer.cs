@@ -169,6 +169,7 @@ namespace View.QuanLyChucNang
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             Controls.Add(label8);
             Controls.Add(button2);
             Controls.Add(panel2);

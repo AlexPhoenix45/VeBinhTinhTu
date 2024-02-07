@@ -67,5 +67,69 @@ namespace DAO.SqlToLinq
 
             return s;
         }
+        public bool Insert(Models.TacGia tacGia)
+        {
+            try
+            {
+                using (var conn = new DAO.Connection.SqlConn().Conn())
+                {
+                    if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
+
+                    string sql = "INSERT INTO TacGia (TenTacGia, DiaChi, ChucDanh, Status) VALUES (@TenTacGia, @DiaChi, @ChucDanh, @Status)";
+
+                    var command = new SqlCommand(sql, conn);
+                    command.Parameters.AddWithValue("@TenTacGia", tacGia.TenTacGia);
+                    command.Parameters.AddWithValue("@DiaChi", tacGia.DiaChi);
+                    command.Parameters.AddWithValue("@ChucDanh", tacGia.ChucDanh);
+                    command.Parameters.AddWithValue("@Status", tacGia.Status);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message.ToString() + "cho Hien");
+                return false;
+            }
+        }
+
+        public bool Update(Models.TacGia tacGia)
+        {
+            try
+            {
+                using (var conn = new DAO.Connection.SqlConn().Conn())
+                {
+                    if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
+
+                    string sql = "UPDATE TacGia SET TenTacGia = @TenTacGia, DiaChi = @DiaChi, ChucDanh = @ChucDanh, Status = @Status WHERE Id = @Id";
+
+                    var command = new SqlCommand(sql, conn);
+                    command.Parameters.AddWithValue("@TenTacGia", tacGia.TenTacGia);
+                    command.Parameters.AddWithValue("@DiaChi", tacGia.DiaChi);
+                    command.Parameters.AddWithValue("@ChucDanh", tacGia.ChucDanh);
+                    command.Parameters.AddWithValue("@Status", tacGia.Status);
+                    command.Parameters.AddWithValue("@Id", tacGia.Id);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    Debug.WriteLine(rowsAffected);
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message + "cho Hien");
+                return false;
+            }
+        }
     }
 }

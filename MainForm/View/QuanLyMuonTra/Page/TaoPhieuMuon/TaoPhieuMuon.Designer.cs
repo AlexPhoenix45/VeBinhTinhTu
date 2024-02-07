@@ -143,6 +143,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             Controls.Add(panel1);
             Controls.Add(pnTable);
             Controls.Add(btnTK);

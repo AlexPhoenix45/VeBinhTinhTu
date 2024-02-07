@@ -43,6 +43,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             Controls.Add(ListNT);
             Name = "ViewNhacTra";
             Size = new Size(1332, 904);

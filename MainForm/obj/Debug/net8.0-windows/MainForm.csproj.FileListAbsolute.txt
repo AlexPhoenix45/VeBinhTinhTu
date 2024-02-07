@@ -96,3 +96,7 @@ D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyChu
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyChucNang.QuanLyQuyen.resources
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyChucNang.ThemQuyen.resources
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyChucNang.SuaQuyen.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgoai.QuanLyTacGia.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgoai.ModelTacGia.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgoai.ThemTacGia.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgoai.SuaTacGia.resources

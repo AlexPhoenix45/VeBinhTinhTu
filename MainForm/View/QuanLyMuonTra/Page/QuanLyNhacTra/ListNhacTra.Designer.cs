@@ -191,6 +191,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             Controls.Add(taoAll);
             Controls.Add(txtMaDG);
             Controls.Add(pnTable);

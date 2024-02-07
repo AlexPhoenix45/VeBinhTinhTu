@@ -14,7 +14,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="View\QuanLyNgoai\" />
+    <Folder Include="View\QuanLyTaiKhoan\DanhSachDocGia\" />
     <Folder Include="Web\Img\AnhSach\" />
 	  <Folder Include="XuLy\BaoCaoThongKe\" />
 	  <Folder Include="XuLy\QuanLyMuonTra\QuanLyPhieuNhacTra\" />

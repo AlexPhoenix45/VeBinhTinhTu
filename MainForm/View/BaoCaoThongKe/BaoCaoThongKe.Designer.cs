@@ -76,6 +76,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             Controls.Add(btnTK);
             Controls.Add(dateStart);
             Controls.Add(dateEnd);

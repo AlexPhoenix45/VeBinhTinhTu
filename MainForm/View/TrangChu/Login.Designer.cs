@@ -127,7 +127,7 @@
             txtTaiKhoan.Name = "txtTaiKhoan";
             txtTaiKhoan.Size = new Size(228, 27);
             txtTaiKhoan.TabIndex = 3;
-            txtTaiKhoan.Text = "Anh Tu";
+            txtTaiKhoan.Text = "Hải Anh";
             // 
             // label1
             // 

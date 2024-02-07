@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Diagnostics;
 using System.Drawing;
+using System.Drawing.Drawing2D;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,6 +15,7 @@ namespace MainForm.View.TrangChu
 {
     public partial class TrangChu : Form
     {
+        private int sizelogo = 60;
         public TrangChu()
         {
             InitializeComponent();
@@ -26,6 +28,49 @@ namespace MainForm.View.TrangChu
             loadNew();
         }
 
+
+        private void loadLogo()
+        {
+            try
+            {
+                // Nạp hình ảnh của bạn
+                Bitmap hinhGoc = new Bitmap("D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\Web\\Img\\Logo.png");
+
+                // Tạo một Bitmap có kích thước 60x60
+                Bitmap hinhNho = new Bitmap(sizelogo, sizelogo);
+
+                // Tạo một đối tượng Graphics để làm việc với Bitmap hinhNho
+                using (Graphics g = Graphics.FromImage(hinhNho))
+                {
+                    // Đặt chế độ vẽ cho hình ảnh
+                    g.InterpolationMode = InterpolationMode.HighQualityBicubic;
+                    g.PixelOffsetMode = PixelOffsetMode.HighQuality;
+
+                    // Tạo một GraphicsPath để định rộng hình tròn
+                    using (GraphicsPath duongPath = new GraphicsPath())
+                    {
+                        // Thêm hình elip vào GraphicsPath
+                        duongPath.AddEllipse(0, 0, sizelogo, sizelogo);
+
+                        // Sử dụng đối tượng Graphics để thiết lập vùng clip
+                        g.SetClip(duongPath);
+
+                        // Vẽ hình ảnh gốc lên Bitmap hinhNho
+                        g.DrawImage(hinhGoc, 0, 0, sizelogo, sizelogo);
+                    }
+                }
+
+                // Đặt hình ảnh hình tròn làm hình nền cho PictureBox
+                pictureBox2.BackgroundImage = hinhNho;
+                // Stretch hình ảnh để vừa với PictureBox
+                pictureBox2.BackgroundImageLayout = ImageLayout.Zoom;
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message);
+            }
+        }
+
         public void loadNew()
         {
             if (Models.Session.Users != null)
@@ -35,6 +80,12 @@ namespace MainForm.View.TrangChu
                 this.Width = mainScreen.Bounds.Width;
                 this.Height = mainScreen.Bounds.Height;
 
+                pntt.Width = pntt.Parent.Width;
+                pnBan.Width = pnBan.Parent.Width;
+
+                loadLogo();
+
+                lblNow.Text = DateTime.Now.ToString("dd/MM/yyyy");
 
                 //Load thông tin người dùng
                 txtRole.Text = Models.Session.Role.RoleName;
@@ -147,5 +198,9 @@ namespace MainForm.View.TrangChu
             }
         }
 
+        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        {
+
+        }
     }
 }

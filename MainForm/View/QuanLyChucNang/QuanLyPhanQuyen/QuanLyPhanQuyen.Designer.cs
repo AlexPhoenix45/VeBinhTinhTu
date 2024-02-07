@@ -136,16 +136,17 @@
             label3.Text = "Quyền hiện tại";
             label3.TextAlign = ContentAlignment.MiddleCenter;
             // 
-            // QuanLyChucNang
+            // QuanLyPhanQuyen
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackColor = Color.White;
             Controls.Add(panel1);
             Controls.Add(panel2);
             Controls.Add(pnRole);
             Controls.Add(pnUpdate);
             Controls.Add(pnAction);
-            Name = "QuanLyChucNang";
+            Name = "QuanLyPhanQuyen";
             Size = new Size(1579, 913);
             pnRole.ResumeLayout(false);
             pnRole.PerformLayout();

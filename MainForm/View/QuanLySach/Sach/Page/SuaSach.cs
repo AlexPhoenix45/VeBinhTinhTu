@@ -220,18 +220,18 @@ namespace MainForm.View.QuanLySach.Sach
             {
                 if (LuuSach())
                 {
-                    MessageBox.Show("Thêm thành công");
+                    MessageBox.Show("Sửa thành công");
                     InsertComplete?.Invoke(this, true);
                 }
                 else
                 {
-                    MessageBox.Show("Thêm thất bại");
+                    MessageBox.Show("Sửa thất bại");
                     InsertComplete?.Invoke(this, false);
                 }
             }
             else
             {
-                MessageBox.Show("Thêm thất bại");
+                MessageBox.Show("Sửa thất bại");
                 InsertComplete?.Invoke(this, false);
             }
 

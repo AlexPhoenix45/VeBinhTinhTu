@@ -244,7 +244,7 @@
             pn.Controls.Add(pnChiTiet);
             pn.Location = new Point(36, 258);
             pn.Name = "pn";
-            pn.Size = new Size(2812, 699);
+            pn.Size = new Size(1236, 699);
             pn.TabIndex = 21;
             // 
             // pnList
@@ -253,7 +253,7 @@
             pnList.AutoScrollMargin = new Size(500, 0);
             pnList.Location = new Point(3, 3);
             pnList.Name = "pnList";
-            pnList.Size = new Size(1400, 640);
+            pnList.Size = new Size(1300, 640);
             pnList.TabIndex = 0;
             // 
             // pnChiTiet
@@ -262,7 +262,7 @@
             pnChiTiet.AutoScrollMargin = new Size(500, 0);
             pnChiTiet.Location = new Point(3, 649);
             pnChiTiet.Name = "pnChiTiet";
-            pnChiTiet.Size = new Size(1400, 640);
+            pnChiTiet.Size = new Size(1164, 640);
             pnChiTiet.TabIndex = 1;
             // 
             // btnAdd
