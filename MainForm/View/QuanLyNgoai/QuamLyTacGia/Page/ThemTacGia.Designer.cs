@@ -144,6 +144,7 @@
             Controls.Add(btnXacNhan);
             Controls.Add(panel1);
             Name = "ThemTacGia";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "ThemTacGia";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

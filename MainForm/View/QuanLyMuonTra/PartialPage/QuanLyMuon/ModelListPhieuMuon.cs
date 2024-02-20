@@ -31,8 +31,6 @@ namespace View.QuanLyMuonTra.QuanLyMuon
             lblMaDG.Text = new DAO.SqlToLinq.DocGia().getById(Phieu.IdDocGia).MaDocGia;
             lblNgayMuon.Text = Phieu.NgayMuon.ToString("dd/MM/yyyy");
             lblNgayHenTra.Text = Phieu.NgayHenTra.ToString("dd/MM/yyyy");
-            lblGCM.Text = Phieu.GhiChuMuon.ToString();
-            lblGCT.Text = Phieu.GhiChuTra.ToString();
             if (Phieu.NgayHoanTatTra.HasValue)
             {
                 lblNgayTra.Text = Phieu.NgayHoanTatTra.Value.ToString("dd/MM/yyyy");
@@ -87,25 +85,8 @@ namespace View.QuanLyMuonTra.QuanLyMuon
                 btnTaoPhieu.BackColor = Color.LightGreen;
             }
 
-            foreach (var x in this.Controls)
-            {
-                if (x is Control txt)
-                {
-                    txt.MouseEnter += ModelListPhieuMuon_MouseEnter;
-                    txt.MouseLeave += ModelListPhieuMuon_MouseLeave;
-                }
-            }
         }
 
-        private void ModelListPhieuMuon_MouseEnter(object sender, EventArgs e)
-        {
-            this.BackColor = Color.LightGray;
-        }
-
-        private void ModelListPhieuMuon_MouseLeave(object sender, EventArgs e)
-        {
-            this.BackColor = Color.Transparent;
-        }
 
         private void btnTaoPhieu_Click(object sender, EventArgs e)
         {
@@ -113,6 +94,16 @@ namespace View.QuanLyMuonTra.QuanLyMuon
             ctPhieu.QuanLyMuon = QuanLyMuon;
 
             ctPhieu.Show();
+        }
+
+        private void btnTaoPhieu_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.LightGray;
+        }
+
+        private void ModelListPhieuMuon_MouseLeave_1(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Transparent;
         }
     }
 }

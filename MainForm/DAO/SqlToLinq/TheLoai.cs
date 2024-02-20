@@ -6,6 +6,7 @@ using System.Diagnostics;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Xml.Serialization;
 
 namespace DAO.SqlToLinq
 {
@@ -65,5 +66,62 @@ namespace DAO.SqlToLinq
 
             return s;
         }
-    }
+        public bool Insert(Models.TheLoai theLoai)
+        {
+            try
+            {
+                using (var conn = new DAO.Connection.SqlConn().Conn())
+                {
+                    if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
+
+                    string sql = "INSERT INTO [TheLoai] (TenTheLoai, Status) VALUES (@TenTheLoai, @Status)";
+
+                        var command = new SqlCommand(sql, conn);
+                        command.Parameters.AddWithValue("@TenTheLoai", theLoai.TenTheLoai);
+                        command.Parameters.AddWithValue("@Status", theLoai.Status);
+                    int rowsAffected = command.ExecuteNonQuery();
+
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message.ToString() + "cho Hien");
+                return false;
+            }
+        }
+        public bool Update (Models.TheLoai theLoai)
+        {
+            try
+            {
+                using (var conn = new DAO.Connection.SqlConn().Conn())
+                {
+                    if(conn.State != ConnectionState.Open)
+                    {
+                        conn.Open();
+                    }
+                    string sql = "UPDATE [TheLoai] SET TenTheLoai = @TenTheLoai, Status = @Status WHERE Id = @Id";
+
+                    using (var command = new SqlCommand(sql, conn))
+                    {
+                        command.Parameters.AddWithValue("@TenTheLoai", theLoai.TenTheLoai);
+                        command.Parameters.AddWithValue("@Status", theLoai.Status);
+                        command.Parameters.AddWithValue("@Id", theLoai.Id);
+
+                        int rowsAffected = command.ExecuteNonQuery();
+
+                        return rowsAffected > 0;
+                    }
+                }
+            }catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message );
+                return false;
+            }
+        }
+    }  
+
 }

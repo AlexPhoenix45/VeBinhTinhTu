@@ -70,7 +70,7 @@ namespace View.QuanLyChucNang
                     pnTable.Controls.Add(lbl);
                     pnTable.Controls.Add(rowSt);
 
-                    foreach (var sub in Acts.Where(x => x.IdParent == Act.Id))
+                    foreach (var sub in Acts.Where(x => x.IdParent == Act.Id).OrderBy(y => y.IsChucNangHien))
                     {
                         var row = new View.QuanLyChucNang.ModelsQuyen(i, sub);
                         row.btnSua.Click += (sender, e) =>

@@ -62,16 +62,31 @@ namespace View.QuanLyNgoai
                 // Kiểm tra xem người dùng đã chọn Yes hay No
                 if (result == DialogResult.Yes)
                 {
-                    // Người dùng đã chọn Yes, thực hiện xóa
-                    tg.Status = 0;
-                    if (new DAO.SqlToLinq.TacGia().Update(tg))
+                    var checkSach = new DAO.SqlToLinq.Sach().getByIdTacGia(IdTG);
+
+                    if (checkSach != null)
                     {
-                        MessageBox.Show("Đã xóa!");
-                        loadNew();
+                        var tb = "Sách của tác giả hiện hoạt:\n";
+
+                        foreach (var t in checkSach)
+                        {
+                            tb += "\t- " + t.TenSach + "\n";
+                        }
+
+                        MessageBox.Show(tb, "Xóa thất bại!");
                     }
                     else
                     {
-                        MessageBox.Show("Có lỗi xảy ra!");
+                        tg.Status = -1;
+                        if (new DAO.SqlToLinq.TacGia().Update(tg))
+                        {
+                            MessageBox.Show("Đã xóa!");
+                            loadNew();
+                        }
+                        else
+                        {
+                            MessageBox.Show("Có lỗi xảy ra!");
+                        }
                     }
                 }
             }

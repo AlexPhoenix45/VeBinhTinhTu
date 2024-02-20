@@ -10,11 +10,10 @@
 
   <ItemGroup>
     <PackageReference Include="HIC.System.Windows.Forms.DataVisualization" Version="1.0.1" />
-    <PackageReference Include="System.Data.SqlClient" Version="4.8.5" />
+    <PackageReference Include="System.Data.SqlClient" Version="4.8.6" />
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="View\QuanLyTaiKhoan\DanhSachDocGia\" />
     <Folder Include="Web\Img\AnhSach\" />
 	  <Folder Include="XuLy\BaoCaoThongKe\" />
 	  <Folder Include="XuLy\QuanLyMuonTra\QuanLyPhieuNhacTra\" />

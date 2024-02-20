@@ -49,6 +49,8 @@
             btnTaoPhieu.Text = "Tạo phiếu";
             btnTaoPhieu.UseVisualStyleBackColor = false;
             btnTaoPhieu.Click += btnTaoPhieu_Click;
+            btnTaoPhieu.MouseEnter += btnTaoPhieu_MouseEnter;
+            btnTaoPhieu.MouseLeave += ModelDocGiaPhieuMuon_MouseLeave_1;
             // 
             // lblSTT
             // 
@@ -59,6 +61,8 @@
             lblSTT.Size = new Size(25, 27);
             lblSTT.TabIndex = 1;
             lblSTT.Text = "1";
+            lblSTT.MouseEnter += btnTaoPhieu_MouseEnter;
+            lblSTT.MouseLeave += ModelDocGiaPhieuMuon_MouseLeave_1;
             // 
             // lblMaDG
             // 
@@ -69,6 +73,8 @@
             lblMaDG.Size = new Size(120, 27);
             lblMaDG.TabIndex = 2;
             lblMaDG.Text = "Mã Độc Giả";
+            lblMaDG.MouseEnter += btnTaoPhieu_MouseEnter;
+            lblMaDG.MouseLeave += ModelDocGiaPhieuMuon_MouseLeave_1;
             // 
             // lblTenDG
             // 
@@ -79,6 +85,8 @@
             lblTenDG.Size = new Size(126, 27);
             lblTenDG.TabIndex = 3;
             lblTenDG.Text = "Tên Độc Giả";
+            lblTenDG.MouseEnter += btnTaoPhieu_MouseEnter;
+            lblTenDG.MouseLeave += ModelDocGiaPhieuMuon_MouseLeave_1;
             // 
             // lblStatus
             // 
@@ -89,6 +97,8 @@
             lblStatus.Size = new Size(113, 27);
             lblStatus.TabIndex = 4;
             lblStatus.Text = "Trạng thái";
+            lblStatus.MouseEnter += btnTaoPhieu_MouseEnter;
+            lblStatus.MouseLeave += ModelDocGiaPhieuMuon_MouseLeave_1;
             // 
             // ptAnhDD
             // 
@@ -99,6 +109,8 @@
             ptAnhDD.SizeMode = PictureBoxSizeMode.Zoom;
             ptAnhDD.TabIndex = 5;
             ptAnhDD.TabStop = false;
+            ptAnhDD.MouseEnter += btnTaoPhieu_MouseEnter;
+            ptAnhDD.MouseLeave += ModelDocGiaPhieuMuon_MouseLeave_1;
             // 
             // ModelDocGiaPhieuMuon
             // 
@@ -113,8 +125,8 @@
             Controls.Add(btnTaoPhieu);
             Name = "ModelDocGiaPhieuMuon";
             Size = new Size(1267, 84);
-            MouseEnter += ModelDocGiaPhieuMuon_MouseEnter;
-            MouseLeave += ModelDocGiaPhieuMuon_MouseLeave;
+            MouseEnter += btnTaoPhieu_MouseEnter;
+            MouseLeave += ModelDocGiaPhieuMuon_MouseLeave_1;
             ((System.ComponentModel.ISupportInitialize)ptAnhDD).EndInit();
             ResumeLayout(false);
             PerformLayout();

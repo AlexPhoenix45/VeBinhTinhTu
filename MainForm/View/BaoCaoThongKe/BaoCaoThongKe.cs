@@ -56,7 +56,7 @@ namespace View.BaoCaoThongKe
             // Tạo và thêm ChartArea vào biểu đồ
             ChartArea chartArea = new ChartArea();
             chart.ChartAreas.Add(chartArea);
-            Title title = new Title("Thông kê chất lượng phục vụ", Docking.Top, new System.Drawing.Font("Arial", 16f), Color.Black);
+            Title title = new Title("Năng suất làm việc", Docking.Top, new System.Drawing.Font("Arial", 16f), Color.Black);
             chart.Titles.Add(title);
 
             // Tạo series cho từng nhóm

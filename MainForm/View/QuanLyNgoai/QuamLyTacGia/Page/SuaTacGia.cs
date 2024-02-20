@@ -58,5 +58,10 @@ namespace View.QuanLyNgoai
                 MessageBox.Show("Vui lòng nhập đủ dữ liệu!");
             }
         }
+
+        private void btnThoat_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

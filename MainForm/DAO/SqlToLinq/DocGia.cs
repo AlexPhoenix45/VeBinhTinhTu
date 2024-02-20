@@ -74,6 +74,46 @@ namespace DAO.SqlToLinq
 
             return null;
         }
+
+        public bool Insert(Models.DocGia newDocGia)
+        {
+            bool isSuccess = false; // Biến để chỉ ra liệu việc chèn thành công hay không
+
+            try
+            {
+                using (var conn = new DAO.Connection.SqlConn().Conn())
+                {
+                    if (conn != null)
+                    {
+                        if (conn.State == ConnectionState.Closed)
+                        {
+                            conn.Open();
+                        }
+
+                        string sql = @"INSERT INTO [DocGia] (IdUser, MaDocGia, Status) 
+                                VALUES (@IdUser, @MaDocGia, @Status)";
+
+                        var command = new SqlCommand(sql, conn);
+                        command.Parameters.AddWithValue("@IdUser", newDocGia.IdUser);
+                        command.Parameters.AddWithValue("@MaDocGia", newDocGia.MaDocGia);
+                        command.Parameters.AddWithValue("@Status", newDocGia.Status);
+
+                        int rowsAffected = command.ExecuteNonQuery(); // Số hàng bị ảnh hưởng bởi câu lệnh INSERT
+
+                        // Nếu có ít nhất một hàng được chèn thành công, đánh dấu là thành công
+                        if (rowsAffected > 0)
+                            isSuccess = true;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message.ToString());
+            }
+
+            return isSuccess;
+        }
+
     }
 
 }

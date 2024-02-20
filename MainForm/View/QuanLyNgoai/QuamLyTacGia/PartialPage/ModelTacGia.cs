@@ -14,7 +14,7 @@ namespace View.QuanLyNgoai
     {
         private Models.TacGia TG;
         private int stt;
-        public ModelTacGia(int stt,Models.TacGia TG)
+        public ModelTacGia(int stt, Models.TacGia TG)
         {
             InitializeComponent();
             this.TG = TG;
@@ -28,6 +28,21 @@ namespace View.QuanLyNgoai
             txtTen.Text = TG.TenTacGia.ToString();
             txtDiaChi.Text = TG.DiaChi.ToString();
             txtChucDanh.Text = TG.ChucDanh.ToString();
+        }
+
+
+
+
+        private void txtSTT_MouseEnter_1(object sender, EventArgs e)
+        {
+            this.BackColor = Color.LightGray;
+
+        }
+
+        private void ModelTacGia_MouseLeave(object sender, EventArgs e)
+        {
+            this.BackColor = Color.Transparent;
+
         }
     }
 }

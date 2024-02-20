@@ -16,31 +16,17 @@ namespace View.QuanLyMuonTra.QuanLyNhacTra
         {
             InitializeComponent();
 
-            hover();
         }
 
-        private void hover()
-        {
-            foreach (var x in this.Controls)
-            {
-                if (x is Control ctrl)
-                {
-                    ctrl.MouseEnter += ModelListPhieuMuon_MouseEnter;
-                    ctrl.MouseLeave += ModelListPhieuMuon_MouseLeave;
-                }
-            }
-        }
 
-        private void ModelListPhieuMuon_MouseEnter(object sender, EventArgs e)
+        private void btnThaoTac_MouseEnter(object sender, EventArgs e)
         {
             this.BackColor = Color.LightGray;
         }
 
-        private void ModelListPhieuMuon_MouseLeave(object sender, EventArgs e)
+        private void btnThaoTac_MouseLeave(object sender, EventArgs e)
         {
             this.BackColor = Color.Transparent;
         }
-
- 
     }
 }

@@ -122,6 +122,7 @@
             btnThoat.TabIndex = 5;
             btnThoat.Text = "Thoát";
             btnThoat.UseVisualStyleBackColor = true;
+            btnThoat.Click += btnThoat_Click;
             // 
             // btnXacNhan
             // 
@@ -133,7 +134,7 @@
             btnXacNhan.UseVisualStyleBackColor = true;
             btnXacNhan.Click += btnXacNhan_Click;
             // 
-            // SuâTcGia
+            // SuaTacGia
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -141,7 +142,8 @@
             Controls.Add(panel1);
             Controls.Add(btnThoat);
             Controls.Add(btnXacNhan);
-            Name = "SuâTcGia";
+            Name = "SuaTacGia";
+            StartPosition = FormStartPosition.CenterScreen;
             Text = "SuâTcGia";
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

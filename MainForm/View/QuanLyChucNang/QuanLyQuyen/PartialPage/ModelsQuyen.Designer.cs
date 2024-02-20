@@ -47,6 +47,8 @@
             lblStt.Size = new Size(55, 23);
             lblStt.TabIndex = 0;
             lblStt.Text = "label1";
+            lblStt.MouseEnter += lblStt_MouseEnter;
+            lblStt.MouseLeave += ModelsQuyen_MouseLeave_1;
             // 
             // lblParent
             // 
@@ -57,6 +59,8 @@
             lblParent.Size = new Size(55, 23);
             lblParent.TabIndex = 1;
             lblParent.Text = "label2";
+            lblParent.MouseEnter += lblStt_MouseEnter;
+            lblParent.MouseLeave += ModelsQuyen_MouseLeave_1;
             // 
             // lblName
             // 
@@ -67,6 +71,8 @@
             lblName.Size = new Size(55, 23);
             lblName.TabIndex = 2;
             lblName.Text = "label3";
+            lblName.MouseEnter += lblStt_MouseEnter;
+            lblName.MouseLeave += ModelsQuyen_MouseLeave_1;
             // 
             // lblNP
             // 
@@ -77,6 +83,8 @@
             lblNP.Size = new Size(55, 23);
             lblNP.TabIndex = 3;
             lblNP.Text = "label4";
+            lblNP.MouseEnter += lblStt_MouseEnter;
+            lblNP.MouseLeave += ModelsQuyen_MouseLeave_1;
             // 
             // lblClass
             // 
@@ -87,6 +95,8 @@
             lblClass.Size = new Size(55, 23);
             lblClass.TabIndex = 4;
             lblClass.Text = "label5";
+            lblClass.MouseEnter += lblStt_MouseEnter;
+            lblClass.MouseLeave += ModelsQuyen_MouseLeave_1;
             // 
             // lblChucNang
             // 
@@ -97,6 +107,8 @@
             lblChucNang.Size = new Size(55, 23);
             lblChucNang.TabIndex = 5;
             lblChucNang.Text = "label6";
+            lblChucNang.MouseEnter += lblStt_MouseEnter;
+            lblChucNang.MouseLeave += ModelsQuyen_MouseLeave_1;
             // 
             // btnSua
             // 
@@ -109,6 +121,8 @@
             btnSua.TabIndex = 7;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.MouseEnter += lblStt_MouseEnter;
+            btnSua.MouseLeave += ModelsQuyen_MouseLeave_1;
             // 
             // btnXoa
             // 
@@ -121,6 +135,8 @@
             btnXoa.TabIndex = 8;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.MouseEnter += lblStt_MouseEnter;
+            btnXoa.MouseLeave += ModelsQuyen_MouseLeave_1;
             // 
             // ModelsQuyen
             // 
@@ -137,8 +153,8 @@
             Controls.Add(lblStt);
             Name = "ModelsQuyen";
             Size = new Size(1625, 67);
-            MouseEnter += ModelsQuyen_MouseEnter;
-            MouseLeave += ModelsQuyen_MouseLeave;
+            MouseEnter += lblStt_MouseEnter;
+            MouseLeave += ModelsQuyen_MouseLeave_1;
             ResumeLayout(false);
             PerformLayout();
         }

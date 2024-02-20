@@ -80,6 +80,46 @@ namespace DAO.SqlToLinq
             }
             return us;
         }
+
+        public int Insert(Models.Users newUser)
+        {
+            int newUserId = 0; // Biến để lưu trữ Id mới thêm vào
+
+            try
+            {
+                using (var conn = new DAO.Connection.SqlConn().Conn())
+                {
+                    if (conn != null)
+                    {
+                        if (conn.State == ConnectionState.Closed)
+                        {
+                            conn.Open();
+                        }
+
+                        string sql = @"INSERT INTO [Users] (TaiKhoan, MatKhau, Role, Email, SoDienThoai, Status) 
+                                VALUES (@TaiKhoan, @MatKhau, @Role, @Email, @SoDienThoai, @Status);
+                                SELECT SCOPE_IDENTITY();"; // Sử dụng SCOPE_IDENTITY() để lấy Id của bản ghi vừa được thêm vào
+
+                        var command = new SqlCommand(sql, conn);
+                        command.Parameters.AddWithValue("@TaiKhoan", newUser.TaiKhoan);
+                        command.Parameters.AddWithValue("@MatKhau", newUser.MatKhau);
+                        command.Parameters.AddWithValue("@Role", newUser.Role);
+                        command.Parameters.AddWithValue("@Email", newUser.Email);
+                        command.Parameters.AddWithValue("@SoDienThoai", newUser.SoDienThoai);
+                        command.Parameters.AddWithValue("@Status", newUser.Status);
+
+                        newUserId = Convert.ToInt32(command.ExecuteScalar()); // Lấy Id của bản ghi mới thêm vào
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message.ToString());
+            }
+
+            return newUserId;
+        }
+
     }
 
 }

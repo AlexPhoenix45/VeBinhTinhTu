@@ -41,6 +41,8 @@
             img.SizeMode = PictureBoxSizeMode.Zoom;
             img.TabIndex = 0;
             img.TabStop = false;
+            img.MouseEnter += img_MouseEnter;
+            img.MouseLeave += ModelSach_MouseLeave;
             // 
             // txtImg
             // 
@@ -51,6 +53,8 @@
             txtImg.Size = new Size(50, 20);
             txtImg.TabIndex = 1;
             txtImg.Text = "label1";
+            txtImg.MouseEnter += img_MouseEnter;
+            txtImg.MouseLeave += ModelSach_MouseLeave;
             // 
             // ModelSach
             // 
@@ -60,6 +64,8 @@
             Controls.Add(img);
             Name = "ModelSach";
             Size = new Size(238, 327);
+            MouseEnter += img_MouseEnter;
+            MouseLeave += ModelSach_MouseLeave;
             ((System.ComponentModel.ISupportInitialize)img).EndInit();
             ResumeLayout(false);
             PerformLayout();

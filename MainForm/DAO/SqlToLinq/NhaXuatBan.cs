@@ -66,5 +66,66 @@ namespace DAO.SqlToLinq
 
             return s;
         }
+        public bool Insert(Models.NhaXuatBan nhaXuatBan)
+        {
+            try
+            {
+                using (var conn = new DAO.Connection.SqlConn().Conn())
+                {
+                    if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
+
+                    string sql = "INSERT INTO [NhaXuatBan] (TenNhaXuatBan, DiaChi, NgayThanhLap, Status) VALUES (@TenNhaXuatBan, @DiaChi, @NgayThanhLap, @Status)";
+
+                    var command = new SqlCommand(sql, conn);
+                    command.Parameters.AddWithValue("@TenNhaXuatBan", nhaXuatBan.TenNhaXuatBan);
+                    command.Parameters.AddWithValue("@DiaChi", nhaXuatBan.DiaChi);
+                    command.Parameters.AddWithValue("@NgayThanhLap", nhaXuatBan.NgayThanhLap);
+                    command.Parameters.AddWithValue("@Status", nhaXuatBan.Status);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+                
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message.ToString());
+                return false;
+            }
+        }
+
+        public bool Update(Models.NhaXuatBan nhaXuatBan)
+        {
+            try
+            {
+                using (var conn = new DAO.Connection.SqlConn().Conn())
+                {
+                    if (conn.State == ConnectionState.Closed)
+                    {
+                        conn.Open();
+                    }
+
+                    string sql = "UPDATE [NhaXuatBan] SET TenNhaXuatBan = @TenNhaXuatBan, DiaChi = @DiaChi, NgayThanhLap = @NgayThanhLap, Status = @Status WHERE Id = @Id";
+
+                    var command = new SqlCommand(sql, conn);
+                    command.Parameters.AddWithValue("@TenNhaXuatBan", nhaXuatBan.TenNhaXuatBan);
+                    command.Parameters.AddWithValue("@DiaChi", nhaXuatBan.DiaChi);
+                    command.Parameters.AddWithValue("@NgayThanhLap", nhaXuatBan.NgayThanhLap);
+                    command.Parameters.AddWithValue("@Status", nhaXuatBan.Status);
+                    command.Parameters.AddWithValue("@Id", nhaXuatBan.Id);
+
+                    int rowsAffected = command.ExecuteNonQuery();
+                    return rowsAffected > 0;
+                }
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.Message.ToString());
+                return false;
+            }
+        }
     }
 }

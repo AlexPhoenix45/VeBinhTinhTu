@@ -187,7 +187,7 @@
             label2.Name = "label2";
             label2.Size = new Size(387, 40);
             label2.TabIndex = 2;
-            label2.Text = "Thư viện siêu cấp ADHPT";
+            label2.Text = "Thư viện siêu cấp THAPD";
             // 
             // label1
             // 

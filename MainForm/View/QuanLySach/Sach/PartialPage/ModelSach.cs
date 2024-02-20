@@ -22,5 +22,17 @@ namespace QuanLySach.Sach
         {
             ReloadXoaSachComplete?.Invoke(this, EventArgs.Empty);
         }
+
+        private void img_MouseEnter(object sender, EventArgs e)
+        {
+
+            this.BackColor = Color.LightGray;
+        }
+
+        private void ModelSach_MouseLeave(object sender, EventArgs e)
+        {
+
+            this.BackColor = Color.Transparent;
+        }
     }
 }

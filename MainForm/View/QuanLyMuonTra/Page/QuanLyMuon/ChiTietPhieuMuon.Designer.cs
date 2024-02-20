@@ -63,7 +63,7 @@
             // 
             label4.AutoSize = true;
             label4.Font = new Font("Cambria", 10.2F);
-            label4.Location = new Point(495, 190);
+            label4.Location = new Point(536, 269);
             label4.Name = "label4";
             label4.Size = new Size(71, 20);
             label4.TabIndex = 47;
@@ -73,7 +73,7 @@
             // 
             txtNgayTra.Enabled = false;
             txtNgayTra.Font = new Font("Cambria", 10.2F);
-            txtNgayTra.Location = new Point(602, 187);
+            txtNgayTra.Location = new Point(643, 266);
             txtNgayTra.Name = "txtNgayTra";
             txtNgayTra.Size = new Size(216, 27);
             txtNgayTra.TabIndex = 46;
@@ -82,7 +82,7 @@
             // 
             label6.AutoSize = true;
             label6.Font = new Font("Cambria", 10.2F);
-            label6.Location = new Point(495, 245);
+            label6.Location = new Point(536, 386);
             label6.Name = "label6";
             label6.Size = new Size(88, 20);
             label6.TabIndex = 45;
@@ -93,7 +93,7 @@
             pnBtn.Controls.Add(btnTao);
             pnBtn.Location = new Point(105, 584);
             pnBtn.Name = "pnBtn";
-            pnBtn.Size = new Size(1332, 89);
+            pnBtn.Size = new Size(1367, 89);
             pnBtn.TabIndex = 33;
             // 
             // btnTao
@@ -112,7 +112,7 @@
             // txtGhiChuTra
             // 
             txtGhiChuTra.Font = new Font("Cambria", 10.2F);
-            txtGhiChuTra.Location = new Point(602, 242);
+            txtGhiChuTra.Location = new Point(643, 383);
             txtGhiChuTra.Name = "txtGhiChuTra";
             txtGhiChuTra.Size = new Size(216, 27);
             txtGhiChuTra.TabIndex = 44;
@@ -121,7 +121,7 @@
             // 
             label12.AutoSize = true;
             label12.Font = new Font("Cambria", 10.2F);
-            label12.Location = new Point(51, 190);
+            label12.Location = new Point(542, 158);
             label12.Name = "label12";
             label12.Size = new Size(94, 20);
             label12.TabIndex = 43;
@@ -131,7 +131,7 @@
             // 
             txtNgayMuon.Enabled = false;
             txtNgayMuon.Font = new Font("Cambria", 10.2F);
-            txtNgayMuon.Location = new Point(158, 187);
+            txtNgayMuon.Location = new Point(649, 155);
             txtNgayMuon.Name = "txtNgayMuon";
             txtNgayMuon.Size = new Size(216, 27);
             txtNgayMuon.TabIndex = 42;
@@ -140,7 +140,7 @@
             // 
             label11.AutoSize = true;
             label11.Font = new Font("Cambria", 10.2F);
-            label11.Location = new Point(495, 431);
+            label11.Location = new Point(927, 220);
             label11.Name = "label11";
             label11.Size = new Size(71, 20);
             label11.TabIndex = 41;
@@ -150,7 +150,7 @@
             // 
             txtTongPhi.Enabled = false;
             txtTongPhi.Font = new Font("Cambria", 10.2F);
-            txtTongPhi.Location = new Point(602, 428);
+            txtTongPhi.Location = new Point(1034, 217);
             txtTongPhi.Name = "txtTongPhi";
             txtTongPhi.Size = new Size(102, 27);
             txtTongPhi.TabIndex = 40;
@@ -159,7 +159,7 @@
             // 
             label10.AutoSize = true;
             label10.Font = new Font("Cambria", 10.2F);
-            label10.Location = new Point(495, 384);
+            label10.Location = new Point(927, 173);
             label10.Name = "label10";
             label10.Size = new Size(92, 20);
             label10.TabIndex = 39;
@@ -169,7 +169,7 @@
             // 
             txtPhatHong.Enabled = false;
             txtPhatHong.Font = new Font("Cambria", 10.2F);
-            txtPhatHong.Location = new Point(602, 381);
+            txtPhatHong.Location = new Point(1034, 170);
             txtPhatHong.Name = "txtPhatHong";
             txtPhatHong.Size = new Size(102, 27);
             txtPhatHong.TabIndex = 38;
@@ -178,7 +178,7 @@
             // 
             label9.AutoSize = true;
             label9.Font = new Font("Cambria", 10.2F);
-            label9.Location = new Point(495, 341);
+            label9.Location = new Point(927, 130);
             label9.Name = "label9";
             label9.Size = new Size(87, 20);
             label9.TabIndex = 37;
@@ -188,7 +188,7 @@
             // 
             txtPhatMuon.Enabled = false;
             txtPhatMuon.Font = new Font("Cambria", 10.2F);
-            txtPhatMuon.Location = new Point(602, 338);
+            txtPhatMuon.Location = new Point(1034, 127);
             txtPhatMuon.Name = "txtPhatMuon";
             txtPhatMuon.Size = new Size(102, 27);
             txtPhatMuon.TabIndex = 36;
@@ -197,7 +197,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Cambria", 10.2F);
-            label8.Location = new Point(495, 303);
+            label8.Location = new Point(927, 92);
             label8.Name = "label8";
             label8.Size = new Size(81, 20);
             label8.TabIndex = 35;
@@ -207,7 +207,7 @@
             // 
             txtPhiMuon.Enabled = false;
             txtPhiMuon.Font = new Font("Cambria", 10.2F);
-            txtPhiMuon.Location = new Point(602, 296);
+            txtPhiMuon.Location = new Point(1034, 85);
             txtPhiMuon.Name = "txtPhiMuon";
             txtPhiMuon.Size = new Size(102, 27);
             txtPhiMuon.TabIndex = 34;
@@ -216,7 +216,7 @@
             // 
             label7.AutoSize = true;
             label7.Font = new Font("Cambria", 10.2F);
-            label7.Location = new Point(51, 245);
+            label7.Location = new Point(542, 213);
             label7.Name = "label7";
             label7.Size = new Size(101, 20);
             label7.TabIndex = 33;
@@ -226,7 +226,7 @@
             // 
             txtNgayHen.Enabled = false;
             txtNgayHen.Font = new Font("Cambria", 10.2F);
-            txtNgayHen.Location = new Point(158, 242);
+            txtNgayHen.Location = new Point(649, 210);
             txtNgayHen.Name = "txtNgayHen";
             txtNgayHen.Size = new Size(216, 27);
             txtNgayHen.TabIndex = 32;
@@ -234,7 +234,7 @@
             // pnListSach
             // 
             pnListSach.AutoScroll = true;
-            pnListSach.Location = new Point(861, 124);
+            pnListSach.Location = new Point(41, 98);
             pnListSach.Name = "pnListSach";
             pnListSach.Size = new Size(448, 388);
             pnListSach.TabIndex = 29;
@@ -243,7 +243,7 @@
             // 
             label5.AutoSize = true;
             label5.Font = new Font("Cambria", 10.2F);
-            label5.Location = new Point(51, 301);
+            label5.Location = new Point(536, 329);
             label5.Name = "label5";
             label5.Size = new Size(111, 20);
             label5.TabIndex = 9;
@@ -253,7 +253,7 @@
             // 
             txtGhiChuMuon.Enabled = false;
             txtGhiChuMuon.Font = new Font("Cambria", 10.2F);
-            txtGhiChuMuon.Location = new Point(158, 298);
+            txtGhiChuMuon.Location = new Point(643, 326);
             txtGhiChuMuon.Name = "txtGhiChuMuon";
             txtGhiChuMuon.Size = new Size(216, 27);
             txtGhiChuMuon.TabIndex = 8;
@@ -262,7 +262,7 @@
             // 
             label2.AutoSize = true;
             label2.Font = new Font("Cambria", 10.2F);
-            label2.Location = new Point(51, 130);
+            label2.Location = new Point(542, 98);
             label2.Name = "label2";
             label2.Size = new Size(86, 20);
             label2.TabIndex = 2;
@@ -308,14 +308,14 @@
             panel1.Location = new Point(105, 20);
             panel1.MinimumSize = new Size(907, 494);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1332, 561);
+            panel1.Size = new Size(1367, 561);
             panel1.TabIndex = 32;
             // 
             // lblChuY
             // 
             lblChuY.AutoSize = true;
             lblChuY.Font = new Font("Cambria", 10.2F);
-            lblChuY.Location = new Point(128, 361);
+            lblChuY.Location = new Point(1004, 333);
             lblChuY.Name = "lblChuY";
             lblChuY.Size = new Size(302, 20);
             lblChuY.TabIndex = 28;
@@ -325,7 +325,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Cambria", 10.2F);
-            label3.Location = new Point(51, 361);
+            label3.Location = new Point(927, 333);
             label3.Name = "label3";
             label3.Size = new Size(54, 20);
             label3.TabIndex = 27;
@@ -337,7 +337,7 @@
             txtMaDG.BorderStyle = BorderStyle.FixedSingle;
             txtMaDG.Enabled = false;
             txtMaDG.Font = new Font("Cambria", 10.2F);
-            txtMaDG.Location = new Point(158, 124);
+            txtMaDG.Location = new Point(649, 92);
             txtMaDG.Name = "txtMaDG";
             txtMaDG.Size = new Size(216, 27);
             txtMaDG.TabIndex = 0;

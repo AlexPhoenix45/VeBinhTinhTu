@@ -51,6 +51,8 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(1176, 75);
             panel1.TabIndex = 24;
+            panel1.MouseEnter += btnThaoTac_MouseEnter;
+            panel1.MouseLeave += btnThaoTac_MouseLeave;
             // 
             // btnThaoTac
             // 
@@ -65,6 +67,8 @@
             btnThaoTac.TabIndex = 39;
             btnThaoTac.Text = "Thao tác";
             btnThaoTac.TextAlign = ContentAlignment.MiddleCenter;
+            btnThaoTac.MouseEnter += btnThaoTac_MouseEnter;
+            btnThaoTac.MouseLeave += btnThaoTac_MouseLeave;
             // 
             // lblGhiChuMuon
             // 
@@ -78,6 +82,8 @@
             lblGhiChuMuon.TabIndex = 37;
             lblGhiChuMuon.Text = "ghi chú mượn";
             lblGhiChuMuon.TextAlign = ContentAlignment.MiddleCenter;
+            lblGhiChuMuon.MouseEnter += btnThaoTac_MouseEnter;
+            lblGhiChuMuon.MouseLeave += btnThaoTac_MouseLeave;
             // 
             // lblNgayHenTra
             // 
@@ -88,6 +94,8 @@
             lblNgayHenTra.Size = new Size(119, 23);
             lblNgayHenTra.TabIndex = 32;
             lblNgayHenTra.Text = "Ngày hẹn trả";
+            lblNgayHenTra.MouseEnter += btnThaoTac_MouseEnter;
+            lblNgayHenTra.MouseLeave += btnThaoTac_MouseLeave;
             // 
             // lblNgayMuon
             // 
@@ -98,6 +106,8 @@
             lblNgayMuon.Size = new Size(110, 23);
             lblNgayMuon.TabIndex = 31;
             lblNgayMuon.Text = "Ngày mượn";
+            lblNgayMuon.MouseEnter += btnThaoTac_MouseEnter;
+            lblNgayMuon.MouseLeave += btnThaoTac_MouseLeave;
             // 
             // lblMDG
             // 
@@ -108,6 +118,8 @@
             lblMDG.Size = new Size(101, 23);
             lblMDG.TabIndex = 30;
             lblMDG.Text = "Mã độc giả";
+            lblMDG.MouseEnter += btnThaoTac_MouseEnter;
+            lblMDG.MouseLeave += btnThaoTac_MouseLeave;
             // 
             // lblSTT
             // 
@@ -118,6 +130,8 @@
             lblSTT.Size = new Size(44, 23);
             lblSTT.TabIndex = 29;
             lblSTT.Text = "STT";
+            lblSTT.MouseEnter += btnThaoTac_MouseEnter;
+            lblSTT.MouseLeave += btnThaoTac_MouseLeave;
             // 
             // ModelNhacTra
             // 

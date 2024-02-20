@@ -37,8 +37,6 @@
             lblNgayMuon = new Label();
             lblMaDG = new Label();
             lblSTT = new Label();
-            lblGCM = new Label();
-            lblGCT = new Label();
             SuspendLayout();
             // 
             // btnTaoPhieu
@@ -46,13 +44,15 @@
             btnTaoPhieu.BackColor = SystemColors.ActiveCaption;
             btnTaoPhieu.Cursor = Cursors.Hand;
             btnTaoPhieu.Font = new Font("Cambria", 12F);
-            btnTaoPhieu.Location = new Point(1426, 15);
+            btnTaoPhieu.Location = new Point(1082, 19);
             btnTaoPhieu.Name = "btnTaoPhieu";
             btnTaoPhieu.Size = new Size(186, 43);
             btnTaoPhieu.TabIndex = 6;
             btnTaoPhieu.Text = "Tạo phiếu";
             btnTaoPhieu.UseVisualStyleBackColor = false;
             btnTaoPhieu.Click += btnTaoPhieu_Click;
+            btnTaoPhieu.MouseEnter += btnTaoPhieu_MouseEnter;
+            btnTaoPhieu.MouseLeave += ModelListPhieuMuon_MouseLeave_1;
             // 
             // lblPhatMuon
             // 
@@ -63,6 +63,8 @@
             lblPhatMuon.Size = new Size(76, 23);
             lblPhatMuon.TabIndex = 25;
             lblPhatMuon.Text = "123456";
+            lblPhatMuon.MouseEnter += btnTaoPhieu_MouseEnter;
+            lblPhatMuon.MouseLeave += ModelListPhieuMuon_MouseLeave_1;
             // 
             // lblPhatHuHai
             // 
@@ -73,6 +75,8 @@
             lblPhatHuHai.Size = new Size(76, 23);
             lblPhatHuHai.TabIndex = 24;
             lblPhatHuHai.Text = "123456";
+            lblPhatHuHai.MouseEnter += btnTaoPhieu_MouseEnter;
+            lblPhatHuHai.MouseLeave += ModelListPhieuMuon_MouseLeave_1;
             // 
             // lblPhiMuon
             // 
@@ -83,6 +87,8 @@
             lblPhiMuon.Size = new Size(76, 23);
             lblPhiMuon.TabIndex = 23;
             lblPhiMuon.Text = "123456";
+            lblPhiMuon.MouseEnter += btnTaoPhieu_MouseEnter;
+            lblPhiMuon.MouseLeave += ModelListPhieuMuon_MouseLeave_1;
             // 
             // lblNgayTra
             // 
@@ -93,6 +99,8 @@
             lblNgayTra.Size = new Size(118, 23);
             lblNgayTra.TabIndex = 22;
             lblNgayTra.Text = "12/12/2023";
+            lblNgayTra.MouseEnter += btnTaoPhieu_MouseEnter;
+            lblNgayTra.MouseLeave += ModelListPhieuMuon_MouseLeave_1;
             // 
             // lblNgayHenTra
             // 
@@ -103,6 +111,8 @@
             lblNgayHenTra.Size = new Size(118, 23);
             lblNgayHenTra.TabIndex = 21;
             lblNgayHenTra.Text = "12/12/2023";
+            lblNgayHenTra.MouseEnter += btnTaoPhieu_MouseEnter;
+            lblNgayHenTra.MouseLeave += ModelListPhieuMuon_MouseLeave_1;
             // 
             // lblNgayMuon
             // 
@@ -113,6 +123,8 @@
             lblNgayMuon.Size = new Size(118, 23);
             lblNgayMuon.TabIndex = 20;
             lblNgayMuon.Text = "12/12/2023";
+            lblNgayMuon.MouseEnter += btnTaoPhieu_MouseEnter;
+            lblNgayMuon.MouseLeave += ModelListPhieuMuon_MouseLeave_1;
             // 
             // lblMaDG
             // 
@@ -123,6 +135,8 @@
             lblMaDG.Size = new Size(101, 23);
             lblMaDG.TabIndex = 19;
             lblMaDG.Text = "Mã độc giả";
+            lblMaDG.MouseEnter += btnTaoPhieu_MouseEnter;
+            lblMaDG.MouseLeave += ModelListPhieuMuon_MouseLeave_1;
             // 
             // lblSTT
             // 
@@ -133,30 +147,8 @@
             lblSTT.Size = new Size(44, 23);
             lblSTT.TabIndex = 17;
             lblSTT.Text = "STT";
-            // 
-            // lblGCM
-            // 
-            lblGCM.AutoSize = true;
-            lblGCM.Font = new Font("Cambria", 12F);
-            lblGCM.Location = new Point(1015, 15);
-            lblGCM.MaximumSize = new Size(200, 0);
-            lblGCM.MinimumSize = new Size(200, 0);
-            lblGCM.Name = "lblGCM";
-            lblGCM.Size = new Size(200, 23);
-            lblGCM.TabIndex = 26;
-            lblGCM.Text = "ghi chú mượn";
-            // 
-            // lblGCT
-            // 
-            lblGCT.AutoSize = true;
-            lblGCT.Font = new Font("Cambria", 12F);
-            lblGCT.Location = new Point(1231, 15);
-            lblGCT.MaximumSize = new Size(200, 0);
-            lblGCT.MinimumSize = new Size(200, 0);
-            lblGCT.Name = "lblGCT";
-            lblGCT.Size = new Size(200, 23);
-            lblGCT.TabIndex = 27;
-            lblGCT.Text = "ghi chú trả";
+            lblSTT.MouseEnter += btnTaoPhieu_MouseEnter;
+            lblSTT.MouseLeave += ModelListPhieuMuon_MouseLeave_1;
             // 
             // ModelListPhieuMuon
             // 
@@ -164,8 +156,6 @@
             AutoScaleMode = AutoScaleMode.Font;
             BorderStyle = BorderStyle.FixedSingle;
             Controls.Add(btnTaoPhieu);
-            Controls.Add(lblGCT);
-            Controls.Add(lblGCM);
             Controls.Add(lblPhatMuon);
             Controls.Add(lblPhatHuHai);
             Controls.Add(lblPhiMuon);
@@ -175,9 +165,9 @@
             Controls.Add(lblMaDG);
             Controls.Add(lblSTT);
             Name = "ModelListPhieuMuon";
-            Size = new Size(1638, 73);
-            MouseEnter += ModelListPhieuMuon_MouseEnter;
-            MouseLeave += ModelListPhieuMuon_MouseLeave;
+            Size = new Size(1298, 73);
+            MouseEnter += btnTaoPhieu_MouseEnter;
+            MouseLeave += ModelListPhieuMuon_MouseLeave_1;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -194,7 +184,5 @@
         private Label lblMaDG;
         private Label lblSoPhieu;
         private Label lblSTT;
-        private Label lblGCM;
-        private Label lblGCT;
     }
 }

@@ -58,6 +58,18 @@
     <Compile Update="View\QuanLyMuonTra\PartialPage\TaoPhieuMuon\ModelDocGiaPhieuMuon.cs">
       <SubType>UserControl</SubType>
     </Compile>
+    <Compile Update="View\QuanLyNgoai\QuaLyNhaXuatBan\Page\QuanLyNhaXuatBan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyNgoai\QuaLyNhaXuatBan\Page\SuaNhaXuatBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyNgoai\QuaLyNhaXuatBan\Page\ThemNhaXuatBan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyNgoai\QuaLyNhaXuatBan\PartialPage\ModelNhaXuatBan.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
     <Compile Update="View\QuanLyNgoai\QuamLyTacGia\Page\QuanLyTacGia.cs">
       <SubType>UserControl</SubType>
     </Compile>
@@ -68,6 +80,33 @@
       <SubType>Form</SubType>
     </Compile>
     <Compile Update="View\QuanLyNgoai\QuamLyTacGia\PartialPage\ModelTacGia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyNgoai\QuanLyTheLoai\Page\QuanLyTheLoai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyNgoai\QuanLyTheLoai\Page\SuaTheLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyNgoai\QuanLyTheLoai\Page\ThemTheLoai.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyNgoai\QuanLyTheLoai\PartialPage\ModelTheLoai.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyTaiKhoan\Page\DanhSachDocGia\DanhSachDocGia.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyTaiKhoan\Page\DanhSachNhanVien\DanhSachNhanVien.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyTaiKhoan\Page\DanhSachQuanTri\DanhSachQuanTri.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyTaiKhoan\Page\ThemTaiKhoan\ThemTaiKhoan.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Update="View\QuanLyTaiKhoan\PartialPage\ModelQLTaiKhoan.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="View\TrangChu\Login.cs">

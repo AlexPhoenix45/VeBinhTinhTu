@@ -45,13 +45,12 @@ namespace View.QuanLyChucNang
         }
 
 
-
-        private void ModelsQuyen_MouseEnter(object sender, EventArgs e)
+        private void lblStt_MouseEnter(object sender, EventArgs e)
         {
             this.BackColor = Color.LightGray;
         }
 
-        private void ModelsQuyen_MouseLeave(object sender, EventArgs e)
+        private void ModelsQuyen_MouseLeave_1(object sender, EventArgs e)
         {
             this.BackColor = Color.Transparent;
         }

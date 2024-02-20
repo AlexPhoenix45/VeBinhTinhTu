@@ -61,6 +61,57 @@ namespace DAO.SqlToLinq
         }
 
 
+        public List<Models.Sach> getByIdTacGia(int id)
+        {
+            var list = new List<Models.Sach>();
+
+            try
+            {
+                var all = new Sach().GetAll();
+
+                list = all.Where(x => x.ListIdTacGia.Split(',').Contains(id.ToString()) && x.Status == 1).ToList();
+            }
+            catch(Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+            return list;
+        }
+
+        public List<Models.Sach> getByIdTheLoai(int id)
+        {
+            var list = new List<Models.Sach>();
+
+            try
+            {
+                var all = new Sach().GetAll();
+
+                list = all.Where(x => x.IdTheLoai == id && x.Status == 1).ToList();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+            return list;
+        }
+
+        public List<Models.Sach> getByIdNXB(int id)
+        {
+            var list = new List<Models.Sach>();
+
+            try
+            {
+                var all = new Sach().GetAll();
+
+                list = all.Where(x => x.IdNhaXuatBan == id && x.Status == 1).ToList();
+            }
+            catch (Exception ex)
+            {
+                Debug.WriteLine(ex.ToString());
+            }
+            return list;
+        }
+
         public List<Models.Sach> TimKiem(string Ten, string moTa, string listIdTG, int? IdTL, int? IdNXB, int? NamXBTu, int? NamXBDen, int? giaTu, int? GiaDen)
         {
             var list = new List<Models.Sach>();

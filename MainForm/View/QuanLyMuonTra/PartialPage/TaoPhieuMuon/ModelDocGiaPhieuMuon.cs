@@ -47,23 +47,23 @@ namespace View.QuanLyMuonTra.QuanLyPhieuMuon
             }
         }
 
-        private void ModelDocGiaPhieuMuon_MouseEnter(object sender, EventArgs e)
-        {
-            var row = (Control)sender;
-            row.BackColor = Color.LightGray;
-        }
-
-        private void ModelDocGiaPhieuMuon_MouseLeave(object sender, EventArgs e)
-        {
-            var row = (Control)sender;
-            row.BackColor = Color.Transparent;
-        }
 
         private void btnTaoPhieu_Click(object sender, EventArgs e)
         {
             var crP = new QuanLyPhieuMuon.CreatePhieuMuon(IdDG);
 
             crP.Show();
+        }
+
+        private void btnTaoPhieu_MouseEnter(object sender, EventArgs e)
+        {
+            this.BackColor = Color.LightGray;
+        }
+
+        private void ModelDocGiaPhieuMuon_MouseLeave_1(object sender, EventArgs e)
+        {
+
+            this.BackColor = Color.Transparent;
         }
     }
 }

@@ -100,3 +100,16 @@ D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgo
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgoai.ModelTacGia.resources
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgoai.ThemTacGia.resources
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgoai.SuaTacGia.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgoai.QuanLyTheLoai.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgoai.ModelTheLoai.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgoai.ThemTheLoai.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgoai.SuaTheLoai.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgoai.QuanLyNhaXuatBan.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgoai.SuaNhaXuatBan.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgoai.ThemNhaXuatBan.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyNgoai.ModelNhaXuatBan.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyTaiKhoan.DanhSachDocGia.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyTaiKhoan.ModelQLTaiKhoan.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyTaiKhoan.ThemTaiKhoan.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyTaiKhoan.DanhSachNhanVien.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyTaiKhoan.DanhSachQuanTri.resources

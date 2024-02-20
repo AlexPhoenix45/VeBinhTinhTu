@@ -45,6 +45,8 @@
             txtSTT.Size = new Size(37, 23);
             txtSTT.TabIndex = 0;
             txtSTT.Text = "STT";
+            txtSTT.MouseEnter += txtSTT_MouseEnter_1;
+            txtSTT.MouseLeave += ModelTacGia_MouseLeave;
             // 
             // txtTen
             // 
@@ -55,6 +57,8 @@
             txtTen.Size = new Size(55, 23);
             txtTen.TabIndex = 1;
             txtTen.Text = "label2";
+            txtTen.MouseEnter += txtSTT_MouseEnter_1;
+            txtTen.MouseLeave += ModelTacGia_MouseLeave;
             // 
             // txtDiaChi
             // 
@@ -65,6 +69,8 @@
             txtDiaChi.Size = new Size(55, 23);
             txtDiaChi.TabIndex = 2;
             txtDiaChi.Text = "label3";
+            txtDiaChi.MouseEnter += txtSTT_MouseEnter_1;
+            txtDiaChi.MouseLeave += ModelTacGia_MouseLeave;
             // 
             // txtChucDanh
             // 
@@ -75,6 +81,8 @@
             txtChucDanh.Size = new Size(55, 23);
             txtChucDanh.TabIndex = 3;
             txtChucDanh.Text = "label4";
+            txtChucDanh.MouseEnter += txtSTT_MouseEnter_1;
+            txtChucDanh.MouseLeave += ModelTacGia_MouseLeave;
             // 
             // btnSua
             // 
@@ -85,6 +93,8 @@
             btnSua.TabIndex = 4;
             btnSua.Text = "Sửa";
             btnSua.UseVisualStyleBackColor = false;
+            btnSua.MouseEnter += txtSTT_MouseEnter_1;
+            btnSua.MouseLeave += ModelTacGia_MouseLeave;
             // 
             // btnXoa
             // 
@@ -95,6 +105,8 @@
             btnXoa.TabIndex = 5;
             btnXoa.Text = "Xóa";
             btnXoa.UseVisualStyleBackColor = false;
+            btnXoa.MouseEnter += txtSTT_MouseEnter_1;
+            btnXoa.MouseLeave += ModelTacGia_MouseLeave;
             // 
             // ModelTacGia
             // 
@@ -109,6 +121,8 @@
             Controls.Add(txtSTT);
             Name = "ModelTacGia";
             Size = new Size(1059, 90);
+            MouseEnter += txtSTT_MouseEnter_1;
+            MouseLeave += ModelTacGia_MouseLeave;
             ResumeLayout(false);
             PerformLayout();
         }

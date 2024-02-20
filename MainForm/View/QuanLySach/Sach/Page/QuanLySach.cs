@@ -26,7 +26,7 @@ namespace QuanLySach.Sach
 
             var role = new DAO.SqlToLinq.RoleAction().getAll().Where(x => x.IdAction == them.Id && x.IdRole == Models.Session.Role.Id && x.Status == 1).FirstOrDefault();
 
-            if(role == null)
+            if (role == null)
             {
                 btnAdd.Visible = false;
             }
@@ -306,6 +306,11 @@ namespace QuanLySach.Sach
             {
                 ListSach(); // Gọi phương thức làm mới dữ liệu
             }
+        }
+
+        private void QuanLySach_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
