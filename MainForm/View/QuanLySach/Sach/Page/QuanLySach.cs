@@ -10,6 +10,7 @@ using System.Threading.Tasks;
 using System.Net.Http;
 using System.Windows.Forms;
 using MainForm.View.QuanLySach.Sach;
+using Models;
 
 namespace QuanLySach.Sach
 {
@@ -19,40 +20,247 @@ namespace QuanLySach.Sach
         private string ListtenTG = "";
         public QuanLySach()
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
+            DTSach.CellClick += DTSach_CellClick;
 
 
-            var them = new DAO.SqlToLinq.Action().getAll().Where(x => x.Name.Equals("ThemSach") && x.Status == 1).FirstOrDefault();
+            var ACT = new DAO.SqlToLinq.Action().getAllByIdUser();
 
-            var role = new DAO.SqlToLinq.RoleAction().getAll().Where(x => x.IdAction == them.Id && x.IdRole == Models.Session.Role.Id && x.Status == 1).FirstOrDefault();
+            var xoa = ACT.Where(x => x.Status == 1 && x.Name.Equals("ThemSach")).FirstOrDefault();
 
-            if (role == null)
+            if (xoa == null)
             {
                 btnAdd.Visible = false;
             }
 
+            if(Models.Session.cd.DSList == 1)
+            {
+                rjToggleButton1.Checked = true;
+            }
+            else
+            {
+                rjToggleButton1.Checked = false;
+                pnDS.Visible = false;
+            }
+
+
             loadTrang();
         }
 
-        private void sach_ReloadXoaSachComplete(object sender, EventArgs e)
+        //Hàm Dạng Danh Sách
+        
+        private void LoadDS()
         {
-            ListSach();
+            var sachList = new DAO.SqlToLinq.Sach().GetAll().Where(x => x.Status == 1);
+
+            DataTable dt = new DataTable();
+
+            // Thêm các cột vào DataTable
+            dt.Columns.Add("STT", typeof(int)); // Giả sử IdTacGia là kiểu int
+            dt.Columns.Add("IdSach", typeof(int)); // Giả sử IdTacGia là kiểu int
+            dt.Columns.Add("Tên sách", typeof(string)); // Giả sử IdTacGia là kiểu int
+            dt.Columns.Add("Thể loại", typeof(string));
+            dt.Columns.Add("Mô tả", typeof(string)); // Giả sử IdTacGia là kiểu int
+            dt.Columns.Add("Tác giả", typeof(string));
+            dt.Columns.Add("Năm xuất bản", typeof(string));
+            dt.Columns.Add("Số lượng", typeof(string));
+
+
+
+            // Thêm dữ liệu từ sachList vào DataTable
+            int stt = 1;
+            foreach (var sach in sachList)
+            {
+                dt.Rows.Add(stt++,sach.Id, sach.TenSach, new DAO.SqlToLinq.TheLoai().getById(sach.IdTheLoai).TenTheLoai,
+                            sach.MoTa, new DAO.SqlToLinq.Sach().getTacGias(sach.Id), sach.NamXuatBan, (sach.SoLuong - new DAO.SqlToLinq.ChiTietMuon().tongSach(sach.Id)) + "/" + sach.SoLuong);
+            }
+
+            // Gán DataTable làm DataSource cho DTSach
+            DTSach.ReadOnly = true;
+            DTSach.DataSource = dt;
+            // Thiết lập chiều rộng cho các cột
+            DTSach.Columns["STT"].Width = 50; // Thiết lập chiều rộng cho cột "Tác Giả" là 150
+            DTSach.Columns["IdSach"].Visible = false; // Thiết lập chiều rộng cho cột "Tác Giả" là 150
+            DTSach.Columns["Tên sách"].Width = 150; // Thiết lập chiều rộng cho cột "Tác Giả" là 150
+            DTSach.Columns["Mô tả"].Width = 200; // Thiết lập chiều rộng cho cột "Tác Giả" là 150
+            DTSach.Columns["Số lượng"].Width = 150; // Thiết lập chiều rộng cho cột "Năm Xuất Bản" là 150
+            DTSach.Columns["Năm Xuất bản"].Width = 150; // Thiết lập chiều rộng cho cột "Tác Giả" là 150
+            DTSach.Columns["Thể loại"].Width = 150;
         }
 
-        public void List()
+        private void TkDS()
         {
-            pnChiTiet.Visible = false;
-            pnChiTiet.Controls.Clear();
-            pnList.Visible = true;
+            var Ten = txtTen.Text;
+            var MoTa = txtMoTa.Text;
+            var listIdTG = ListIdTG;
+
+            int IdTheLoai, IdNXB, NamXBTu, NamXBDen, GiaTu, GiaDen;
+
+            if (!int.TryParse((txtTL.SelectedItem as Models.CheckBox)?.Value.ToString(), out IdTheLoai))
+            {
+                // Handle the case where parsing fails, e.g., show an error message or set a default value
+                IdTheLoai = 0; // Default value or any other suitable default handling
+            }
+
+            if (!int.TryParse((txtNXB.SelectedItem as Models.CheckBox)?.Value.ToString(), out IdNXB))
+            {
+                // Handle the case where parsing fails
+                IdNXB = 0;
+            }
+
+            if (!int.TryParse(txtNamXBTu.Text, out NamXBTu))
+            {
+                // Handle the case where parsing fails
+                NamXBTu = 0;
+            }
+
+            if (!int.TryParse(txtNamXBDen.Text, out NamXBDen))
+            {
+                // Handle the case where parsing fails
+                NamXBDen = 0;
+            }
+
+            if (!int.TryParse(txtGiaTu.Text, out GiaTu))
+            {
+                // Handle the case where parsing fails
+                GiaTu = 0;
+            }
+
+            if (!int.TryParse(txtGiaDen.Text, out GiaDen))
+            {
+                // Handle the case where parsing fails
+                GiaDen = 0;
+            }
+            var sachList = new DAO.SqlToLinq.Sach().TimKiem(Ten, MoTa, listIdTG, IdTheLoai, IdNXB, NamXBTu, NamXBDen, GiaTu, GiaDen);
+
+            DataTable dt = new DataTable();
+
+            // Thêm các cột vào DataTable
+            dt.Columns.Add("STT", typeof(int)); // Giả sử IdTacGia là kiểu int
+            dt.Columns.Add("IdSach", typeof(int)); // Giả sử IdTacGia là kiểu int
+            dt.Columns.Add("Tên sách", typeof(string)); // Giả sử IdTacGia là kiểu int
+            dt.Columns.Add("Thể loại", typeof(string));
+            dt.Columns.Add("Mô tả", typeof(string)); // Giả sử IdTacGia là kiểu int
+            dt.Columns.Add("Tác giả", typeof(string));
+            dt.Columns.Add("Năm xuất bản", typeof(string));
+            dt.Columns.Add("Số lượng", typeof(string));
+
+
+
+            // Thêm dữ liệu từ sachList vào DataTable
+            int stt = 1;
+            foreach (var sach in sachList)
+            {
+                dt.Rows.Add(stt++, sach.Id, sach.TenSach, new DAO.SqlToLinq.TheLoai().getById(sach.IdTheLoai).TenTheLoai,
+                            sach.MoTa, new DAO.SqlToLinq.Sach().getTacGias(sach.Id), sach.NamXuatBan, (sach.SoLuong - new DAO.SqlToLinq.ChiTietMuon().tongSach(sach.Id)) + "/" + sach.SoLuong);
+            }
+
+            // Gán DataTable làm DataSource cho DTSach
+            DTSach.ReadOnly = true;
+            DTSach.DataSource = dt;
+            // Thiết lập chiều rộng cho các cột
+            DTSach.Columns["STT"].Width = 50; // Thiết lập chiều rộng cho cột "Tác Giả" là 150
+            DTSach.Columns["IdSach"].Visible = false; // Thiết lập chiều rộng cho cột "Tác Giả" là 150
+            DTSach.Columns["Tên sách"].Width = 150; // Thiết lập chiều rộng cho cột "Tác Giả" là 150
+            DTSach.Columns["Mô tả"].Width = 200; // Thiết lập chiều rộng cho cột "Tác Giả" là 150
+            DTSach.Columns["Số lượng"].Width = 150; // Thiết lập chiều rộng cho cột "Năm Xuất Bản" là 150
+            DTSach.Columns["Năm Xuất bản"].Width = 150; // Thiết lập chiều rộng cho cột "Tác Giả" là 150
+            DTSach.Columns["Thể loại"].Width = 150;
         }
 
-        private void ChiTiet()
+        private void DTSach_CellClick(object? sender, DataGridViewCellEventArgs e)
         {
-            pnChiTiet.Visible = true;
-            pnList.Visible = false;
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                // Lấy giá trị của cột ID của bản ghi được chọn
+                var idValue = int.Parse(DTSach.Rows[e.RowIndex].Cells["IdSach"].Value.ToString());
+
+
+                var ct = new View.QuanLySach.ChiTietSach2(idValue);
+
+                pnCTSach.Controls.Clear();
+                pnCTSach.Controls.Add(ct);
+            }
         }
 
-        private void loadTrang()
+
+
+
+        //Hàm Dạng lưới
+
+        private void TkLuoi()
+        {
+            List();
+
+            var Ten = txtTen.Text;
+            var MoTa = txtMoTa.Text;
+            var listIdTG = ListIdTG;
+
+            int IdTheLoai, IdNXB, NamXBTu, NamXBDen, GiaTu, GiaDen;
+
+            if (!int.TryParse((txtTL.SelectedItem as Models.CheckBox)?.Value.ToString(), out IdTheLoai))
+            {
+                // Handle the case where parsing fails, e.g., show an error message or set a default value
+                IdTheLoai = 0; // Default value or any other suitable default handling
+            }
+
+            if (!int.TryParse((txtNXB.SelectedItem as Models.CheckBox)?.Value.ToString(), out IdNXB))
+            {
+                // Handle the case where parsing fails
+                IdNXB = 0;
+            }
+
+            if (!int.TryParse(txtNamXBTu.Text, out NamXBTu))
+            {
+                // Handle the case where parsing fails
+                NamXBTu = 0;
+            }
+
+            if (!int.TryParse(txtNamXBDen.Text, out NamXBDen))
+            {
+                // Handle the case where parsing fails
+                NamXBDen = 0;
+            }
+
+            if (!int.TryParse(txtGiaTu.Text, out GiaTu))
+            {
+                // Handle the case where parsing fails
+                GiaTu = 0;
+            }
+
+            if (!int.TryParse(txtGiaDen.Text, out GiaDen))
+            {
+                // Handle the case where parsing fails
+                GiaDen = 0;
+            }
+
+
+            pnList.Controls.Clear();
+            // Đặt vị trí ban đầu cho các UserControl
+            int topPosition = 0;
+
+            // Load và thêm các UserControl vào Panel
+            foreach (var s in new DAO.SqlToLinq.Sach().TimKiem(Ten, MoTa, listIdTG, IdTheLoai, IdNXB, NamXBTu, NamXBDen, GiaTu, GiaDen))
+            {
+                Sach.ModelSach sach = new Sach.ModelSach();
+
+                sach.ReloadXoaSachComplete += sach_ReloadXoaSachComplete;
+
+                sach.txtImg.Text = s.TenSach.ToString();
+                sach.img.ImageLocation = "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\Web\\Img\\AnhSach\\" + s.AnhDaiDien;
+                sach.img.Tag = s.Id;
+                sach.img.Click += Sach_Click;
+
+                pnList.Controls.Add(sach);
+
+                // Tăng vị trí top cho UserControl tiếp theo
+                topPosition += sach.Height; // Giả sử UserControl có chiều cao cố định
+            }
+
+            // Thêm Panel chứa các UserControl vào Form (hoặc UserControl chính của bạn)
+            pn.Controls.Add(pnList);
+        }
+        private void LoadLuoi()
         {
             // Đặt vị trí ban đầu cho các UserControl
             int topPosition = 0;
@@ -135,6 +343,37 @@ namespace QuanLySach.Sach
 
         }
 
+
+        private void sach_ReloadXoaSachComplete(object sender, EventArgs e)
+        {
+            ListSach();
+        }
+
+        public void List()
+        {
+            pnChiTiet.Visible = false;
+            pnChiTiet.Controls.Clear();
+            pnList.Visible = true;
+        }
+
+        private void ChiTiet()
+        {
+            pnChiTiet.Visible = true;
+            pnList.Visible = false;
+        }
+
+        private void loadTrang()
+        {
+            if (rjToggleButton1.Checked)
+            {
+                LoadDS();
+            }
+            else
+            {
+                LoadLuoi();
+            }
+        }
+
         private string ChonTG()
         {
             var u = "";
@@ -193,75 +432,15 @@ namespace QuanLySach.Sach
 
         private void ListSach()
         {
-            List();
 
-            var Ten = txtTen.Text;
-            var MoTa = txtMoTa.Text;
-            var listIdTG = ListIdTG;
-
-            int IdTheLoai, IdNXB, NamXBTu, NamXBDen, GiaTu, GiaDen;
-
-            if (!int.TryParse((txtTL.SelectedItem as Models.CheckBox)?.Value.ToString(), out IdTheLoai))
+            if (rjToggleButton1.Checked)
             {
-                // Handle the case where parsing fails, e.g., show an error message or set a default value
-                IdTheLoai = 0; // Default value or any other suitable default handling
+                TkDS();
             }
-
-            if (!int.TryParse((txtNXB.SelectedItem as Models.CheckBox)?.Value.ToString(), out IdNXB))
+            else
             {
-                // Handle the case where parsing fails
-                IdNXB = 0;
+                TkLuoi();
             }
-
-            if (!int.TryParse(txtNamXBTu.Text, out NamXBTu))
-            {
-                // Handle the case where parsing fails
-                NamXBTu = 0;
-            }
-
-            if (!int.TryParse(txtNamXBDen.Text, out NamXBDen))
-            {
-                // Handle the case where parsing fails
-                NamXBDen = 0;
-            }
-
-            if (!int.TryParse(txtGiaTu.Text, out GiaTu))
-            {
-                // Handle the case where parsing fails
-                GiaTu = 0;
-            }
-
-            if (!int.TryParse(txtGiaDen.Text, out GiaDen))
-            {
-                // Handle the case where parsing fails
-                GiaDen = 0;
-            }
-
-
-            pnList.Controls.Clear();
-            // Đặt vị trí ban đầu cho các UserControl
-            int topPosition = 0;
-
-            // Load và thêm các UserControl vào Panel
-            foreach (var s in new DAO.SqlToLinq.Sach().TimKiem(Ten, MoTa, listIdTG, IdTheLoai, IdNXB, NamXBTu, NamXBDen, GiaTu, GiaDen))
-            {
-                Sach.ModelSach sach = new Sach.ModelSach();
-
-                sach.ReloadXoaSachComplete += sach_ReloadXoaSachComplete;
-
-                sach.txtImg.Text = s.TenSach.ToString();
-                sach.img.ImageLocation = "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\Web\\Img\\AnhSach\\" + s.AnhDaiDien;
-                sach.img.Tag = s.Id;
-                sach.img.Click += Sach_Click;
-
-                pnList.Controls.Add(sach);
-
-                // Tăng vị trí top cho UserControl tiếp theo
-                topPosition += sach.Height; // Giả sử UserControl có chiều cao cố định
-            }
-
-            // Thêm Panel chứa các UserControl vào Form (hoặc UserControl chính của bạn)
-            pn.Controls.Add(pnList);
         }
 
         private void Sach_Click(object? sender, EventArgs e)
@@ -308,9 +487,31 @@ namespace QuanLySach.Sach
             }
         }
 
-        private void QuanLySach_Load(object sender, EventArgs e)
-        {
 
+
+        private void rjToggleButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            if (rjToggleButton1.Checked)
+            {
+                Models.Session.cd.DSList = 1;
+                List();
+                TkDS();
+                pnList.Visible = false;
+                pnDS.Visible = true;
+            }
+            else
+            {
+                Models.Session.cd.DSList = 0;
+                List();
+                TkLuoi();
+                pnList.Visible = true;
+                pnDS.Visible = false;
+            }
+
+            if (new DAO.SqlToLinq.CaiDat().Update(Models.Session.cd))
+            {
+                Debug.WriteLine("Back2 ok");
+            }
         }
     }
 }

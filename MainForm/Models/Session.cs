@@ -12,5 +12,6 @@ namespace Models
         public static Models.Role Role { get; set; }
         public static string RoleCode { get; set; }
         public static int IdUserInRole { get; set; }
+        public static Models.CaiDat cd {  get; set; }
     }
 }

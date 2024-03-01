@@ -14,7 +14,7 @@ namespace View.QuanLyMuonTra.QuanLyMuon
     {
         public QuanLyMuon()
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
             loadNew();
         }
 

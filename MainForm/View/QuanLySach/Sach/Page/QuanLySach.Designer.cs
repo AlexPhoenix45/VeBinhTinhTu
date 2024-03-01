@@ -48,13 +48,19 @@
             txtMoTa = new TextBox();
             XacNhan = new Button();
             pn = new FlowLayoutPanel();
+            pnDS = new FlowLayoutPanel();
+            DTSach = new DataGridView();
+            pnCTSach = new Panel();
             pnList = new FlowLayoutPanel();
             pnChiTiet = new FlowLayoutPanel();
             btnAdd = new Button();
             cklTG = new CheckedListBox();
             pnTG = new Panel();
             btnTG = new Button();
+            rjToggleButton1 = new Models.RJToggleButton();
             pn.SuspendLayout();
+            pnDS.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)DTSach).BeginInit();
             pnTG.SuspendLayout();
             SuspendLayout();
             // 
@@ -240,18 +246,47 @@
             // 
             pn.AutoScroll = true;
             pn.AutoSize = true;
+            pn.Controls.Add(pnDS);
             pn.Controls.Add(pnList);
             pn.Controls.Add(pnChiTiet);
             pn.Location = new Point(36, 258);
             pn.Name = "pn";
-            pn.Size = new Size(2476, 699);
+            pn.Size = new Size(4099, 699);
             pn.TabIndex = 21;
+            // 
+            // pnDS
+            // 
+            pnDS.AutoScroll = true;
+            pnDS.AutoScrollMargin = new Size(500, 0);
+            pnDS.Controls.Add(DTSach);
+            pnDS.Controls.Add(pnCTSach);
+            pnDS.Location = new Point(3, 3);
+            pnDS.Name = "pnDS";
+            pnDS.Size = new Size(1617, 640);
+            pnDS.TabIndex = 2;
+            // 
+            // DTSach
+            // 
+            DTSach.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            DTSach.Location = new Point(3, 3);
+            DTSach.Name = "DTSach";
+            DTSach.RowHeadersWidth = 51;
+            DTSach.Size = new Size(1028, 613);
+            DTSach.TabIndex = 0;
+            // 
+            // pnCTSach
+            // 
+            pnCTSach.BorderStyle = BorderStyle.FixedSingle;
+            pnCTSach.Location = new Point(1037, 3);
+            pnCTSach.Name = "pnCTSach";
+            pnCTSach.Size = new Size(476, 544);
+            pnCTSach.TabIndex = 1;
             // 
             // pnList
             // 
             pnList.AutoScroll = true;
             pnList.AutoScrollMargin = new Size(500, 0);
-            pnList.Location = new Point(3, 3);
+            pnList.Location = new Point(1626, 3);
             pnList.Name = "pnList";
             pnList.Size = new Size(1300, 640);
             pnList.TabIndex = 0;
@@ -260,7 +295,7 @@
             // 
             pnChiTiet.AutoScroll = true;
             pnChiTiet.AutoScrollMargin = new Size(500, 0);
-            pnChiTiet.Location = new Point(3, 649);
+            pnChiTiet.Location = new Point(2932, 3);
             pnChiTiet.Name = "pnChiTiet";
             pnChiTiet.Size = new Size(1164, 640);
             pnChiTiet.TabIndex = 1;
@@ -305,12 +340,28 @@
             btnTG.UseVisualStyleBackColor = true;
             btnTG.Click += btnTG_Click;
             // 
+            // rjToggleButton1
+            // 
+            rjToggleButton1.AutoSize = true;
+            rjToggleButton1.Location = new Point(1176, 219);
+            rjToggleButton1.MinimumSize = new Size(45, 22);
+            rjToggleButton1.Name = "rjToggleButton1";
+            rjToggleButton1.OffBackColor = Color.Gray;
+            rjToggleButton1.OffToggleColor = Color.Gainsboro;
+            rjToggleButton1.OnBackColor = Color.MediumSlateBlue;
+            rjToggleButton1.OnToggleColor = Color.WhiteSmoke;
+            rjToggleButton1.Size = new Size(45, 22);
+            rjToggleButton1.TabIndex = 24;
+            rjToggleButton1.UseVisualStyleBackColor = true;
+            rjToggleButton1.CheckedChanged += rjToggleButton1_CheckedChanged;
+            // 
             // QuanLySach
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             AutoSize = true;
             BackColor = Color.White;
+            Controls.Add(rjToggleButton1);
             Controls.Add(pnTG);
             Controls.Add(btnAdd);
             Controls.Add(pn);
@@ -334,8 +385,10 @@
             Controls.Add(label2);
             Controls.Add(label1);
             Name = "QuanLySach";
-            Size = new Size(2851, 1122);
+            Size = new Size(4138, 1122);
             pn.ResumeLayout(false);
+            pnDS.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)DTSach).EndInit();
             pnTG.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
@@ -374,5 +427,9 @@
         private Button btnTG;
         private FlowLayoutPanel pnList;
         private FlowLayoutPanel pnChiTiet;
+        private FlowLayoutPanel pnDS;
+        private DataGridView DTSach;
+        private Panel pnCTSach;
+        private Models.RJToggleButton rjToggleButton1;
     }
 }

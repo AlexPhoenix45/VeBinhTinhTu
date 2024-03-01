@@ -16,7 +16,7 @@ namespace View.QuanLyMuonTra.QuanLyNhacTra
         public Models.PhieuMuon Phieu;
         public CreatePhieuNhac(Models.PhieuMuon IdP)
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
 
             Phieu = IdP;
 

@@ -1,4 +1,4 @@
-﻿namespace MainForm.View.QuanLySach.Sach
+﻿namespace View.QuanLySach
 {
     partial class SuaSach
     {

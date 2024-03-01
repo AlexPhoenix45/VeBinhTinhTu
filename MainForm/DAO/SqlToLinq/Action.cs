@@ -41,6 +41,7 @@ namespace DAO.SqlToLinq
                                 IsChucNangHien = reader.IsDBNull(reader.GetOrdinal("IsChucNangHien")) ? 0 : reader.GetInt32(reader.GetOrdinal("IsChucNangHien")),
                                 CreateAt = reader.IsDBNull(reader.GetOrdinal("CreateAt")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("CreateAt")),
                                 UpdateAt = reader.IsDBNull(reader.GetOrdinal("UpdateAt")) ? DateTime.MinValue : reader.GetDateTime(reader.GetOrdinal("UpdateAt")),
+                                ViTri = reader.IsDBNull(reader.GetOrdinal("ViTri")) ? 0 : reader.GetInt32(reader.GetOrdinal("ViTri")),
                                 Status = reader.IsDBNull(reader.GetOrdinal("Status")) ? 0 : reader.GetInt32(reader.GetOrdinal("Status"))
 
                             };
@@ -55,6 +56,38 @@ namespace DAO.SqlToLinq
                 Debug.WriteLine(ex.Message.ToString());
             }
             return userList;
+        }
+
+
+        public List<Models.Action> getAllByIdUser()
+        {
+            var Acts = new DAO.SqlToLinq.Action().getByIdRole(Models.Session.Role.Id);
+
+            // Lấy danh sách các UserRole của người dùng hiện tại
+            var NhiemVu = new DAO.SqlToLinq.UserRole().GetAll().Where(x => x.IdUser == Models.Session.Users.Id && x.Status == 1).ToList();
+
+            // Tạo danh sách tạm thời để lưu các phần tử mới
+            var newActs = new List<Models.Action>();
+
+            // Lặp qua danh sách NhiemVu để lấy ra các Action tương ứng
+            foreach (var n in NhiemVu)
+            {
+                // Lấy Role tương ứng với UserRole
+                var role = new DAO.SqlToLinq.Role().getAll().FirstOrDefault(x => x.IsNhiemVu == 1 && x.Status == 1 && (x.ThoiHan.HasValue ? x.ThoiHan.Value > DateTime.Now : true) && x.Id == n.IdRole);
+                if (role != null)
+                {
+                    // Lấy danh sách các Action của Role và thêm vào danh sách tạm thời
+                    var actions = new DAO.SqlToLinq.Action().getByIdRole(n.IdRole);
+                    newActs.AddRange(actions);
+                }
+            }
+
+            // Loại bỏ các phần tử trùng lặp từ danh sách Acts và danh sách mới
+            var uniqueActs = Acts.Union(newActs).ToList();
+            uniqueActs = uniqueActs.GroupBy(a => a.Id).Select(g => g.First()).ToList();
+            uniqueActs = uniqueActs.OrderBy(x => x.ViTri).ThenBy(x => x.Id).ToList();
+
+            return uniqueActs;
         }
 
         public Models.Action getById(int IdAct)

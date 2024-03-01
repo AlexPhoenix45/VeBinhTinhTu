@@ -16,6 +16,7 @@ namespace Models
         public int IsChucNangHien { get; set; }
         public DateTime CreateAt { get; set; }
         public DateTime UpdateAt { get; set; }
+        public int ViTri { get; set; }
         public int Status { get; set; }
     }
 }

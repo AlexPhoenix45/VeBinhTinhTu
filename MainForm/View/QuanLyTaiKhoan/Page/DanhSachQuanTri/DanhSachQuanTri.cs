@@ -14,7 +14,7 @@ namespace View.QuanLyTaiKhoan
     {
         public DanhSachQuanTri()
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
             loadNew();
         }
         private void loadNew()

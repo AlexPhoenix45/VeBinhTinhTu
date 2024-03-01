@@ -15,7 +15,7 @@ namespace View.QuanLyNgoai
         private Models.TacGia tg;
         public SuaTacGia(Models.TacGia tg)
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
             this.tg = tg;
 
             LoadNew();

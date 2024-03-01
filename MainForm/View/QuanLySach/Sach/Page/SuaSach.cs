@@ -10,7 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace MainForm.View.QuanLySach.Sach
+namespace View.QuanLySach
 {
     public partial class SuaSach : Form
     {
@@ -19,7 +19,7 @@ namespace MainForm.View.QuanLySach.Sach
         private int IdSach; 
         public SuaSach(int Id)
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
             IdSach = Id;
 
             var sach = new DAO.SqlToLinq.Sach().getById(Id);

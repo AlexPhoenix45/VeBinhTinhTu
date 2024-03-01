@@ -14,7 +14,7 @@ namespace View.QuanLyMuonTra.QuanLyNhacTra
     {
         public ListNhacTra()
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
 
             loadNew();
         }

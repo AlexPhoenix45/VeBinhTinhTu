@@ -15,7 +15,7 @@ namespace View.QuanLyTaiKhoan
         private int IdRole;
         public ThemTaiKhoan(int IdRole)
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
 
             this.IdRole = IdRole;
 

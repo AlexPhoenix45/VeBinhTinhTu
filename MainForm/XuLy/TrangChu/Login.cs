@@ -48,6 +48,7 @@ namespace XuLy.TrangChu
                                         Models.Session.Role = new DAO.SqlToLinq.Role().getAllByName(role);
                                         Models.Session.IdUserInRole = dg.Id;
                                         Models.Session.RoleCode = dg.MaDocGia;
+                                        Models.Session.cd = new DAO.SqlToLinq.CaiDat().getByIdUser(Models.Session.Users.Id);
 
                                         return true;
                                     }
@@ -64,6 +65,7 @@ namespace XuLy.TrangChu
                                         Models.Session.Role = new DAO.SqlToLinq.Role().getAllByName(role);
                                         Models.Session.IdUserInRole = dg.Id;
                                         Models.Session.RoleCode = dg.MaNhanVien;
+                                        Models.Session.cd = new DAO.SqlToLinq.CaiDat().getByIdUser(Models.Session.Users.Id);
 
                                         return true;
                                     }
@@ -79,6 +81,7 @@ namespace XuLy.TrangChu
                                         Models.Session.Role = new DAO.SqlToLinq.Role().getAllByName(role);
                                         Models.Session.IdUserInRole = dg.Id;
                                         Models.Session.RoleCode = dg.MaAdmin;
+                                        Models.Session.cd = new DAO.SqlToLinq.CaiDat().getByIdUser(Models.Session.Users.Id);
 
                                         return true;
                                     }

@@ -15,12 +15,11 @@ namespace View.QuanLyChucNang
     {
 
         private List<int> role1 = new List<int>();
-        private List<int> role2 = new List<int>();
-        private List<int> role3 = new List<int>();
+        private int IdR;
 
         public QuanLyPhanQuyen()
         {
-            InitializeComponent();
+            InitializeComponent(); if (Models.Session.cd.CheDoToi == 1) { this.BackColor = Color.Silver; }
             LoadNewRole();
         }
 
@@ -76,8 +75,6 @@ namespace View.QuanLyChucNang
             try
             {
                 role1.Clear();
-                role2.Clear();
-                role3.Clear();
                 pnAction.Controls.Clear();
 
                 var listAction = new DAO.SqlToLinq.Action().getAll().Where(x => x.Status == 1);
@@ -101,18 +98,7 @@ namespace View.QuanLyChucNang
                     {
                         pr.Checked = true;
 
-                        if (IdRole == 1)
-                        {
-                            role1.Add(name.Id);
-                        }
-                        else if (IdRole == 2)
-                        {
-                            role2.Add(name.Id);
-                        }
-                        else
-                        {
-                            role3.Add(name.Id);
-                        }
+                        role1.Add(name.Id);
                     }
 
 
@@ -136,18 +122,7 @@ namespace View.QuanLyChucNang
                         {
                             ck.Checked = true;
 
-                            if (IdRole == 1)
-                            {
-                                role1.Add(sub.Id);
-                            }
-                            else if (IdRole == 2)
-                            {
-                                role2.Add(sub.Id);
-                            }
-                            else
-                            {
-                                role3.Add(sub.Id);
-                            }
+                            role1.Add(sub.Id);
                         }
 
                         pnAction.Controls.Add(ck);
@@ -180,34 +155,11 @@ namespace View.QuanLyChucNang
                 //MessageBox.Show(rd.Tag.ToString());
                 // Thực hiện các hành động cần thiết dựa trên roleId hoặc roleName
 
-                if (IdRole == 1)
-                {
-                    role1.Add(int.Parse(rd.Tag.ToString()));
-                }
-                else if (IdRole == 2)
-                {
-                    role2.Add(int.Parse(rd.Tag.ToString()));
-                }
-                else
-                {
-                    role3.Add(int.Parse(rd.Tag.ToString()));
-                }
+                role1.Add(int.Parse(rd.Tag.ToString()));
             }
             else
             {
-
-                if (IdRole == 1)
-                {
-                    role1.Remove(int.Parse(rd.Tag.ToString()));
-                }
-                else if (IdRole == 2)
-                {
-                    role2.Remove(int.Parse(rd.Tag.ToString()));
-                }
-                else
-                {
-                    role3.Remove(int.Parse(rd.Tag.ToString()));
-                }
+                role1.Remove(int.Parse(rd.Tag.ToString()));
             }
         }
 
@@ -217,7 +169,41 @@ namespace View.QuanLyChucNang
             {
                 var listRole = new DAO.SqlToLinq.Role().getAll().Where(x => x.Status == 1).ToList();
 
-                foreach (var role in listRole)
+                var lbl = new Label();
+                lbl.Text = "";
+                lbl.Font = new Font("Arial", 12, FontStyle.Regular);
+                lbl.Size = new Size(200, 15);
+                pnRole.Controls.Add(lbl);
+
+                lbl = new Label();
+                lbl.Text = "Vai trò người dùng";
+                lbl.Font = new Font("Arial", 12, FontStyle.Regular);
+                lbl.Size = new Size(200, 30);
+                pnRole.Controls.Add(lbl);
+
+                foreach (var role in listRole.Where(x => x.IsNhiemVu == 0))
+                {
+                    var rd = new RadioButton();
+                    rd.Width = pnRole.Width - 10;
+                    rd.Text = role.RoleName;
+                    rd.Tag = role.Id;
+                    rd.CheckedChanged += RD_Check;
+                    pnRole.Controls.Add(rd);
+                }
+
+                var lbl2 = new Label();
+                lbl2.Text = "";
+                lbl2.Font = new Font("Arial", 12, FontStyle.Regular);
+                lbl2.Size = new Size(200, 15);
+                pnRole.Controls.Add(lbl2);
+
+                lbl2 = new Label();
+                lbl2.Text = "Nhiệm vụ";
+                lbl2.Font = new Font("Arial", 12, FontStyle.Regular);
+                lbl2.Size = new Size(200, 30);
+                pnRole.Controls.Add(lbl2);
+
+                foreach (var role in listRole.Where(x => x.IsNhiemVu == 1))
                 {
                     var rd = new RadioButton();
                     rd.Width = pnRole.Width - 10;
@@ -240,7 +226,7 @@ namespace View.QuanLyChucNang
             {
                 LoadNewAction(int.Parse(rd.Tag.ToString()));
                 LoadNewActionInActive(int.Parse(rd.Tag.ToString()));
-
+                IdR = int.Parse(rd.Tag.ToString());
             }
         }
 
@@ -309,8 +295,8 @@ namespace View.QuanLyChucNang
         {
             if (role1.Count > 0)
             {
-                Update(role1, 1);
-                if (Models.Session.Role.Id == 1)
+                Update(role1, IdR);
+                if (Models.Session.Role.Id == IdR)
                 {
                     MessageBox.Show("Thành công, hãy mở lại để hoàn tất cập nhật");
                 }
@@ -319,30 +305,10 @@ namespace View.QuanLyChucNang
                     MessageBox.Show("Đã cập nhật");
                 }
             }
-            if (role2.Count > 0)
-            {
-                Update(role2, 2);
-                if (Models.Session.Role.Id == 2)
-                {
-                    MessageBox.Show("Thành công, hãy mở lại để hoàn tất cập nhật");
-                }
-                else
-                {
-                    MessageBox.Show("Đã cập nhật");
-                }
-            }
-            if (role3.Count > 0)
-            {
-                Update(role3, 3);
-                if (Models.Session.Role.Id == 3)
-                {
-                    MessageBox.Show("Thành công, hãy mở lại để hoàn tất cập nhật");
-                }
-                else
-                {
-                    MessageBox.Show("Đã cập nhật");
-                }
-            }
+        }
+
+        private void label1_Click(object sender, EventArgs e)
+        {
 
         }
     }

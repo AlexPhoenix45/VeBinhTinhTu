@@ -37,7 +37,6 @@
             button1 = new Button();
             panel1 = new Panel();
             label3 = new Label();
-            pnRole.SuspendLayout();
             panel2.SuspendLayout();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -64,23 +63,24 @@
             // 
             pnRole.AutoScroll = true;
             pnRole.BorderStyle = BorderStyle.FixedSingle;
-            pnRole.Controls.Add(label1);
-            pnRole.Location = new Point(131, 137);
+            pnRole.Location = new Point(131, 194);
             pnRole.Name = "pnRole";
-            pnRole.Size = new Size(335, 467);
+            pnRole.Size = new Size(335, 410);
             pnRole.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
+            label1.BorderStyle = BorderStyle.FixedSingle;
             label1.Font = new Font("Segoe UI", 12F);
-            label1.Location = new Point(3, 0);
-            label1.MinimumSize = new Size(200, 60);
+            label1.Location = new Point(131, 137);
+            label1.MinimumSize = new Size(335, 60);
             label1.Name = "label1";
-            label1.Size = new Size(200, 60);
+            label1.Size = new Size(335, 60);
             label1.TabIndex = 0;
             label1.Text = "Chọn đối tượng";
             label1.TextAlign = ContentAlignment.MiddleCenter;
+            label1.Click += label1_Click;
             // 
             // panel2
             // 
@@ -141,6 +141,7 @@
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.White;
+            Controls.Add(label1);
             Controls.Add(panel1);
             Controls.Add(panel2);
             Controls.Add(pnRole);
@@ -148,13 +149,12 @@
             Controls.Add(pnAction);
             Name = "QuanLyPhanQuyen";
             Size = new Size(1579, 913);
-            pnRole.ResumeLayout(false);
-            pnRole.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
+            PerformLayout();
         }
 
         #endregion

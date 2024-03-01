@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "ZwIP6OQ/r9KPQLjQ/NmakQUdcoYu9dBuw4WwP1vbmsvbtR5Lr2+TcHyBcKoUIlQorVbUTK2VroKwy6EipxY4Jw==",
+  "dgSpecHash": "I4MJo6SFRNOmhfJM3FytPgy1CF0CAN8jn69Xavev05sJtGbxYNP5VtYLpICw7YXbJ5oMyXx7usce+wVKmyqQCg==",
   "success": true,
   "projectFilePath": "D:\\LapTrinhWindow\\QuanLyThuVien\\MainForm\\MainForm.csproj",
   "expectedPackageFiles": [
@@ -19,6 +19,7 @@
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.identitymodel.protocols.openidconnect\\6.8.0\\microsoft.identitymodel.protocols.openidconnect.6.8.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.identitymodel.tokens\\6.8.0\\microsoft.identitymodel.tokens.6.8.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.netcore.platforms\\3.1.0\\microsoft.netcore.platforms.3.1.0.nupkg.sha512",
+    "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.office.interop.word\\15.0.4797.1004\\microsoft.office.interop.word.15.0.4797.1004.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\microsoft.win32.systemevents\\4.7.0\\microsoft.win32.systemevents.4.7.0.nupkg.sha512",
     "C:\\Users\\ADMIN\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",

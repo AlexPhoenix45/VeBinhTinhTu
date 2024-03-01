@@ -37,6 +37,7 @@
             // pnND
             // 
             pnND.AutoScroll = true;
+            pnND.BackColor = Color.White;
             pnND.Location = new Point(0, 66);
             pnND.Name = "pnND";
             pnND.Size = new Size(1300, 784);
@@ -76,7 +77,7 @@
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            BackColor = Color.White;
+            BackColor = SystemColors.Control;
             Controls.Add(btnTK);
             Controls.Add(dateStart);
             Controls.Add(dateEnd);
@@ -93,5 +94,6 @@
         private DateTimePicker dateEnd;
         private DateTimePicker dateStart;
         private Button btnTK;
+        private Button button1;
     }
 }

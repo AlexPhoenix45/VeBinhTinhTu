@@ -14,7 +14,7 @@ namespace View.QuanLyMuonTra.QuanLyMuon
     {
         public ModelListSachThanhToan()
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
         }
     }
 }

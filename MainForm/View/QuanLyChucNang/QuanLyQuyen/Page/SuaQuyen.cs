@@ -15,7 +15,7 @@ namespace View.QuanLyChucNang
         private Models.Action Act;
         public SuaQuyen(Models.Action Act)
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
 
             this.Act = Act;
             loadNew();

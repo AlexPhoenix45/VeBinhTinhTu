@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -18,10 +19,17 @@ namespace View.BaoCaoThongKe
 
         public BaoCaoThongKe()
         {
-            InitializeComponent();
+            InitializeComponent(); if (Models.Session.cd.CheDoToi == 1) { this.BackColor = Color.Silver; }
+
+            if (Models.Session.cd.CheDoToi == 1)
+            {
+                this.BackColor = Color.Silver;
+            }
 
             dateStart.Value = DateTime.Now.AddMonths(-6);
             dateEnd.Value = DateTime.Now;
+
+            if (Models.Session.cd.CheDoToi == 1) { pnND.BackColor = Color.Silver; }
 
         }
 
@@ -55,6 +63,8 @@ namespace View.BaoCaoThongKe
 
             // Tạo và thêm ChartArea vào biểu đồ
             ChartArea chartArea = new ChartArea();
+
+            if (Models.Session.cd.CheDoToi == 1) { chartArea.BackColor = Color.Silver; }
             chart.ChartAreas.Add(chartArea);
             Title title = new Title("Năng suất làm việc", Docking.Top, new System.Drawing.Font("Arial", 16f), Color.Black);
             chart.Titles.Add(title);
@@ -83,7 +93,7 @@ namespace View.BaoCaoThongKe
             chart.Legends.Add(new Legend("Legend"));
 
             chart.Legends[0].Docking = Docking.Right;
-
+            if (Models.Session.cd.CheDoToi == 1) { chart.BackColor = Color.Silver; }
             // Hiển thị biểu đồ trên form
             pnND.Controls.Add(chart);
         }
@@ -108,6 +118,7 @@ namespace View.BaoCaoThongKe
 
                 // Tạo và thêm ChartArea vào biểu đồ
                 ChartArea chartArea = new ChartArea();
+                if (Models.Session.cd.CheDoToi == 1) { chartArea.BackColor = Color.LightGray; }
                 chart.ChartAreas.Add(chartArea);
 
                 // Tạo series cho biểu đồ tròn
@@ -135,6 +146,7 @@ namespace View.BaoCaoThongKe
                 // Hiển thị chú thích
                 chart.Legends.Add(new Legend("Legend"));
                 chart.Legends[0].Docking = Docking.Right;
+                if (Models.Session.cd.CheDoToi == 1) { chart.BackColor = Color.Silver; }
 
                 // Hiển thị biểu đồ tròn trên panel
                 pnND.Controls.Add(chart);
@@ -167,6 +179,7 @@ namespace View.BaoCaoThongKe
 
                 // Tạo và thêm ChartArea vào biểu đồ
                 ChartArea chartArea = new ChartArea();
+                if (Models.Session.cd.CheDoToi == 1) { chartArea.BackColor = Color.LightGray; }
                 chart.ChartAreas.Add(chartArea);
 
                 // Tạo series cho biểu đồ tròn
@@ -194,6 +207,7 @@ namespace View.BaoCaoThongKe
                 // Hiển thị chú thích
                 chart.Legends.Add(new Legend("Legend"));
                 chart.Legends[0].Docking = Docking.Right;
+                if (Models.Session.cd.CheDoToi == 1) { chart.BackColor = Color.Silver; }
 
                 // Hiển thị biểu đồ tròn trên panel
                 pnND.Controls.Add(chart);
@@ -213,14 +227,11 @@ namespace View.BaoCaoThongKe
 
             DrawPieChart2();
             DrawPieChart();
-            var ACT = new DAO.SqlToLinq.Action().getAll();
-            var RACT = new DAO.SqlToLinq.RoleAction().getAll();
+            var ACT = new DAO.SqlToLinq.Action().getAllByIdUser();
 
             var xoa = ACT.Where(x => x.Status == 1 && x.Name.Equals("ThongKeChatLuongNhanVien")).FirstOrDefault();
 
-            var roleX = RACT.Where(x => x.Status == 1 && x.IdAction == xoa.Id && x.IdRole == Models.Session.Role.Id).FirstOrDefault();
-
-            if (roleX != null)
+            if (xoa != null)
             {
                 DrawDoubleBarChart();
             }
@@ -230,5 +241,32 @@ namespace View.BaoCaoThongKe
         {
             btnTK_Click(sender, e);
         }
+        private void button1_Click(object sender, EventArgs e)
+        {
+                try
+                {
+                    // Chọn đường dẫn lưu tệp Word
+                    using (var saveFileDialog = new SaveFileDialog())
+                    {
+                        saveFileDialog.Filter = "Word Document (*.docx)|*.docx";
+                        saveFileDialog.Title = "Save Word File";
+                        saveFileDialog.FileName = "your_file_name.docx"; // Tên tệp mặc định
+                        saveFileDialog.RestoreDirectory = true;
+
+                        if (saveFileDialog.ShowDialog() == DialogResult.OK)
+                        {
+                            string filePath = saveFileDialog.FileName;
+                            XuLy.BaoCaoThongKe.XuatFile.ExportToWord(pnND, filePath);
+                            MessageBox.Show("Dữ liệu đã được xuất ra Word và lưu thành file mới thành công!");
+                        }
+                    }
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show($"Lỗi: {ex.Message}");
+                Debug.WriteLine($"Lỗi: {ex.Message}");
+            }
+            }
+
     }
 }

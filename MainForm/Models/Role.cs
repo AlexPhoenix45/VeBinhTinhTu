@@ -11,8 +11,8 @@ namespace Models
         public int Id { get; set; }
         public string RoleName { get; set; }
         public string Name { get; set; }
-        public DateTime CreateAt { get; set; }
-        public DateTime UpdateAt { get; set; }
+        public int IsNhiemVu { get; set; }
+        public DateTime? ThoiHan { get; set; }
         public int Status { get; set; }
     }
 }

@@ -23,7 +23,7 @@ namespace View.QuanLyMuonTra.QuanLyMuon
 
         public ThanhToan(Models.PhieuMuon Phieu, List<int> IdChiTiet, List<double> ListTiLe)
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
 
             ListIdChiTiet = IdChiTiet;
             this.ListTiLe = ListTiLe;

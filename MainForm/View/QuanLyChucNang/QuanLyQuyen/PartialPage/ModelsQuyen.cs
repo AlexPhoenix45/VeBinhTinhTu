@@ -16,7 +16,7 @@ namespace View.QuanLyChucNang
         private Models.Action Act;
         public ModelsQuyen(int stt, Models.Action Act)
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
 
             this.STT = stt;
             this.Act = Act;

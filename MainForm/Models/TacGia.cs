@@ -13,5 +13,6 @@ namespace Models
         public string DiaChi { get; set; }
         public string ChucDanh { get; set; }
         public int Status { get; set; }
+
     }
 }

@@ -18,7 +18,7 @@ namespace MainForm.View.TrangChu
         }
         private void Login_Load(object sender, EventArgs e)
         {
-            var roles = new DAO.SqlToLinq.Role().getAll().Where(x => x.Status == 1).ToList();
+            var roles = new DAO.SqlToLinq.Role().getAll().Where(x => x.Status == 1 && x.IsNhiemVu == 0).ToList();
 
             txtRole.DisplayMember = "RoleName";
             txtRole.ValueMember = "Name";

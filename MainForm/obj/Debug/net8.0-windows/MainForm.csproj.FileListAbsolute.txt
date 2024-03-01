@@ -39,7 +39,6 @@ D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.Prope
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\QuanLySach.Sach.ChiTietSach.resources
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\QuanLySach.Sach.ModelSach.resources
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\QuanLySach.Sach.QuanLySach.resources
-D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.View.QuanLySach.Sach.SuaSach.resources
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.View.QuanLySach.Sach.ThemSach.resources
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.View.TrangChu.Login.resources
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\MainForm.View.TrangChu.TrangChu.resources
@@ -113,3 +112,13 @@ D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyTai
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyTaiKhoan.ThemTaiKhoan.resources
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyTaiKhoan.DanhSachNhanVien.resources
 D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyTaiKhoan.DanhSachQuanTri.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLySach.ChiTietSach2.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLySach.SuaSach.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\QLTV.View.CaiDat.CaiDat.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyChucNang.QuanLyNhiemVu.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyChucNang.ModelNhiemVu.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyChucNang.ThemNhiemVu.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyChucNang.DSUser.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyChucNang.PhanCong.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\obj\Debug\net8.0-windows\View.QuanLyChucNang.SuaNhiemVu.resources
+D:\LapTrinhWindow\QuanLyThuVien\MainForm\bin\Debug\net8.0-windows\Microsoft.Office.Interop.Word.dll

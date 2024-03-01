@@ -15,7 +15,7 @@ namespace View.QuanLyNgoai
         private Models.TheLoai tl;
         public SuaTheLoai(Models.TheLoai tl)
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
             this.tl = tl;
             loadNew();
         }

@@ -19,7 +19,7 @@ namespace MainForm.View.QuanLySach.Sach
         private string ListtenTG = "";
         public ThemSach()
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
 
             loadnew();
         }

@@ -18,7 +18,7 @@ namespace View.QuanLyMuonTra.QuanLyMuon
 
         public ModelListPhieuMuon(int Stt, Models.PhieuMuon Phieu)
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
             this.Phieu = Phieu;
             STT = Stt;
 

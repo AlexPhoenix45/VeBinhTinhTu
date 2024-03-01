@@ -20,7 +20,7 @@ namespace View.QuanLyMuonTra.QuanLyPhieuMuon
 
         public ModelDocGiaPhieuMuon(int STT, int IdDG, string MaDocGia, string TenDG, bool Status)
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
 
             this.IdDG = IdDG;
             this.STT = STT;

@@ -14,7 +14,7 @@ namespace View.QuanLyNgoai
     {
         public ThemNhaXuatBan()
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
         }
 
         private void btnXacNhan_Click(object sender, EventArgs e)

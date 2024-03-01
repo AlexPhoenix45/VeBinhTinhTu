@@ -16,16 +16,13 @@ namespace QuanLySach.Sach
         private int IdSach;
         public ChiTietSach(int Id)
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
 
-            var ACT = new DAO.SqlToLinq.Action().getAll();
-            var RACT = new DAO.SqlToLinq.RoleAction().getAll();
+            var ACT = new DAO.SqlToLinq.Action().getAllByIdUser();
 
             var xoa = ACT.Where(x => x.Status == 1 && x.Name.Equals("XoaSach")).FirstOrDefault();
 
-            var roleX = RACT.Where(x => x.Status == 1 && x.IdAction == xoa.Id && x.IdRole == Models.Session.Role.Id).FirstOrDefault();
-
-            if (roleX == null)
+            if (xoa == null)
             {
                 btnXoa.Visible = false;
             }
@@ -33,9 +30,7 @@ namespace QuanLySach.Sach
 
             var sua = ACT.Where(x => x.Status == 1 && x.Name.Equals("SuaSach")).FirstOrDefault();
 
-            var roleS = RACT.Where(x => x.Status == 1 && x.IdAction == sua.Id && x.IdRole == Models.Session.Role.Id).FirstOrDefault();
-
-            if (roleS == null)
+            if (sua == null)
             {
                 btnSua.Visible = false;
             }
@@ -81,7 +76,7 @@ namespace QuanLySach.Sach
 
         private void btnSua_Click(object sender, EventArgs e)
         {
-            var sua = new SuaSach(IdSach);
+            var sua = new View.QuanLySach.SuaSach(IdSach);
 
             sua.InsertComplete += sua_InsertComplete;
             sua.Show();

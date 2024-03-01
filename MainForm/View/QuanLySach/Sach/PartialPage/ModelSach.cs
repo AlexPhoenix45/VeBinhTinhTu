@@ -14,7 +14,7 @@ namespace QuanLySach.Sach
     {
         public ModelSach()
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
         }
         public event EventHandler ReloadXoaSachComplete;
 

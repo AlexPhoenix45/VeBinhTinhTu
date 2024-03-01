@@ -14,7 +14,7 @@ namespace View.QuanLyTaiKhoan
     {
         public ModelQLTaiKhoan()
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
         }
 
         private void lblSTT_MouseEnter(object sender, EventArgs e)

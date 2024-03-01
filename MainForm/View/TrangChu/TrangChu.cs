@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,11 +20,6 @@ namespace MainForm.View.TrangChu
         public TrangChu()
         {
             InitializeComponent();
-
-
-            splitContainer1.Panel2.SizeChanged += PanelParent_SizeChanged;
-
-            Debug.WriteLine(DateTime.Now);
 
             loadNew();
         }
@@ -73,8 +69,27 @@ namespace MainForm.View.TrangChu
 
         public void loadNew()
         {
+            mnMenu.Items.Clear();
             if (Models.Session.Users != null)
             {
+
+                if (Models.Session.cd.CheDoToi == 1)
+                {
+                    this.BackColor = Color.DarkGray;
+                    pnNoiDung.BackColor = Color.DarkGray;
+                    mnMenu.BackColor = Color.DarkGray;
+                }
+                else
+                {
+                    this.BackColor = SystemColors.Control;
+                    pnNoiDung.BackColor= Color.White;
+                    mnMenu.BackColor = SystemColors.Control;
+                }
+
+                splitContainer1.Panel2.SizeChanged += PanelParent_SizeChanged;
+
+                Debug.WriteLine(DateTime.Now);
+
                 //full màn hình
                 Screen mainScreen = Screen.PrimaryScreen;
                 this.Width = mainScreen.Bounds.Width;
@@ -93,7 +108,8 @@ namespace MainForm.View.TrangChu
                 txtRoleCode.Text = Models.Session.RoleCode;
 
                 //load Menu
-                var Acts = new DAO.SqlToLinq.Action().getByIdRole(Models.Session.Role.Id);
+                var Acts = new DAO.SqlToLinq.Action().getAllByIdUser();
+
                 foreach (var Act in Acts)
                 {
                     if (Act.IdParent == 0)
@@ -154,8 +170,19 @@ namespace MainForm.View.TrangChu
 
                 if (subPanel is Control)
                 {
-                    pnNoiDung.Controls.Clear();
-                    pnNoiDung.Controls.Add(subPanel as Control);
+                    if (subPanel is QLTV.View.CaiDat.CaiDat)
+                    {
+                        Debug.WriteLine("a đây rồi1");
+                        var cd = (QLTV.View.CaiDat.CaiDat)subPanel;
+                        cd.DoiGD.Click += DoiGD_CheckedChanged;
+                        pnNoiDung.Controls.Clear();
+                        pnNoiDung.Controls.Add(cd);
+                    }
+                    else
+                    {
+                        pnNoiDung.Controls.Clear();
+                        pnNoiDung.Controls.Add(subPanel as Control);
+                    }
                 }
                 else
                 {
@@ -167,6 +194,7 @@ namespace MainForm.View.TrangChu
                 MessageBox.Show("Không thể tìm thấy lớp có tên " + className);
             }
         }
+
 
         private void SubMenuItem_Click(object sender, EventArgs e)
         {
@@ -184,8 +212,19 @@ namespace MainForm.View.TrangChu
 
                 if (subPanel is Control)
                 {
-                    pnNoiDung.Controls.Clear();
-                    pnNoiDung.Controls.Add(subPanel as Control);
+                    if (subPanel is QLTV.View.CaiDat.CaiDat)
+                    {
+                        Debug.WriteLine("a đây rồi1");
+                        var cd = (QLTV.View.CaiDat.CaiDat)subPanel;
+                        cd.DoiGD.Click += DoiGD_CheckedChanged;
+                        pnNoiDung.Controls.Clear();
+                        pnNoiDung.Controls.Add(cd);
+                    }
+                    else
+                    {
+                        pnNoiDung.Controls.Clear();
+                        pnNoiDung.Controls.Add(subPanel as Control);
+                    }
                 }
                 else
                 {
@@ -198,9 +237,25 @@ namespace MainForm.View.TrangChu
             }
         }
 
-        private void splitContainer1_SplitterMoved(object sender, SplitterEventArgs e)
+        private void DoiGD_CheckedChanged(object sender, EventArgs e)
         {
+            if (sender is RJToggleButton checkBox)
+            {
+                if (checkBox.Checked == true)
+                {
+                    Models.Session.cd.CheDoToi = 1;
+                }
+                else
+                {
+                    Models.Session.cd.CheDoToi = 0;
+                }
 
+                if (new DAO.SqlToLinq.CaiDat().Update(Models.Session.cd))
+                {
+                    pnNoiDung.Controls.Add(new QLTV.View.CaiDat.CaiDat());
+                }
+            }
+                    loadNew();
         }
     }
 }

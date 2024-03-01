@@ -19,7 +19,7 @@ namespace View.QuanLyMuonTra.QuanLyPhieuMuon
         private int IdDG;
         public CreatePhieuMuon(int idDG)
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
             this.AutoScroll = true;
 
             IdDG = idDG;

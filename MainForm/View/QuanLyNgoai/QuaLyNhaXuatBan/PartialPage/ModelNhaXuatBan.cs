@@ -17,7 +17,7 @@ namespace View.QuanLyNgoai
         private int stt;
         public ModelNhaXuatBan(int stt, Models.NhaXuatBan NXB)
         {
-            InitializeComponent();
+            InitializeComponent();if (Models.Session.cd.CheDoToi == 1){this.BackColor = Color.Silver;}
             this.NXB = NXB;
             this.stt = stt;
             loadNew();

@@ -60,6 +60,29 @@ namespace DAO.SqlToLinq
             return sachList;
         }
 
+        public string getTacGias(int IdSach)
+        {
+            var sach = getById(IdSach);
+
+            var IdS = sach.ListIdTacGia.Split(',');
+
+            string kq = "";
+            int z = 0;
+
+            foreach (var id in IdS)
+            {
+                if(z == 0)
+                {
+                    kq += new DAO.SqlToLinq.TacGia().getById(int.Parse(id)).TenTacGia;
+                    z++;
+                }
+                else
+                {
+                    kq += ", " + new DAO.SqlToLinq.TacGia().getById(int.Parse(id)).TenTacGia;
+                }
+            }
+            return kq;
+        }
 
         public List<Models.Sach> getByIdTacGia(int id)
         {
